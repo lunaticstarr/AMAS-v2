@@ -20,6 +20,31 @@ from AMAS import constants as cn
 from AMAS import annotation_maker as am
 from AMAS import tools
 
+def ensureMetaIdForComponents(model):
+    """
+    Ensure each component in the SBML model has a metaid.
+    
+    Parameters
+    ----------
+    model: libsbml.Model
+        The SBML model to process.
+    """
+    # Function to generate a unique metaid
+    def generateMetaId(index):
+        return f"metaid_{index:07d}"  # Ensures a consistent format with leading zeros
+
+    # Process species
+    for i, species in enumerate(model.getListOfSpecies(), start=1):
+        if not species.isSetMetaId():
+            species.setMetaId(generateMetaId(i))
+
+    # Process reactions
+    for i, reaction in enumerate(model.getListOfReactions(), start=1):
+        if not reaction.isSetMetaId():
+            reaction.setMetaId(generateMetaId(i + len(model.getListOfSpecies())))
+
+    # Add similar logic for other components like compartments, parameters, etc.
+
 def main():
   parser = argparse.ArgumentParser(description='Update annotations of a model using user\'s feedback file (.csv)')
   parser.add_argument('infile', type=str, help='path of a model file (.xml) to update annotation')
@@ -39,6 +64,10 @@ def main():
   ELEMENT_FUNC = {'species': model.getSpecies,
                   'reaction': model.getReaction}
   element_types = list(np.unique(chosen['type']))
+
+  # Ensure all components have metaids
+  ensureMetaIdForComponents(model)
+
   for one_type in element_types:
     maker = am.AnnotationMaker(one_type)
     ACTION_FUNC = {'delete': maker.deleteAnnotation,

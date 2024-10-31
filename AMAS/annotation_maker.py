@@ -129,7 +129,7 @@ class AnnotationMaker(object):
     # First, construct an empty container
     container_items = ['annotation', 
                        RDF_TAG,
-                       'rdf:Description rdf:about="#'+meta_id+'"',
+                       'rdf:Description rdf:about="#' + str(meta_id) + '"',
                        self.prefix,
                        'rdf:Bag']
     empty_container = self.createAnnotationContainer(container_items)
@@ -138,7 +138,7 @@ class AnnotationMaker(object):
     for one_cand in candidates:
       items_from.append(self.createAnnotationItem(KNOWLEDGE_RESOURCE[self.element],
                                                   one_cand))
-    #
+                                                  
     result = self.insertList(insert_to=empty_container,
                              insert_from=items_from)
     return ('\n').join(result)
@@ -266,12 +266,12 @@ class AnnotationMaker(object):
     Add terms to existing annotations
     (meta id is supposed to be included
     in the existing annotation)
-  
+
     Parameters
     ----------
     terms: str-list
         List of terms to be added
-      
+
     annotation: str
         Existing element annotation
 
@@ -284,23 +284,26 @@ class AnnotationMaker(object):
     -------
     :str
     """
+    # Attempt to divide the existing annotation
     annotation_dict = self.divideExistingAnnotation(annotation)
-    # TODO: if there is no existing annotations, create a new one
-    if annotation_dict is None:
-      if meta_id is None: 
-        meta_id = tools.extractMetaID(annotation)
-      return self.getAnnotationString(terms, meta_id)
+    
+    # If there is no existing annotation, create a new one
+    if not annotation_dict:
+        if not meta_id: 
+            meta_id = self.extractMetaID(annotation)
+        return self.getAnnotationString(terms, meta_id)
+    
+    # Process existing annotations
     container = annotation_dict['container']
     existing_items = annotation_dict['items']
     existing_identifiers = []
     for val in existing_items:
-      url = re.findall('"(.*?)"', val)[0]
-      existing_identifiers.append(url.split('/')[-1])
-    # duplicated terms will not be added
-    additional_identifiers = [val for val in terms \
-                              if val not in existing_identifiers]
-    new_items = [self.createAnnotationItem(KNOWLEDGE_RESOURCE[self.element],one_cand) \
-                 for one_cand in additional_identifiers]
+        url = re.findall('"(.*?)"', val)[0]
+        existing_identifiers.append(url.split('/')[-1])
+    
+    # Add only new terms that are not already present
+    additional_identifiers = [val for val in terms if val not in existing_identifiers]
+    new_items = [self.createAnnotationItem(KNOWLEDGE_RESOURCE[self.element], one_cand) for one_cand in additional_identifiers]
     items = existing_items + new_items
     res = self.insertList(container, items)
     return '\n'.join(res)

@@ -797,6 +797,9 @@ class Recommender(object):
     -------
     pandas.DataFrame / str
     """
+    # Ensure all components have metaids
+    self.ensureMetaIdForComponents()
+
     pred_spec = self.getSpeciesListRecommendation(pred_ids=self.getSpeciesIDs(),
                                                   mssc=mssc,
                                                   cutoff=cutoff,
@@ -823,6 +826,24 @@ class Recommender(object):
                                       auto_feedback=True)
       return libsbml.writeSBMLToString(res_sbml)        
 
+  def ensureMetaIdForComponents(self):
+    """
+    Ensure each component in the SBML model has a metaid.
+    """
+    model = self.sbml_document.getModel()
+
+    def generateMetaId(index):
+        return f"metaid_{index:07d}"
+
+    # Process species
+    for i, species in enumerate(model.getListOfSpecies(), start=1):
+        if not species.isSetMetaId():
+            species.setMetaId(generateMetaId(i))
+
+    # Process reactions
+    for i, reaction in enumerate(model.getListOfReactions(), start=1):
+        if not reaction.isSetMetaId():
+            reaction.setMetaId(generateMetaId(i + len(model.getListOfSpecies())))
 
   def recommendReactions(self,
                          ids=None,
