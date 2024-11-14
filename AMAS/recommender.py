@@ -472,7 +472,7 @@ class Recommender(object):
     ----------
     pred_ids: str-list
         For now, it only accommodates calling by reaction IDs.
-    use_exist_species_annotation: tool
+    use_exist_species_annotation: bool
         If True, search existing annotation for species
         and predict the remaining species
     spec_res: list-cn.Recommendation
@@ -1144,6 +1144,23 @@ class Recommender(object):
                               'existing': existings,
                               cn.DF_UPDATE_ANNOTATION_COL: upd_annotation})
       edfs.append(new_edf)
+    
+    # Add check for empty edfs list
+    if not edfs:
+        # Return empty DataFrame with the expected columns
+        return pd.DataFrame({
+            'file': [],
+            'type': [],
+            'id': [],
+            'display name': [],
+            'meta id': [],
+            'annotation': [],
+            'annotation label': [],
+            cn.DF_MATCH_SCORE_COL: [],
+            'existing': [],
+            cn.DF_UPDATE_ANNOTATION_COL: []
+        })
+    
     res = pd.concat(edfs, ignore_index=True)
     res.insert(0, 'file', self.fname)
     return res
