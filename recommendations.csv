@@ -1,0 +1,622 @@
+file,type,id,display name,meta id,annotation,annotation label,match score,existing,UPDATE ANNOTATION
+uploaded_model.xml,species,Z,,metaid_0000018,CHEBI:16586,6-aminohexanoic acid,1.0,0,add
+uploaded_model.xml,species,Z,,metaid_0000018,CHEBI:51097,benzyloxycarbonyl group,1.0,0,ignore
+uploaded_model.xml,species,Z,,metaid_0000018,CHEBI:29108,calcium(2+),0.0,1,delete
+uploaded_model.xml,species,Y,,metaid_0000019,CHEBI:17895,L-tyrosine,1.0,0,ignore
+uploaded_model.xml,species,Y,,metaid_0000019,CHEBI:18186,tyrosine,1.0,0,ignore
+uploaded_model.xml,species,Y,,metaid_0000019,CHEBI:33331,yttrium atom,1.0,0,ignore
+uploaded_model.xml,species,Y,,metaid_0000019,CHEBI:46858,L-tyrosine residue,1.0,0,ignore
+uploaded_model.xml,species,Y,,metaid_0000019,CHEBI:60989,Tyr-Tyr,1.0,0,ignore
+uploaded_model.xml,species,Y,,metaid_0000019,CHEBI:29108,calcium(2+),0.124,1,delete
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:10284,"leucine 2,3-aminomutase activity",1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:11060,isoleucine-tRNA ligase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:11196,nicotinate-nucleotide-dimethylbenzimidazole phosphoribosyltransferase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:11468,valine-3-methyl-2-oxovalerate transaminase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:11688,leucine-tRNA ligase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:11992,L-pipecolate oxidase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:12220,leucine dehydrogenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:12236,nicotinate dehydrogenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:12408,lysine 6-dehydrogenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:12524,delta1-piperideine-2-carboxylate reductase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:14545,nicotinamidase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:16173,(S)-norcoclaurine synthase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:16237,peptidyl-prolyl cis-trans isomerase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:17273,4-hydroxyphenylacetaldehyde dehydrogenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:18101,cis-dihydroethylcatechol dehydrogenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:18173,octopamine dehydratase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:18225,[N-(6-aminohexanoyl)](n) + H2O = 6-aminohexanoate + [N-(6-aminohexanoyl)](n-1),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:18321,L-leucine:2-oxoglutarate aminotransferase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:18505,lysine dehydrogenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:18697,4-hydroxyphenylpyruvate decarboxylase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:18901,N(alpha)-benzyloxycarbonylleucine hydrolase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:19357,H(+) + L-proline betaine + NADPH + O2 = formaldehyde + H2O + N-methyl-L-proline + NADP(+),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:19437,nicotinate-N-glucosyltransferase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:19777,L-pipecolate dehydrogenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:20089,leucine N-acetyltransferase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:20241,nicotinate N-methyltransferase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:20577,3-(hydroxyamino)phenol mutase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:20956,phenylacetate-CoA ligase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:21364,6-aminohexanoate-dimer hydrolase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:21392,phenylacetaldehyde dehydrogenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:22916,4-hydroxyacetophenone monooxygenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:23600,2-aminohexanoate transaminase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:24544,protein-lysine 6-oxidase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:24801,L-isoleucine transaminase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:25121,(S)-2-amino-6-oxohexanoate = H(+) + H2O + L-1-piperideine-6-carboxylate,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:25864,"H2O + N(1)-acetylspermidine + O2 = 4-acetamidobutanal + H2O2 + propane-1,3-diamine",1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:25972,"N8-acetylspermidine:oxygen oxidoreductase (propane-1,3-diamine-forming) activity",1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:26023,"apo-beta-carotenoid-14',13'-dioxygenase activity",1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:27417,2 Fe(III)-[cytochrome] + H2O + nicotinate = 6-hydroxynicotinate + 2 Fe(II)-[cytochrome] + 2 H(+),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:27574,(3R)-piperidine-3-carboxamide + H2O = (3R)-piperidine-3-carboxylate + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:28022,ATP + holo-[ACP] + octanoate = AMP + diphosphate + octanoyl-[ACP],1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:28254,(Z)-3-hexen-1-ol acetyltransferase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:28602,isoleucine N-monooxygenase (oxime forming) activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:28731,H(+)(out) + L-leucine(in) = H(+)(in) + L-leucine(out),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:29263,L-leucine(in) + Na(+)(in) = L-leucine(out) + Na(+)(out),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:29275,L-isoleucine(in) + Na(+)(in) = L-isoleucine(out) + Na(+)(out),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:29759,octanoate(in) = octanoate(out),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:29807,ATP + H2O + L-leucine(out) = ADP + H(+) + L-leucine(in) + phosphate,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:29819,ATP + H2O + L-isoleucine(out) = ADP + H(+) + L-isoleucine(in) + phosphate,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:30131,acyl-[acyl-carrier-protein] hydrolase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:30143,H2O + octanoyl-CoA = CoA + H(+) + octanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:30479,L-isoleucine + O2 + reduced [NADPH--hemoprotein reductase] = 2 H(+) + H2O + N-hydroxy-L-isoleucine + oxidized [NADPH--hemoprotein reductase],1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:30591,H2O + O2 + tyramine = (4-hydroxyphenyl)acetaldehyde + H2O2 + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:30807,L-pipecolate + NAD(+) = Delta(1)-piperideine-2-carboxylate + H(+) + NADH,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:31051,(3R)-beta-leucine + H2O + NAD(+) = 4-methyl-3-oxopentanoate + H(+) + NADH + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:31067,6-amino-2-oxohexanoate = Delta(1)-piperideine-2-carboxylate + H2O,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:31231,4-acetamidobutanal + H2O + NAD(+) = 4-acetamidobutanoate + 2 H(+) + NADH,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:32203,synephrine dehydratase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:32959,H2O + L-isoleucine + NAD(+) = (S)-3-methyl-2-oxopentanoate + H(+) + NADH + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:33631,ATP + CoA + octanoate = AMP + diphosphate + octanoyl-CoA,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:34303,L-lysine = L-pipecolate + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:34403,9-cis-10'-apo-beta-carotenal cleavage oxygenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:35523,N-ethylmaleimide reductase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:35527,H(+) + N-ethylmaleimide + NADH = N-ethylsuccinimide + NAD(+),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:36099,S-adenosyl-L-methionine:benzoic acid carboxyl methyl transferase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:36163,nicotinate phosphoribosyltransferase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:36731,1-nitrocyclohexan + NADP(+) = 1-nitrocyclohexene + H(+) + NADPH,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:37291,H2O + L-alanyl-L-leucine = L-alanine + L-leucine,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:38599,NADP(+) + nicotinate = nicotinamide + nicotinate-adenine dinucleotide phosphate,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:38607,2'-phospho-cyclic ADP-ribose + nicotinate = nicotinate-adenine dinucleotide phosphate,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:38619,nicotinate beta-D-ribonucleotide + phenol = H(+) + nicotinate + phenyl 5-phospho-alpha-D-ribofuranoside,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:40047,"1,2,3-trioctanoylglycerol + H2O = 1,2-dioctanoyl-sn-glycerol + H(+) + octanoate",1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:40055,"1,2,3-trioctanoylglycerol + H2O = 2,3-dioctanoyl-sn-glycerol + H(+) + octanoate",1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:41448,2-oxoglutarate + L-isoleucine + O2 = (4S)-4-hydroxy-L-isoleucine + CO2 + succinate,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:44100,H2O + NAD(+) + octanal = 2 H(+) + NADH + octanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:44328,1-octanoylglycerol + H2O = glycerol + H(+) + octanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:44348,"ATP + L-isoleucine + N(3)-fumaramoyl-(S)-2,3-diaminopropanoate = ADP + dapdiamide B + H(+) + phosphate",1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:44352,"ATP + L-leucine + N(3)-fumaramoyl-(S)-2,3-diaminopropanoate = ADP + dapdiamide C + H(+) + phosphate",1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:45092,H2O + N-octanoylsphing-4-enine = octanoate + sphing-4-enine,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:45560,L-isoleucine = D-allo-isoleucine,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:45620,"H2O + N-butanoyl-1-hexadecanoyl-2-(9Z,12Z-octadecadienoyl)-sn-glycero-3-phosphoethanolamine = 1-hexadecanoyl-2-(9Z,12Z-octadecadienoyl)-sn-glycero-3-phosphate + H(+) + N-butanoyl ethanolamine",1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:45624,ATP + holo-[CmaA peptidyl-carrier protein] + L-alloisoleucine = AMP + diphosphate + L-alloisoleucyl-[CmaA peptidyl-carrier protein],1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:46508,NADH + nitrobenzene + O2 = catechol + NAD(+) + nitrite,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:47356,an octanoate ester + H2O = an aliphatic alcohol + H(+) + octanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:47864,"1,2,3-trioctanoylglycerol + H2O = dioctanoylglycerol + H(+) + octanoate",1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:47880,dioctanoylglycerol + H2O = H(+) + octanoate + octanoylglycerol,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:48456,"1,2-dioctanoyl-3-O-beta-D-galactosyl-sn-glycerol + H2O = 2-octanoyl-3-O-beta-D-galactosyl-sn-glycerol + H(+) + octanoate",1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:48460,"1,2-dioctanoyl-3-O-[alpha-D-galactosyl-(1->6)-beta-D-galactosyl]-sn-glycerol + H2O = 2-octanoyl-3-O-[alpha-D-galactosyl-(1->6)-beta-D-galactosyl]-sn-glycerol + H(+) + octanoate",1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:48500,H2O + octanoylglycerol = glycerol + H(+) + octanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:48544,[phosphatase 2A protein]-C-terminal L-leucine + S-adenosyl-L-methionine = [phosphatase 2A protein]-C-terminal L-leucine methyl ester + S-adenosyl-L-homocysteine,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:48548,[phosphatase 2A protein]-C-terminal L-leucine methyl ester + H2O = [phosphatase 2A protein]-C-terminal L-leucine + H(+) + methanol,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:48692,"1,2-dioctanoyl-3-O-[alpha-D-galactosyl-(1->6)-beta-D-galactosyl]-sn-glycerol + H2O = H(+) + octanoate + octanoyl-3-O-[alpha-D-galactosyl-(1->6)-beta-D-galactosyl]-sn-glycerol",1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:48696,"1,2-dioctanoyl-3-O-beta-D-galactosyl-sn-glycerol + H2O = H(+) + octanoate + octanoyl-3-(beta-D-galactosyl)-sn-glycerol",1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:49476,delta1-piperideine-6-carboxylate dehydrogenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:49480,2 H2O + L-1-piperideine-6-carboxylate + NADP(+) = H(+) + L-2-aminoadipate + NADPH,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:51360,H2O + N-(9Z-octadecenoyl)-L-leucine = (9Z)-octadecenoate + L-leucine,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:51444,"(5Z,8Z,11Z,14Z)-eicosatetraenoate + L-leucine = H2O + N-(5Z,8Z,11Z,14Z-eicosatetraenoyl)-L-leucine",1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:51456,H2O + N-(9Z-octadecenoyl)-L-isoleucine = (9Z)-octadecenoate + L-isoleucine,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:51648,H2O + N(6)-acetyl-L-lysyl-[protein] + O2 = (S)-2-amino-6-oxohexanoyl-[protein] + acetamide + H2O2,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:51824,ATP(in) + CoA(in) + H(+)(out) + octanoate(out) = AMP(in) + diphosphate(in) + H(+)(in) + octanoyl-CoA(in),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:52032,H2O + L-isoleucine-(+)-7-isojasmonate = (+)-7-isojasmonate + L-isoleucine,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:52036,H2O + L-isoleucine-(+)-12-hydroxy-7-isojasmonate = L-isoleucine + tuberonate,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:52800,acetoacetyl-CoA + ATP + L-isoleucine = AMP + CoA + diphosphate + 2 H(+) + tenuazonic acid,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:52884,nitrobenzene nitroreductase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:52892,H2O + NADP(+) + nitrosobenzene = H(+) + NADPH + nitrobenzene,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:53392,2-phenylacetate + O2 + reduced [NADPH--hemoprotein reductase] = (2-hydroxyphenyl)acetate + H(+) + H2O + oxidized [NADPH--hemoprotein reductase],1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:54468,1-octadecanoyl-2-octanoyl-sn-glycero-3-phosphocholine + H2O = 1-octadecanoyl-sn-glycero-3-phosphocholine + H(+) + octanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:54812,(+)-7-isojasmonate + ATP + L-isoleucine = AMP + diphosphate + H(+) + L-isoleucine-(+)-7-isojasmonate,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:54840,H(+) + NADPH + O2 + octan-3-one = H2O + NADP(+) + pentyl propanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:54856,H(+) + NADPH + O2 + octan-3-one = ethyl hexanoate + H2O + NADP(+),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:54864,H(+) + NADPH + O2 + sulcatone = 4-methylpent-3-en-1-yl acetate + H2O + NADP(+),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:55528,H(+) + H2O + L-tyrosine + O2 = (4-hydroxyphenyl)acetaldehyde + CO2 + H2O2 + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:57128,H2O + 2 oxidized [azurin] + tyramine = (4-hydroxyphenyl)acetaldehyde + 2 H(+) + NH4(+) + 2 reduced [azurin],1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:57436,guaethol + O2 + reduced [NADH--hemoprotein reductase] = acetaldehyde + catechol + H(+) + H2O + oxidized [NADH--hemoprotein reductase],1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:58200,2-oxoglutarate + 6-aminohexanoate = 6-oxohexanoate + L-glutamate,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:59396,L-leucine = D-leucine,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:59400,L-2-aminohexanoate = D-2-aminohexanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:59904,H2O + NADP(+) + octanal = 2 H(+) + NADPH + octanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:59916,(2E)-octenal + H2O + NADP(+) = (2E)-octenoate + 2 H(+) + NADPH,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:59920,(2E)-octenal + H2O + NAD(+) = (2E)-octenoate + 2 H(+) + NADH,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:59976,2-phenylacetate + H(+) = CO2 + toluene,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:60356,H2O + N-octanoylanthranilate = anthranilate + H(+) + octanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:60996,H2O + L-leucine + O2 = 4-methyl-2-oxopentanoate + H2O2 + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:61232,H2O + L-isoleucine + O2 = (S)-3-methyl-2-oxopentanoate + H2O2 + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:61268,H2O + L-2-aminohexanoate + O2 = 2-oxohexanoate + H2O2 + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:61616,H(+) + L-proline betaine + NADH + O2 = formaldehyde + H2O + N-methyl-L-proline + NAD(+),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:62272,4 (R)-2-hydroxy-3-methylbutyrate + 8 ATP + 4 L-leucine + 4 S-adenosyl-L-methionine = 8 AMP + bassianolide + 8 diphosphate + 8 H(+) + 4 S-adenosyl-L-homocysteine,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:63220,7-N-[(5S)-5-amino-5-carboxypentyl]formamidino-7-deazaguanosine(15) in tRNA + S-adenosyl-L-methionine = 5'-deoxyadenosine + archaeosine(15) in tRNA + 2 H(+) + L-1-piperideine-6-carboxylate + L-methionine,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:63532,angiotensin I + H2O = angiotensin-(1-9) + L-leucine,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:63540,H2O + neurotensin = L-leucine + neurotensin-(1-12),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:63544,H2O + kinetensin = kinetensin-(1-8) + L-leucine,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:63568,beta-casomorphin-7 + H2O = beta-casomorphin-6 + L-isoleucine,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:63600,H2O + neocasomorphin = L-isoleucine + neocasomorphin-(1-5),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:63660,"(8S)-8-amino-7-oxononanoate + CO2 + L-lysyl-[protein] = (7R,8S)-8-amino-7-(carboxyamino)nonanoate + (S)-2-amino-6-oxohexanoyl-[protein] + 2 H(+)",1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:63668,"CO2 + H2O + N(6)-[(2S,3R)-2-amino-8-carboxyoctan-3-yl]-L-lysyl-[protein] + NADP(+) = (7R,8S)-8-amino-7-(carboxyamino)nonanoate + (S)-2-amino-6-oxohexanoyl-[protein] + 3 H(+) + NADPH",1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:63676,"CO2 + H2O + N(6)-[(2S,3R)-2-amino-8-carboxyoctan-3-yl]-L-lysyl-[protein] + NAD(+) = (7R,8S)-8-amino-7-(carboxyamino)nonanoate + (S)-2-amino-6-oxohexanoyl-[protein] + 3 H(+) + NADH",1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:63872,2-oxoglutarate + L-isoleucine + O2 = 3(1)-hydroxy-L-isoleucine + CO2 + succinate,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:64200,an N-(fatty acyl)-L-leucine + H2O = a fatty acid + L-leucine,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:64212,an N-(fatty acyl)-L-isoleucine + H2O = a fatty acid + L-isoleucine,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:64332,ATP + CoA + nicotinate = AMP + diphosphate + nicotinyl-CoA,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:64792,L-lysine + NADP(+) = 2 H(+) + L-1-piperideine-6-carboxylate + NADPH + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:64820,2-phenylacetamide + H2O = 2-phenylacetate + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:64996,ATP + H(+) + octanoate = diphosphate + octanoyl-AMP,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:65392,4 H(+) + L-pipecolate + malonyl-CoA + 2 NADPH = (8aS)-octahydroindolizin-1-one + CO2 + CoA + 2 H2O + 2 NADP(+),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:65400,butan-1-ol + butanoyl-CoA = butyl butanoate + CoA,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:65452,ethanol + hexanoyl-CoA = CoA + ethyl hexanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:65460,acetyl-CoA + hexan-1-ol = CoA + hexyl acetate,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:66060,2-oxohexanoate + L-kynurenine = H2O + kynurenate + L-2-aminohexanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:66064,"2-oxohexanoate + L-kynurenine = 4-(2-aminophenyl)-2,4-dioxobutanoate + L-2-aminohexanoate",1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:66068,4-methyl-2-oxopentanoate + L-kynurenine = H2O + kynurenate + L-leucine,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:66072,"4-methyl-2-oxopentanoate + L-kynurenine = 4-(2-aminophenyl)-2,4-dioxobutanoate + L-leucine",1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:67128,"5 H(+) + L-pipecolate + malonyl-CoA + 3 NADPH = (1R,8aS)-octahydroindolizin-1-ol + CO2 + CoA + 2 H2O + 3 NADP(+)",1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:67132,"5 H(+) + L-pipecolate + malonyl-CoA + 3 NADPH = (1S,8aS)-octahydroindolizin-1-ol + CO2 + CoA + 2 H2O + 3 NADP(+)",1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:67288,"ATP + 12 H(+) + L-leucine + 8 malonyl-CoA + 9 NADPH + 4 S-adenosyl-L-methionine = (5S)-5-(2-methylpropyl)-3-[(2E,6R,8E,10E,12E)-6,8,10,12-tetramethyltetradeca-2,8,10,12-tetraenoyl]-2,5-dihydro-1H-pyrrol-2-one + AMP + 8 CO2 + 8 CoA + diphosphate + 7 H2O + 9 NADP(+) + 4 S-adenosyl-L-homocysteine",1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:68744,2 (R)-3-phenyllactate + 2 (R)-lactate + 8 ATP + 4 L-leucine + 4 S-adenosyl-L-methionine = 8 AMP + 8 diphosphate + 8 H(+) + PF1022A + 4 S-adenosyl-L-homocysteine,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:68756,4 (R)-3-phenyllactate + 8 ATP + 4 L-leucine + 4 S-adenosyl-L-methionine = 8 AMP + 8 diphosphate + 8 H(+) + PF1022B + 4 S-adenosyl-L-homocysteine,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:68760,3 (R)-3-phenyllactate + (R)-lactate + 8 ATP + 4 L-leucine + 4 S-adenosyl-L-methionine = 8 AMP + 8 diphosphate + 8 H(+) + PF1022C + 4 S-adenosyl-L-homocysteine,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:68764,(R)-3-phenyllactate + 3 (R)-lactate + 8 ATP + 4 L-leucine + 4 S-adenosyl-L-methionine = 8 AMP + 8 diphosphate + 8 H(+) + PF1022D + 4 S-adenosyl-L-homocysteine,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:68768,4 (R)-lactate + 8 ATP + 4 L-leucine + 4 S-adenosyl-L-methionine = 8 AMP + 8 diphosphate + 8 H(+) + PF1022F + 4 S-adenosyl-L-homocysteine,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:68888,2-methoxybenzoate + ATP + H(+) + NADPH = 2-methoxybenzaldehyde + AMP + diphosphate + NADP(+),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:68892,3-methoxybenzoate + ATP + H(+) + NADPH = 3-methoxybenzaldehyde + AMP + diphosphate + NADP(+),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:68900,4-methoxybenzoate + ATP + H(+) + NADPH = 4-methoxybenzaldehyde + AMP + diphosphate + NADP(+),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:68908,ATP + H(+) + NADPH + picolinate = AMP + diphosphate + NADP(+) + picolinal,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:68932,ATP + H(+) + NADPH + octanoate = AMP + diphosphate + NADP(+) + octanal,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:69128,glyoxylate + L-leucine = 4-methyl-2-oxopentanoate + glycine,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:69564,12 ATP + L-asparagine + L-aspartate + L-cysteine + L-glutamate + L-histidine + 3 L-isoleucine + L-leucine + L-lysine + L-ornithine + L-phenylalanine = 12 AMP + bacitracin A + 12 diphosphate + 12 H(+) + H2O,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:69727,2-phenylacetate + ATP + H(+) = diphosphate + phenylacetyl-AMP,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:70283,H2O + N-acetylputrescine + O2 = 4-acetamidobutanal + H2O2 + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:70427,H2O + phenylacetyl-CoA = 2-phenylacetate + CoA + H(+),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:70831,L-arginine(in) + L-leucine(out) + Na(+)(out) = L-arginine(out) + L-leucine(in) + Na(+)(in),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:70943,L-isoleucine(in) = L-isoleucine(out),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:71011,L-isoleucine(in) + L-phenylalanine(out) = L-isoleucine(out) + L-phenylalanine(in),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:71023,L-leucine(in) + L-phenylalanine(out) = L-leucine(out) + L-phenylalanine(in),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:71051,L-leucine(out) + L-methionine(in) = L-leucine(in) + L-methionine(out),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:71059,L-arginine(in) + L-leucine(out) = L-arginine(out) + L-leucine(in),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:71107,L-leucine(out) + S-methylmercury-L-cysteine(in) = L-leucine(in) + S-methylmercury-L-cysteine(out),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:71267,chloride(out) + L-pipecolate(out) + 2 Na(+)(out) = chloride(in) + L-pipecolate(in) + 2 Na(+)(in),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:71279,chloride(out) + L-leucine(out) + 2 Na(+)(out) = chloride(in) + L-leucine(in) + 2 Na(+)(in),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:71299,chloride(out) + L-isoleucine(out) + 2 Na(+)(out) = chloride(in) + L-isoleucine(in) + 2 Na(+)(in),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:71387,L-pipecolate(in) + Na(+)(in) = L-pipecolate(out) + Na(+)(out),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:72023,nicotinate(in) + urate(out) = nicotinate(out) + urate(in),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:72039,nicotinate(in) + orotate(out) = nicotinate(out) + orotate(in),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:72047,A + D-alanine + D-allothreonine + D-leucine + 2 L-leucine + L-proline = AH2 + fusahexin + 6 H2O,1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:72231,chloride(out) + N-methyl-L-proline(out) + 2 Na(+)(out) = chloride(in) + N-methyl-L-proline(in) + 2 Na(+)(in),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:72347,Co(I)-[methoxylated-aromatic-compound-specific corrinoid protein] + H(+) + veratrole = 3-methoxyphenol + methyl-Co(III)-[methoxylated-aromatic-compound-specific corrinoid protein],1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:72955,2 Na(+)(out) + nicotinate(out) = 2 Na(+)(in) + nicotinate(in),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:73011,L-leucine(in) = L-leucine(out),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:73015,D-leucine(in) = D-leucine(out),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:73283,H(+)(out) + L-isoleucine(in) = H(+)(in) + L-isoleucine(out),1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:73955,"3,4-dihydroxystyrene + H(+) + NADH = 4-ethylcatechol + NAD(+)",1.0,0,ignore
+uploaded_model.xml,reaction,R0,Ca influx,metaid_0000020,RHEA:74371,a carboxylate(out) + nicotinate(in) = a carboxylate(in) + nicotinate(out),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:10284,"leucine 2,3-aminomutase activity",1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:11060,isoleucine-tRNA ligase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:11196,nicotinate-nucleotide-dimethylbenzimidazole phosphoribosyltransferase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:11468,valine-3-methyl-2-oxovalerate transaminase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:11688,leucine-tRNA ligase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:11992,L-pipecolate oxidase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:12220,leucine dehydrogenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:12236,nicotinate dehydrogenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:12408,lysine 6-dehydrogenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:12524,delta1-piperideine-2-carboxylate reductase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:14545,nicotinamidase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:16173,(S)-norcoclaurine synthase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:16237,peptidyl-prolyl cis-trans isomerase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:17273,4-hydroxyphenylacetaldehyde dehydrogenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:18101,cis-dihydroethylcatechol dehydrogenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:18173,octopamine dehydratase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:18225,[N-(6-aminohexanoyl)](n) + H2O = 6-aminohexanoate + [N-(6-aminohexanoyl)](n-1),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:18321,L-leucine:2-oxoglutarate aminotransferase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:18505,lysine dehydrogenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:18697,4-hydroxyphenylpyruvate decarboxylase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:18901,N(alpha)-benzyloxycarbonylleucine hydrolase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:19357,H(+) + L-proline betaine + NADPH + O2 = formaldehyde + H2O + N-methyl-L-proline + NADP(+),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:19437,nicotinate-N-glucosyltransferase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:19777,L-pipecolate dehydrogenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:20089,leucine N-acetyltransferase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:20241,nicotinate N-methyltransferase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:20577,3-(hydroxyamino)phenol mutase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:20956,phenylacetate-CoA ligase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:21364,6-aminohexanoate-dimer hydrolase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:21392,phenylacetaldehyde dehydrogenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:22916,4-hydroxyacetophenone monooxygenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:23600,2-aminohexanoate transaminase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:24544,protein-lysine 6-oxidase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:24801,L-isoleucine transaminase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:25121,(S)-2-amino-6-oxohexanoate = H(+) + H2O + L-1-piperideine-6-carboxylate,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:25864,"H2O + N(1)-acetylspermidine + O2 = 4-acetamidobutanal + H2O2 + propane-1,3-diamine",1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:25972,"N8-acetylspermidine:oxygen oxidoreductase (propane-1,3-diamine-forming) activity",1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:26023,"apo-beta-carotenoid-14',13'-dioxygenase activity",1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:27417,2 Fe(III)-[cytochrome] + H2O + nicotinate = 6-hydroxynicotinate + 2 Fe(II)-[cytochrome] + 2 H(+),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:27574,(3R)-piperidine-3-carboxamide + H2O = (3R)-piperidine-3-carboxylate + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:28022,ATP + holo-[ACP] + octanoate = AMP + diphosphate + octanoyl-[ACP],1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:28254,(Z)-3-hexen-1-ol acetyltransferase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:28602,isoleucine N-monooxygenase (oxime forming) activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:28731,H(+)(out) + L-leucine(in) = H(+)(in) + L-leucine(out),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:29263,L-leucine(in) + Na(+)(in) = L-leucine(out) + Na(+)(out),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:29275,L-isoleucine(in) + Na(+)(in) = L-isoleucine(out) + Na(+)(out),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:29759,octanoate(in) = octanoate(out),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:29807,ATP + H2O + L-leucine(out) = ADP + H(+) + L-leucine(in) + phosphate,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:29819,ATP + H2O + L-isoleucine(out) = ADP + H(+) + L-isoleucine(in) + phosphate,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:30131,acyl-[acyl-carrier-protein] hydrolase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:30143,H2O + octanoyl-CoA = CoA + H(+) + octanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:30479,L-isoleucine + O2 + reduced [NADPH--hemoprotein reductase] = 2 H(+) + H2O + N-hydroxy-L-isoleucine + oxidized [NADPH--hemoprotein reductase],1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:30591,H2O + O2 + tyramine = (4-hydroxyphenyl)acetaldehyde + H2O2 + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:30807,L-pipecolate + NAD(+) = Delta(1)-piperideine-2-carboxylate + H(+) + NADH,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:31051,(3R)-beta-leucine + H2O + NAD(+) = 4-methyl-3-oxopentanoate + H(+) + NADH + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:31067,6-amino-2-oxohexanoate = Delta(1)-piperideine-2-carboxylate + H2O,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:31231,4-acetamidobutanal + H2O + NAD(+) = 4-acetamidobutanoate + 2 H(+) + NADH,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:32203,synephrine dehydratase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:32959,H2O + L-isoleucine + NAD(+) = (S)-3-methyl-2-oxopentanoate + H(+) + NADH + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:33631,ATP + CoA + octanoate = AMP + diphosphate + octanoyl-CoA,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:34303,L-lysine = L-pipecolate + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:34403,9-cis-10'-apo-beta-carotenal cleavage oxygenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:35523,N-ethylmaleimide reductase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:35527,H(+) + N-ethylmaleimide + NADH = N-ethylsuccinimide + NAD(+),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:36099,S-adenosyl-L-methionine:benzoic acid carboxyl methyl transferase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:36163,nicotinate phosphoribosyltransferase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:36731,1-nitrocyclohexan + NADP(+) = 1-nitrocyclohexene + H(+) + NADPH,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:37291,H2O + L-alanyl-L-leucine = L-alanine + L-leucine,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:38599,NADP(+) + nicotinate = nicotinamide + nicotinate-adenine dinucleotide phosphate,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:38607,2'-phospho-cyclic ADP-ribose + nicotinate = nicotinate-adenine dinucleotide phosphate,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:38619,nicotinate beta-D-ribonucleotide + phenol = H(+) + nicotinate + phenyl 5-phospho-alpha-D-ribofuranoside,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:40047,"1,2,3-trioctanoylglycerol + H2O = 1,2-dioctanoyl-sn-glycerol + H(+) + octanoate",1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:40055,"1,2,3-trioctanoylglycerol + H2O = 2,3-dioctanoyl-sn-glycerol + H(+) + octanoate",1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:41448,2-oxoglutarate + L-isoleucine + O2 = (4S)-4-hydroxy-L-isoleucine + CO2 + succinate,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:44100,H2O + NAD(+) + octanal = 2 H(+) + NADH + octanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:44328,1-octanoylglycerol + H2O = glycerol + H(+) + octanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:44348,"ATP + L-isoleucine + N(3)-fumaramoyl-(S)-2,3-diaminopropanoate = ADP + dapdiamide B + H(+) + phosphate",1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:44352,"ATP + L-leucine + N(3)-fumaramoyl-(S)-2,3-diaminopropanoate = ADP + dapdiamide C + H(+) + phosphate",1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:45092,H2O + N-octanoylsphing-4-enine = octanoate + sphing-4-enine,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:45560,L-isoleucine = D-allo-isoleucine,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:45620,"H2O + N-butanoyl-1-hexadecanoyl-2-(9Z,12Z-octadecadienoyl)-sn-glycero-3-phosphoethanolamine = 1-hexadecanoyl-2-(9Z,12Z-octadecadienoyl)-sn-glycero-3-phosphate + H(+) + N-butanoyl ethanolamine",1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:45624,ATP + holo-[CmaA peptidyl-carrier protein] + L-alloisoleucine = AMP + diphosphate + L-alloisoleucyl-[CmaA peptidyl-carrier protein],1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:46508,NADH + nitrobenzene + O2 = catechol + NAD(+) + nitrite,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:47356,an octanoate ester + H2O = an aliphatic alcohol + H(+) + octanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:47864,"1,2,3-trioctanoylglycerol + H2O = dioctanoylglycerol + H(+) + octanoate",1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:47880,dioctanoylglycerol + H2O = H(+) + octanoate + octanoylglycerol,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:48456,"1,2-dioctanoyl-3-O-beta-D-galactosyl-sn-glycerol + H2O = 2-octanoyl-3-O-beta-D-galactosyl-sn-glycerol + H(+) + octanoate",1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:48460,"1,2-dioctanoyl-3-O-[alpha-D-galactosyl-(1->6)-beta-D-galactosyl]-sn-glycerol + H2O = 2-octanoyl-3-O-[alpha-D-galactosyl-(1->6)-beta-D-galactosyl]-sn-glycerol + H(+) + octanoate",1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:48500,H2O + octanoylglycerol = glycerol + H(+) + octanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:48544,[phosphatase 2A protein]-C-terminal L-leucine + S-adenosyl-L-methionine = [phosphatase 2A protein]-C-terminal L-leucine methyl ester + S-adenosyl-L-homocysteine,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:48548,[phosphatase 2A protein]-C-terminal L-leucine methyl ester + H2O = [phosphatase 2A protein]-C-terminal L-leucine + H(+) + methanol,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:48692,"1,2-dioctanoyl-3-O-[alpha-D-galactosyl-(1->6)-beta-D-galactosyl]-sn-glycerol + H2O = H(+) + octanoate + octanoyl-3-O-[alpha-D-galactosyl-(1->6)-beta-D-galactosyl]-sn-glycerol",1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:48696,"1,2-dioctanoyl-3-O-beta-D-galactosyl-sn-glycerol + H2O = H(+) + octanoate + octanoyl-3-(beta-D-galactosyl)-sn-glycerol",1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:49476,delta1-piperideine-6-carboxylate dehydrogenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:49480,2 H2O + L-1-piperideine-6-carboxylate + NADP(+) = H(+) + L-2-aminoadipate + NADPH,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:51360,H2O + N-(9Z-octadecenoyl)-L-leucine = (9Z)-octadecenoate + L-leucine,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:51444,"(5Z,8Z,11Z,14Z)-eicosatetraenoate + L-leucine = H2O + N-(5Z,8Z,11Z,14Z-eicosatetraenoyl)-L-leucine",1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:51456,H2O + N-(9Z-octadecenoyl)-L-isoleucine = (9Z)-octadecenoate + L-isoleucine,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:51648,H2O + N(6)-acetyl-L-lysyl-[protein] + O2 = (S)-2-amino-6-oxohexanoyl-[protein] + acetamide + H2O2,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:51824,ATP(in) + CoA(in) + H(+)(out) + octanoate(out) = AMP(in) + diphosphate(in) + H(+)(in) + octanoyl-CoA(in),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:52032,H2O + L-isoleucine-(+)-7-isojasmonate = (+)-7-isojasmonate + L-isoleucine,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:52036,H2O + L-isoleucine-(+)-12-hydroxy-7-isojasmonate = L-isoleucine + tuberonate,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:52800,acetoacetyl-CoA + ATP + L-isoleucine = AMP + CoA + diphosphate + 2 H(+) + tenuazonic acid,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:52884,nitrobenzene nitroreductase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:52892,H2O + NADP(+) + nitrosobenzene = H(+) + NADPH + nitrobenzene,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:53392,2-phenylacetate + O2 + reduced [NADPH--hemoprotein reductase] = (2-hydroxyphenyl)acetate + H(+) + H2O + oxidized [NADPH--hemoprotein reductase],1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:54468,1-octadecanoyl-2-octanoyl-sn-glycero-3-phosphocholine + H2O = 1-octadecanoyl-sn-glycero-3-phosphocholine + H(+) + octanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:54812,(+)-7-isojasmonate + ATP + L-isoleucine = AMP + diphosphate + H(+) + L-isoleucine-(+)-7-isojasmonate,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:54840,H(+) + NADPH + O2 + octan-3-one = H2O + NADP(+) + pentyl propanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:54856,H(+) + NADPH + O2 + octan-3-one = ethyl hexanoate + H2O + NADP(+),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:54864,H(+) + NADPH + O2 + sulcatone = 4-methylpent-3-en-1-yl acetate + H2O + NADP(+),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:55528,H(+) + H2O + L-tyrosine + O2 = (4-hydroxyphenyl)acetaldehyde + CO2 + H2O2 + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:57128,H2O + 2 oxidized [azurin] + tyramine = (4-hydroxyphenyl)acetaldehyde + 2 H(+) + NH4(+) + 2 reduced [azurin],1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:57436,guaethol + O2 + reduced [NADH--hemoprotein reductase] = acetaldehyde + catechol + H(+) + H2O + oxidized [NADH--hemoprotein reductase],1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:58200,2-oxoglutarate + 6-aminohexanoate = 6-oxohexanoate + L-glutamate,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:59396,L-leucine = D-leucine,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:59400,L-2-aminohexanoate = D-2-aminohexanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:59904,H2O + NADP(+) + octanal = 2 H(+) + NADPH + octanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:59916,(2E)-octenal + H2O + NADP(+) = (2E)-octenoate + 2 H(+) + NADPH,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:59920,(2E)-octenal + H2O + NAD(+) = (2E)-octenoate + 2 H(+) + NADH,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:59976,2-phenylacetate + H(+) = CO2 + toluene,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:60356,H2O + N-octanoylanthranilate = anthranilate + H(+) + octanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:60996,H2O + L-leucine + O2 = 4-methyl-2-oxopentanoate + H2O2 + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:61232,H2O + L-isoleucine + O2 = (S)-3-methyl-2-oxopentanoate + H2O2 + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:61268,H2O + L-2-aminohexanoate + O2 = 2-oxohexanoate + H2O2 + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:61616,H(+) + L-proline betaine + NADH + O2 = formaldehyde + H2O + N-methyl-L-proline + NAD(+),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:62272,4 (R)-2-hydroxy-3-methylbutyrate + 8 ATP + 4 L-leucine + 4 S-adenosyl-L-methionine = 8 AMP + bassianolide + 8 diphosphate + 8 H(+) + 4 S-adenosyl-L-homocysteine,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:63220,7-N-[(5S)-5-amino-5-carboxypentyl]formamidino-7-deazaguanosine(15) in tRNA + S-adenosyl-L-methionine = 5'-deoxyadenosine + archaeosine(15) in tRNA + 2 H(+) + L-1-piperideine-6-carboxylate + L-methionine,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:63532,angiotensin I + H2O = angiotensin-(1-9) + L-leucine,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:63540,H2O + neurotensin = L-leucine + neurotensin-(1-12),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:63544,H2O + kinetensin = kinetensin-(1-8) + L-leucine,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:63568,beta-casomorphin-7 + H2O = beta-casomorphin-6 + L-isoleucine,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:63600,H2O + neocasomorphin = L-isoleucine + neocasomorphin-(1-5),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:63660,"(8S)-8-amino-7-oxononanoate + CO2 + L-lysyl-[protein] = (7R,8S)-8-amino-7-(carboxyamino)nonanoate + (S)-2-amino-6-oxohexanoyl-[protein] + 2 H(+)",1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:63668,"CO2 + H2O + N(6)-[(2S,3R)-2-amino-8-carboxyoctan-3-yl]-L-lysyl-[protein] + NADP(+) = (7R,8S)-8-amino-7-(carboxyamino)nonanoate + (S)-2-amino-6-oxohexanoyl-[protein] + 3 H(+) + NADPH",1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:63676,"CO2 + H2O + N(6)-[(2S,3R)-2-amino-8-carboxyoctan-3-yl]-L-lysyl-[protein] + NAD(+) = (7R,8S)-8-amino-7-(carboxyamino)nonanoate + (S)-2-amino-6-oxohexanoyl-[protein] + 3 H(+) + NADH",1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:63872,2-oxoglutarate + L-isoleucine + O2 = 3(1)-hydroxy-L-isoleucine + CO2 + succinate,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:64200,an N-(fatty acyl)-L-leucine + H2O = a fatty acid + L-leucine,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:64212,an N-(fatty acyl)-L-isoleucine + H2O = a fatty acid + L-isoleucine,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:64332,ATP + CoA + nicotinate = AMP + diphosphate + nicotinyl-CoA,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:64792,L-lysine + NADP(+) = 2 H(+) + L-1-piperideine-6-carboxylate + NADPH + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:64820,2-phenylacetamide + H2O = 2-phenylacetate + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:64996,ATP + H(+) + octanoate = diphosphate + octanoyl-AMP,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:65392,4 H(+) + L-pipecolate + malonyl-CoA + 2 NADPH = (8aS)-octahydroindolizin-1-one + CO2 + CoA + 2 H2O + 2 NADP(+),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:65400,butan-1-ol + butanoyl-CoA = butyl butanoate + CoA,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:65452,ethanol + hexanoyl-CoA = CoA + ethyl hexanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:65460,acetyl-CoA + hexan-1-ol = CoA + hexyl acetate,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:66060,2-oxohexanoate + L-kynurenine = H2O + kynurenate + L-2-aminohexanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:66064,"2-oxohexanoate + L-kynurenine = 4-(2-aminophenyl)-2,4-dioxobutanoate + L-2-aminohexanoate",1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:66068,4-methyl-2-oxopentanoate + L-kynurenine = H2O + kynurenate + L-leucine,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:66072,"4-methyl-2-oxopentanoate + L-kynurenine = 4-(2-aminophenyl)-2,4-dioxobutanoate + L-leucine",1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:67128,"5 H(+) + L-pipecolate + malonyl-CoA + 3 NADPH = (1R,8aS)-octahydroindolizin-1-ol + CO2 + CoA + 2 H2O + 3 NADP(+)",1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:67132,"5 H(+) + L-pipecolate + malonyl-CoA + 3 NADPH = (1S,8aS)-octahydroindolizin-1-ol + CO2 + CoA + 2 H2O + 3 NADP(+)",1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:67288,"ATP + 12 H(+) + L-leucine + 8 malonyl-CoA + 9 NADPH + 4 S-adenosyl-L-methionine = (5S)-5-(2-methylpropyl)-3-[(2E,6R,8E,10E,12E)-6,8,10,12-tetramethyltetradeca-2,8,10,12-tetraenoyl]-2,5-dihydro-1H-pyrrol-2-one + AMP + 8 CO2 + 8 CoA + diphosphate + 7 H2O + 9 NADP(+) + 4 S-adenosyl-L-homocysteine",1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:68744,2 (R)-3-phenyllactate + 2 (R)-lactate + 8 ATP + 4 L-leucine + 4 S-adenosyl-L-methionine = 8 AMP + 8 diphosphate + 8 H(+) + PF1022A + 4 S-adenosyl-L-homocysteine,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:68756,4 (R)-3-phenyllactate + 8 ATP + 4 L-leucine + 4 S-adenosyl-L-methionine = 8 AMP + 8 diphosphate + 8 H(+) + PF1022B + 4 S-adenosyl-L-homocysteine,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:68760,3 (R)-3-phenyllactate + (R)-lactate + 8 ATP + 4 L-leucine + 4 S-adenosyl-L-methionine = 8 AMP + 8 diphosphate + 8 H(+) + PF1022C + 4 S-adenosyl-L-homocysteine,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:68764,(R)-3-phenyllactate + 3 (R)-lactate + 8 ATP + 4 L-leucine + 4 S-adenosyl-L-methionine = 8 AMP + 8 diphosphate + 8 H(+) + PF1022D + 4 S-adenosyl-L-homocysteine,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:68768,4 (R)-lactate + 8 ATP + 4 L-leucine + 4 S-adenosyl-L-methionine = 8 AMP + 8 diphosphate + 8 H(+) + PF1022F + 4 S-adenosyl-L-homocysteine,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:68888,2-methoxybenzoate + ATP + H(+) + NADPH = 2-methoxybenzaldehyde + AMP + diphosphate + NADP(+),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:68892,3-methoxybenzoate + ATP + H(+) + NADPH = 3-methoxybenzaldehyde + AMP + diphosphate + NADP(+),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:68900,4-methoxybenzoate + ATP + H(+) + NADPH = 4-methoxybenzaldehyde + AMP + diphosphate + NADP(+),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:68908,ATP + H(+) + NADPH + picolinate = AMP + diphosphate + NADP(+) + picolinal,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:68932,ATP + H(+) + NADPH + octanoate = AMP + diphosphate + NADP(+) + octanal,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:69128,glyoxylate + L-leucine = 4-methyl-2-oxopentanoate + glycine,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:69564,12 ATP + L-asparagine + L-aspartate + L-cysteine + L-glutamate + L-histidine + 3 L-isoleucine + L-leucine + L-lysine + L-ornithine + L-phenylalanine = 12 AMP + bacitracin A + 12 diphosphate + 12 H(+) + H2O,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:69727,2-phenylacetate + ATP + H(+) = diphosphate + phenylacetyl-AMP,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:70283,H2O + N-acetylputrescine + O2 = 4-acetamidobutanal + H2O2 + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:70427,H2O + phenylacetyl-CoA = 2-phenylacetate + CoA + H(+),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:70831,L-arginine(in) + L-leucine(out) + Na(+)(out) = L-arginine(out) + L-leucine(in) + Na(+)(in),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:70943,L-isoleucine(in) = L-isoleucine(out),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:71011,L-isoleucine(in) + L-phenylalanine(out) = L-isoleucine(out) + L-phenylalanine(in),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:71023,L-leucine(in) + L-phenylalanine(out) = L-leucine(out) + L-phenylalanine(in),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:71051,L-leucine(out) + L-methionine(in) = L-leucine(in) + L-methionine(out),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:71059,L-arginine(in) + L-leucine(out) = L-arginine(out) + L-leucine(in),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:71107,L-leucine(out) + S-methylmercury-L-cysteine(in) = L-leucine(in) + S-methylmercury-L-cysteine(out),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:71267,chloride(out) + L-pipecolate(out) + 2 Na(+)(out) = chloride(in) + L-pipecolate(in) + 2 Na(+)(in),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:71279,chloride(out) + L-leucine(out) + 2 Na(+)(out) = chloride(in) + L-leucine(in) + 2 Na(+)(in),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:71299,chloride(out) + L-isoleucine(out) + 2 Na(+)(out) = chloride(in) + L-isoleucine(in) + 2 Na(+)(in),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:71387,L-pipecolate(in) + Na(+)(in) = L-pipecolate(out) + Na(+)(out),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:72023,nicotinate(in) + urate(out) = nicotinate(out) + urate(in),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:72039,nicotinate(in) + orotate(out) = nicotinate(out) + orotate(in),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:72047,A + D-alanine + D-allothreonine + D-leucine + 2 L-leucine + L-proline = AH2 + fusahexin + 6 H2O,1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:72231,chloride(out) + N-methyl-L-proline(out) + 2 Na(+)(out) = chloride(in) + N-methyl-L-proline(in) + 2 Na(+)(in),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:72347,Co(I)-[methoxylated-aromatic-compound-specific corrinoid protein] + H(+) + veratrole = 3-methoxyphenol + methyl-Co(III)-[methoxylated-aromatic-compound-specific corrinoid protein],1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:72955,2 Na(+)(out) + nicotinate(out) = 2 Na(+)(in) + nicotinate(in),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:73011,L-leucine(in) = L-leucine(out),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:73015,D-leucine(in) = D-leucine(out),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:73283,H(+)(out) + L-isoleucine(in) = H(+)(in) + L-isoleucine(out),1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:73955,"3,4-dihydroxystyrene + H(+) + NADH = 4-ethylcatechol + NAD(+)",1.0,0,ignore
+uploaded_model.xml,reaction,R1,InsP3 dependent Ca influx,metaid_0000021,RHEA:74371,a carboxylate(out) + nicotinate(in) = a carboxylate(in) + nicotinate(out),1.0,0,ignore
+uploaded_model.xml,reaction,R2,ATP driven Ca pumping into store,metaid_0000022,RHEA:20273,phenylalanine 4-monooxygenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R2,ATP driven Ca pumping into store,metaid_0000022,RHEA:24992,L-phenylalanine + O2 + reduced [NADPH--hemoprotein reductase] = 2 H(+) + H2O + N-hydroxy-L-phenylalanine + oxidized [NADPH--hemoprotein reductase],1.0,0,ignore
+uploaded_model.xml,reaction,R2,ATP driven Ca pumping into store,metaid_0000022,RHEA:30787,"(6R)-L-erythro-5,6,7,8-tetrahydrobiopterin + L-phenylalanine + O2 = (6R)-L-erythro-6,7-dihydrobiopterin + H2O + L-tyrosine",1.0,0,ignore
+uploaded_model.xml,reaction,R2,ATP driven Ca pumping into store,metaid_0000022,RHEA:32203,synephrine dehydratase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R2,ATP driven Ca pumping into store,metaid_0000022,RHEA:33131,L-phenylalanine + tetrahydro-4-hydroxyphenylpyruvate = 3-phenylpyruvate + tetrahydrotyrosine,1.0,0,ignore
+uploaded_model.xml,reaction,R2,ATP driven Ca pumping into store,metaid_0000022,RHEA:34215,4-oxo-4-(pyridin-3-yl)butanal + H2O + NADP(+) = 4-oxo-4-(pyridin-3-yl)butanoate + 2 H(+) + NADPH,1.0,0,ignore
+uploaded_model.xml,reaction,R2,ATP driven Ca pumping into store,metaid_0000022,RHEA:41532,"(6R)-L-erythro-5,6,7,8-tetrahydrobiopterin + L-phenylalanine + O2 = (4aS,6R)-4a-hydroxy-L-erythro-5,6,7,8-tetrahydrobiopterin + 3-hydroxy-L-phenylalanine",1.0,0,ignore
+uploaded_model.xml,reaction,R2,ATP driven Ca pumping into store,metaid_0000022,RHEA:55528,H(+) + H2O + L-tyrosine + O2 = (4-hydroxyphenyl)acetaldehyde + CO2 + H2O2 + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R2,ATP driven Ca pumping into store,metaid_0000022,RHEA:57412,AMP + diphosphate + L-tyrosinal + NADP(+) = ATP + H(+) + L-tyrosine + NADPH,1.0,0,ignore
+uploaded_model.xml,reaction,R2,ATP driven Ca pumping into store,metaid_0000022,RHEA:63660,"(8S)-8-amino-7-oxononanoate + CO2 + L-lysyl-[protein] = (7R,8S)-8-amino-7-(carboxyamino)nonanoate + (S)-2-amino-6-oxohexanoyl-[protein] + 2 H(+)",1.0,0,ignore
+uploaded_model.xml,reaction,R2,ATP driven Ca pumping into store,metaid_0000022,RHEA:69564,12 ATP + L-asparagine + L-aspartate + L-cysteine + L-glutamate + L-histidine + 3 L-isoleucine + L-leucine + L-lysine + L-ornithine + L-phenylalanine = 12 AMP + bacitracin A + 12 diphosphate + 12 H(+) + H2O,1.0,0,ignore
+uploaded_model.xml,reaction,R2,ATP driven Ca pumping into store,metaid_0000022,RHEA:71011,L-isoleucine(in) + L-phenylalanine(out) = L-isoleucine(out) + L-phenylalanine(in),1.0,0,ignore
+uploaded_model.xml,reaction,R2,ATP driven Ca pumping into store,metaid_0000022,RHEA:71023,L-leucine(in) + L-phenylalanine(out) = L-leucine(out) + L-phenylalanine(in),1.0,0,ignore
+uploaded_model.xml,reaction,R3,ATP driven pumping into cytosol,metaid_0000023,RHEA:20273,phenylalanine 4-monooxygenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R3,ATP driven pumping into cytosol,metaid_0000023,RHEA:24992,L-phenylalanine + O2 + reduced [NADPH--hemoprotein reductase] = 2 H(+) + H2O + N-hydroxy-L-phenylalanine + oxidized [NADPH--hemoprotein reductase],1.0,0,ignore
+uploaded_model.xml,reaction,R3,ATP driven pumping into cytosol,metaid_0000023,RHEA:30787,"(6R)-L-erythro-5,6,7,8-tetrahydrobiopterin + L-phenylalanine + O2 = (6R)-L-erythro-6,7-dihydrobiopterin + H2O + L-tyrosine",1.0,0,ignore
+uploaded_model.xml,reaction,R3,ATP driven pumping into cytosol,metaid_0000023,RHEA:32203,synephrine dehydratase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R3,ATP driven pumping into cytosol,metaid_0000023,RHEA:33131,L-phenylalanine + tetrahydro-4-hydroxyphenylpyruvate = 3-phenylpyruvate + tetrahydrotyrosine,1.0,0,ignore
+uploaded_model.xml,reaction,R3,ATP driven pumping into cytosol,metaid_0000023,RHEA:34215,4-oxo-4-(pyridin-3-yl)butanal + H2O + NADP(+) = 4-oxo-4-(pyridin-3-yl)butanoate + 2 H(+) + NADPH,1.0,0,ignore
+uploaded_model.xml,reaction,R3,ATP driven pumping into cytosol,metaid_0000023,RHEA:41532,"(6R)-L-erythro-5,6,7,8-tetrahydrobiopterin + L-phenylalanine + O2 = (4aS,6R)-4a-hydroxy-L-erythro-5,6,7,8-tetrahydrobiopterin + 3-hydroxy-L-phenylalanine",1.0,0,ignore
+uploaded_model.xml,reaction,R3,ATP driven pumping into cytosol,metaid_0000023,RHEA:55528,H(+) + H2O + L-tyrosine + O2 = (4-hydroxyphenyl)acetaldehyde + CO2 + H2O2 + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R3,ATP driven pumping into cytosol,metaid_0000023,RHEA:57412,AMP + diphosphate + L-tyrosinal + NADP(+) = ATP + H(+) + L-tyrosine + NADPH,1.0,0,ignore
+uploaded_model.xml,reaction,R3,ATP driven pumping into cytosol,metaid_0000023,RHEA:63660,"(8S)-8-amino-7-oxononanoate + CO2 + L-lysyl-[protein] = (7R,8S)-8-amino-7-(carboxyamino)nonanoate + (S)-2-amino-6-oxohexanoyl-[protein] + 2 H(+)",1.0,0,ignore
+uploaded_model.xml,reaction,R3,ATP driven pumping into cytosol,metaid_0000023,RHEA:69564,12 ATP + L-asparagine + L-aspartate + L-cysteine + L-glutamate + L-histidine + 3 L-isoleucine + L-leucine + L-lysine + L-ornithine + L-phenylalanine = 12 AMP + bacitracin A + 12 diphosphate + 12 H(+) + H2O,1.0,0,ignore
+uploaded_model.xml,reaction,R3,ATP driven pumping into cytosol,metaid_0000023,RHEA:71011,L-isoleucine(in) + L-phenylalanine(out) = L-isoleucine(out) + L-phenylalanine(in),1.0,0,ignore
+uploaded_model.xml,reaction,R3,ATP driven pumping into cytosol,metaid_0000023,RHEA:71023,L-leucine(in) + L-phenylalanine(out) = L-leucine(out) + L-phenylalanine(in),1.0,0,ignore
+uploaded_model.xml,reaction,Rf,Ca leak,metaid_0000024,RHEA:20273,phenylalanine 4-monooxygenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,Rf,Ca leak,metaid_0000024,RHEA:24992,L-phenylalanine + O2 + reduced [NADPH--hemoprotein reductase] = 2 H(+) + H2O + N-hydroxy-L-phenylalanine + oxidized [NADPH--hemoprotein reductase],1.0,0,ignore
+uploaded_model.xml,reaction,Rf,Ca leak,metaid_0000024,RHEA:30787,"(6R)-L-erythro-5,6,7,8-tetrahydrobiopterin + L-phenylalanine + O2 = (6R)-L-erythro-6,7-dihydrobiopterin + H2O + L-tyrosine",1.0,0,ignore
+uploaded_model.xml,reaction,Rf,Ca leak,metaid_0000024,RHEA:32203,synephrine dehydratase activity,1.0,0,ignore
+uploaded_model.xml,reaction,Rf,Ca leak,metaid_0000024,RHEA:33131,L-phenylalanine + tetrahydro-4-hydroxyphenylpyruvate = 3-phenylpyruvate + tetrahydrotyrosine,1.0,0,ignore
+uploaded_model.xml,reaction,Rf,Ca leak,metaid_0000024,RHEA:34215,4-oxo-4-(pyridin-3-yl)butanal + H2O + NADP(+) = 4-oxo-4-(pyridin-3-yl)butanoate + 2 H(+) + NADPH,1.0,0,ignore
+uploaded_model.xml,reaction,Rf,Ca leak,metaid_0000024,RHEA:41532,"(6R)-L-erythro-5,6,7,8-tetrahydrobiopterin + L-phenylalanine + O2 = (4aS,6R)-4a-hydroxy-L-erythro-5,6,7,8-tetrahydrobiopterin + 3-hydroxy-L-phenylalanine",1.0,0,ignore
+uploaded_model.xml,reaction,Rf,Ca leak,metaid_0000024,RHEA:55528,H(+) + H2O + L-tyrosine + O2 = (4-hydroxyphenyl)acetaldehyde + CO2 + H2O2 + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,Rf,Ca leak,metaid_0000024,RHEA:57412,AMP + diphosphate + L-tyrosinal + NADP(+) = ATP + H(+) + L-tyrosine + NADPH,1.0,0,ignore
+uploaded_model.xml,reaction,Rf,Ca leak,metaid_0000024,RHEA:63660,"(8S)-8-amino-7-oxononanoate + CO2 + L-lysyl-[protein] = (7R,8S)-8-amino-7-(carboxyamino)nonanoate + (S)-2-amino-6-oxohexanoyl-[protein] + 2 H(+)",1.0,0,ignore
+uploaded_model.xml,reaction,Rf,Ca leak,metaid_0000024,RHEA:69564,12 ATP + L-asparagine + L-aspartate + L-cysteine + L-glutamate + L-histidine + 3 L-isoleucine + L-leucine + L-lysine + L-ornithine + L-phenylalanine = 12 AMP + bacitracin A + 12 diphosphate + 12 H(+) + H2O,1.0,0,ignore
+uploaded_model.xml,reaction,Rf,Ca leak,metaid_0000024,RHEA:71011,L-isoleucine(in) + L-phenylalanine(out) = L-isoleucine(out) + L-phenylalanine(in),1.0,0,ignore
+uploaded_model.xml,reaction,Rf,Ca leak,metaid_0000024,RHEA:71023,L-leucine(in) + L-phenylalanine(out) = L-leucine(out) + L-phenylalanine(in),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:10284,"leucine 2,3-aminomutase activity",1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:11060,isoleucine-tRNA ligase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:11196,nicotinate-nucleotide-dimethylbenzimidazole phosphoribosyltransferase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:11468,valine-3-methyl-2-oxovalerate transaminase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:11688,leucine-tRNA ligase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:11992,L-pipecolate oxidase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:12220,leucine dehydrogenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:12236,nicotinate dehydrogenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:12408,lysine 6-dehydrogenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:12524,delta1-piperideine-2-carboxylate reductase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:14545,nicotinamidase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:16173,(S)-norcoclaurine synthase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:16237,peptidyl-prolyl cis-trans isomerase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:17273,4-hydroxyphenylacetaldehyde dehydrogenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:18101,cis-dihydroethylcatechol dehydrogenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:18173,octopamine dehydratase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:18225,[N-(6-aminohexanoyl)](n) + H2O = 6-aminohexanoate + [N-(6-aminohexanoyl)](n-1),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:18321,L-leucine:2-oxoglutarate aminotransferase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:18505,lysine dehydrogenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:18697,4-hydroxyphenylpyruvate decarboxylase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:18901,N(alpha)-benzyloxycarbonylleucine hydrolase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:19357,H(+) + L-proline betaine + NADPH + O2 = formaldehyde + H2O + N-methyl-L-proline + NADP(+),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:19437,nicotinate-N-glucosyltransferase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:19777,L-pipecolate dehydrogenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:20089,leucine N-acetyltransferase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:20241,nicotinate N-methyltransferase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:20577,3-(hydroxyamino)phenol mutase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:20956,phenylacetate-CoA ligase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:21364,6-aminohexanoate-dimer hydrolase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:21392,phenylacetaldehyde dehydrogenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:22916,4-hydroxyacetophenone monooxygenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:23600,2-aminohexanoate transaminase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:24544,protein-lysine 6-oxidase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:24801,L-isoleucine transaminase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:25121,(S)-2-amino-6-oxohexanoate = H(+) + H2O + L-1-piperideine-6-carboxylate,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:25864,"H2O + N(1)-acetylspermidine + O2 = 4-acetamidobutanal + H2O2 + propane-1,3-diamine",1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:25972,"N8-acetylspermidine:oxygen oxidoreductase (propane-1,3-diamine-forming) activity",1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:26023,"apo-beta-carotenoid-14',13'-dioxygenase activity",1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:27417,2 Fe(III)-[cytochrome] + H2O + nicotinate = 6-hydroxynicotinate + 2 Fe(II)-[cytochrome] + 2 H(+),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:27574,(3R)-piperidine-3-carboxamide + H2O = (3R)-piperidine-3-carboxylate + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:28022,ATP + holo-[ACP] + octanoate = AMP + diphosphate + octanoyl-[ACP],1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:28254,(Z)-3-hexen-1-ol acetyltransferase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:28602,isoleucine N-monooxygenase (oxime forming) activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:28731,H(+)(out) + L-leucine(in) = H(+)(in) + L-leucine(out),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:29263,L-leucine(in) + Na(+)(in) = L-leucine(out) + Na(+)(out),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:29275,L-isoleucine(in) + Na(+)(in) = L-isoleucine(out) + Na(+)(out),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:29759,octanoate(in) = octanoate(out),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:29807,ATP + H2O + L-leucine(out) = ADP + H(+) + L-leucine(in) + phosphate,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:29819,ATP + H2O + L-isoleucine(out) = ADP + H(+) + L-isoleucine(in) + phosphate,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:30131,acyl-[acyl-carrier-protein] hydrolase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:30143,H2O + octanoyl-CoA = CoA + H(+) + octanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:30479,L-isoleucine + O2 + reduced [NADPH--hemoprotein reductase] = 2 H(+) + H2O + N-hydroxy-L-isoleucine + oxidized [NADPH--hemoprotein reductase],1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:30591,H2O + O2 + tyramine = (4-hydroxyphenyl)acetaldehyde + H2O2 + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:30807,L-pipecolate + NAD(+) = Delta(1)-piperideine-2-carboxylate + H(+) + NADH,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:31051,(3R)-beta-leucine + H2O + NAD(+) = 4-methyl-3-oxopentanoate + H(+) + NADH + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:31067,6-amino-2-oxohexanoate = Delta(1)-piperideine-2-carboxylate + H2O,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:31231,4-acetamidobutanal + H2O + NAD(+) = 4-acetamidobutanoate + 2 H(+) + NADH,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:32203,synephrine dehydratase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:32959,H2O + L-isoleucine + NAD(+) = (S)-3-methyl-2-oxopentanoate + H(+) + NADH + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:33631,ATP + CoA + octanoate = AMP + diphosphate + octanoyl-CoA,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:34303,L-lysine = L-pipecolate + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:34403,9-cis-10'-apo-beta-carotenal cleavage oxygenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:35523,N-ethylmaleimide reductase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:35527,H(+) + N-ethylmaleimide + NADH = N-ethylsuccinimide + NAD(+),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:36099,S-adenosyl-L-methionine:benzoic acid carboxyl methyl transferase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:36163,nicotinate phosphoribosyltransferase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:36731,1-nitrocyclohexan + NADP(+) = 1-nitrocyclohexene + H(+) + NADPH,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:37291,H2O + L-alanyl-L-leucine = L-alanine + L-leucine,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:38599,NADP(+) + nicotinate = nicotinamide + nicotinate-adenine dinucleotide phosphate,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:38607,2'-phospho-cyclic ADP-ribose + nicotinate = nicotinate-adenine dinucleotide phosphate,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:38619,nicotinate beta-D-ribonucleotide + phenol = H(+) + nicotinate + phenyl 5-phospho-alpha-D-ribofuranoside,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:40047,"1,2,3-trioctanoylglycerol + H2O = 1,2-dioctanoyl-sn-glycerol + H(+) + octanoate",1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:40055,"1,2,3-trioctanoylglycerol + H2O = 2,3-dioctanoyl-sn-glycerol + H(+) + octanoate",1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:41448,2-oxoglutarate + L-isoleucine + O2 = (4S)-4-hydroxy-L-isoleucine + CO2 + succinate,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:44100,H2O + NAD(+) + octanal = 2 H(+) + NADH + octanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:44328,1-octanoylglycerol + H2O = glycerol + H(+) + octanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:44348,"ATP + L-isoleucine + N(3)-fumaramoyl-(S)-2,3-diaminopropanoate = ADP + dapdiamide B + H(+) + phosphate",1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:44352,"ATP + L-leucine + N(3)-fumaramoyl-(S)-2,3-diaminopropanoate = ADP + dapdiamide C + H(+) + phosphate",1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:45092,H2O + N-octanoylsphing-4-enine = octanoate + sphing-4-enine,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:45560,L-isoleucine = D-allo-isoleucine,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:45620,"H2O + N-butanoyl-1-hexadecanoyl-2-(9Z,12Z-octadecadienoyl)-sn-glycero-3-phosphoethanolamine = 1-hexadecanoyl-2-(9Z,12Z-octadecadienoyl)-sn-glycero-3-phosphate + H(+) + N-butanoyl ethanolamine",1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:45624,ATP + holo-[CmaA peptidyl-carrier protein] + L-alloisoleucine = AMP + diphosphate + L-alloisoleucyl-[CmaA peptidyl-carrier protein],1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:46508,NADH + nitrobenzene + O2 = catechol + NAD(+) + nitrite,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:47356,an octanoate ester + H2O = an aliphatic alcohol + H(+) + octanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:47864,"1,2,3-trioctanoylglycerol + H2O = dioctanoylglycerol + H(+) + octanoate",1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:47880,dioctanoylglycerol + H2O = H(+) + octanoate + octanoylglycerol,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:48456,"1,2-dioctanoyl-3-O-beta-D-galactosyl-sn-glycerol + H2O = 2-octanoyl-3-O-beta-D-galactosyl-sn-glycerol + H(+) + octanoate",1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:48460,"1,2-dioctanoyl-3-O-[alpha-D-galactosyl-(1->6)-beta-D-galactosyl]-sn-glycerol + H2O = 2-octanoyl-3-O-[alpha-D-galactosyl-(1->6)-beta-D-galactosyl]-sn-glycerol + H(+) + octanoate",1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:48500,H2O + octanoylglycerol = glycerol + H(+) + octanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:48544,[phosphatase 2A protein]-C-terminal L-leucine + S-adenosyl-L-methionine = [phosphatase 2A protein]-C-terminal L-leucine methyl ester + S-adenosyl-L-homocysteine,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:48548,[phosphatase 2A protein]-C-terminal L-leucine methyl ester + H2O = [phosphatase 2A protein]-C-terminal L-leucine + H(+) + methanol,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:48692,"1,2-dioctanoyl-3-O-[alpha-D-galactosyl-(1->6)-beta-D-galactosyl]-sn-glycerol + H2O = H(+) + octanoate + octanoyl-3-O-[alpha-D-galactosyl-(1->6)-beta-D-galactosyl]-sn-glycerol",1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:48696,"1,2-dioctanoyl-3-O-beta-D-galactosyl-sn-glycerol + H2O = H(+) + octanoate + octanoyl-3-(beta-D-galactosyl)-sn-glycerol",1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:49476,delta1-piperideine-6-carboxylate dehydrogenase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:49480,2 H2O + L-1-piperideine-6-carboxylate + NADP(+) = H(+) + L-2-aminoadipate + NADPH,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:51360,H2O + N-(9Z-octadecenoyl)-L-leucine = (9Z)-octadecenoate + L-leucine,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:51444,"(5Z,8Z,11Z,14Z)-eicosatetraenoate + L-leucine = H2O + N-(5Z,8Z,11Z,14Z-eicosatetraenoyl)-L-leucine",1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:51456,H2O + N-(9Z-octadecenoyl)-L-isoleucine = (9Z)-octadecenoate + L-isoleucine,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:51648,H2O + N(6)-acetyl-L-lysyl-[protein] + O2 = (S)-2-amino-6-oxohexanoyl-[protein] + acetamide + H2O2,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:51824,ATP(in) + CoA(in) + H(+)(out) + octanoate(out) = AMP(in) + diphosphate(in) + H(+)(in) + octanoyl-CoA(in),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:52032,H2O + L-isoleucine-(+)-7-isojasmonate = (+)-7-isojasmonate + L-isoleucine,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:52036,H2O + L-isoleucine-(+)-12-hydroxy-7-isojasmonate = L-isoleucine + tuberonate,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:52800,acetoacetyl-CoA + ATP + L-isoleucine = AMP + CoA + diphosphate + 2 H(+) + tenuazonic acid,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:52884,nitrobenzene nitroreductase activity,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:52892,H2O + NADP(+) + nitrosobenzene = H(+) + NADPH + nitrobenzene,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:53392,2-phenylacetate + O2 + reduced [NADPH--hemoprotein reductase] = (2-hydroxyphenyl)acetate + H(+) + H2O + oxidized [NADPH--hemoprotein reductase],1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:54468,1-octadecanoyl-2-octanoyl-sn-glycero-3-phosphocholine + H2O = 1-octadecanoyl-sn-glycero-3-phosphocholine + H(+) + octanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:54812,(+)-7-isojasmonate + ATP + L-isoleucine = AMP + diphosphate + H(+) + L-isoleucine-(+)-7-isojasmonate,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:54840,H(+) + NADPH + O2 + octan-3-one = H2O + NADP(+) + pentyl propanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:54856,H(+) + NADPH + O2 + octan-3-one = ethyl hexanoate + H2O + NADP(+),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:54864,H(+) + NADPH + O2 + sulcatone = 4-methylpent-3-en-1-yl acetate + H2O + NADP(+),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:55528,H(+) + H2O + L-tyrosine + O2 = (4-hydroxyphenyl)acetaldehyde + CO2 + H2O2 + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:57128,H2O + 2 oxidized [azurin] + tyramine = (4-hydroxyphenyl)acetaldehyde + 2 H(+) + NH4(+) + 2 reduced [azurin],1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:57436,guaethol + O2 + reduced [NADH--hemoprotein reductase] = acetaldehyde + catechol + H(+) + H2O + oxidized [NADH--hemoprotein reductase],1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:58200,2-oxoglutarate + 6-aminohexanoate = 6-oxohexanoate + L-glutamate,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:59396,L-leucine = D-leucine,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:59400,L-2-aminohexanoate = D-2-aminohexanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:59904,H2O + NADP(+) + octanal = 2 H(+) + NADPH + octanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:59916,(2E)-octenal + H2O + NADP(+) = (2E)-octenoate + 2 H(+) + NADPH,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:59920,(2E)-octenal + H2O + NAD(+) = (2E)-octenoate + 2 H(+) + NADH,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:59976,2-phenylacetate + H(+) = CO2 + toluene,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:60356,H2O + N-octanoylanthranilate = anthranilate + H(+) + octanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:60996,H2O + L-leucine + O2 = 4-methyl-2-oxopentanoate + H2O2 + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:61232,H2O + L-isoleucine + O2 = (S)-3-methyl-2-oxopentanoate + H2O2 + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:61268,H2O + L-2-aminohexanoate + O2 = 2-oxohexanoate + H2O2 + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:61616,H(+) + L-proline betaine + NADH + O2 = formaldehyde + H2O + N-methyl-L-proline + NAD(+),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:62272,4 (R)-2-hydroxy-3-methylbutyrate + 8 ATP + 4 L-leucine + 4 S-adenosyl-L-methionine = 8 AMP + bassianolide + 8 diphosphate + 8 H(+) + 4 S-adenosyl-L-homocysteine,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:63220,7-N-[(5S)-5-amino-5-carboxypentyl]formamidino-7-deazaguanosine(15) in tRNA + S-adenosyl-L-methionine = 5'-deoxyadenosine + archaeosine(15) in tRNA + 2 H(+) + L-1-piperideine-6-carboxylate + L-methionine,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:63532,angiotensin I + H2O = angiotensin-(1-9) + L-leucine,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:63540,H2O + neurotensin = L-leucine + neurotensin-(1-12),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:63544,H2O + kinetensin = kinetensin-(1-8) + L-leucine,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:63568,beta-casomorphin-7 + H2O = beta-casomorphin-6 + L-isoleucine,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:63600,H2O + neocasomorphin = L-isoleucine + neocasomorphin-(1-5),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:63660,"(8S)-8-amino-7-oxononanoate + CO2 + L-lysyl-[protein] = (7R,8S)-8-amino-7-(carboxyamino)nonanoate + (S)-2-amino-6-oxohexanoyl-[protein] + 2 H(+)",1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:63668,"CO2 + H2O + N(6)-[(2S,3R)-2-amino-8-carboxyoctan-3-yl]-L-lysyl-[protein] + NADP(+) = (7R,8S)-8-amino-7-(carboxyamino)nonanoate + (S)-2-amino-6-oxohexanoyl-[protein] + 3 H(+) + NADPH",1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:63676,"CO2 + H2O + N(6)-[(2S,3R)-2-amino-8-carboxyoctan-3-yl]-L-lysyl-[protein] + NAD(+) = (7R,8S)-8-amino-7-(carboxyamino)nonanoate + (S)-2-amino-6-oxohexanoyl-[protein] + 3 H(+) + NADH",1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:63872,2-oxoglutarate + L-isoleucine + O2 = 3(1)-hydroxy-L-isoleucine + CO2 + succinate,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:64200,an N-(fatty acyl)-L-leucine + H2O = a fatty acid + L-leucine,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:64212,an N-(fatty acyl)-L-isoleucine + H2O = a fatty acid + L-isoleucine,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:64332,ATP + CoA + nicotinate = AMP + diphosphate + nicotinyl-CoA,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:64792,L-lysine + NADP(+) = 2 H(+) + L-1-piperideine-6-carboxylate + NADPH + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:64820,2-phenylacetamide + H2O = 2-phenylacetate + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:64996,ATP + H(+) + octanoate = diphosphate + octanoyl-AMP,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:65392,4 H(+) + L-pipecolate + malonyl-CoA + 2 NADPH = (8aS)-octahydroindolizin-1-one + CO2 + CoA + 2 H2O + 2 NADP(+),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:65400,butan-1-ol + butanoyl-CoA = butyl butanoate + CoA,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:65452,ethanol + hexanoyl-CoA = CoA + ethyl hexanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:65460,acetyl-CoA + hexan-1-ol = CoA + hexyl acetate,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:66060,2-oxohexanoate + L-kynurenine = H2O + kynurenate + L-2-aminohexanoate,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:66064,"2-oxohexanoate + L-kynurenine = 4-(2-aminophenyl)-2,4-dioxobutanoate + L-2-aminohexanoate",1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:66068,4-methyl-2-oxopentanoate + L-kynurenine = H2O + kynurenate + L-leucine,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:66072,"4-methyl-2-oxopentanoate + L-kynurenine = 4-(2-aminophenyl)-2,4-dioxobutanoate + L-leucine",1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:67128,"5 H(+) + L-pipecolate + malonyl-CoA + 3 NADPH = (1R,8aS)-octahydroindolizin-1-ol + CO2 + CoA + 2 H2O + 3 NADP(+)",1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:67132,"5 H(+) + L-pipecolate + malonyl-CoA + 3 NADPH = (1S,8aS)-octahydroindolizin-1-ol + CO2 + CoA + 2 H2O + 3 NADP(+)",1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:67288,"ATP + 12 H(+) + L-leucine + 8 malonyl-CoA + 9 NADPH + 4 S-adenosyl-L-methionine = (5S)-5-(2-methylpropyl)-3-[(2E,6R,8E,10E,12E)-6,8,10,12-tetramethyltetradeca-2,8,10,12-tetraenoyl]-2,5-dihydro-1H-pyrrol-2-one + AMP + 8 CO2 + 8 CoA + diphosphate + 7 H2O + 9 NADP(+) + 4 S-adenosyl-L-homocysteine",1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:68744,2 (R)-3-phenyllactate + 2 (R)-lactate + 8 ATP + 4 L-leucine + 4 S-adenosyl-L-methionine = 8 AMP + 8 diphosphate + 8 H(+) + PF1022A + 4 S-adenosyl-L-homocysteine,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:68756,4 (R)-3-phenyllactate + 8 ATP + 4 L-leucine + 4 S-adenosyl-L-methionine = 8 AMP + 8 diphosphate + 8 H(+) + PF1022B + 4 S-adenosyl-L-homocysteine,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:68760,3 (R)-3-phenyllactate + (R)-lactate + 8 ATP + 4 L-leucine + 4 S-adenosyl-L-methionine = 8 AMP + 8 diphosphate + 8 H(+) + PF1022C + 4 S-adenosyl-L-homocysteine,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:68764,(R)-3-phenyllactate + 3 (R)-lactate + 8 ATP + 4 L-leucine + 4 S-adenosyl-L-methionine = 8 AMP + 8 diphosphate + 8 H(+) + PF1022D + 4 S-adenosyl-L-homocysteine,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:68768,4 (R)-lactate + 8 ATP + 4 L-leucine + 4 S-adenosyl-L-methionine = 8 AMP + 8 diphosphate + 8 H(+) + PF1022F + 4 S-adenosyl-L-homocysteine,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:68888,2-methoxybenzoate + ATP + H(+) + NADPH = 2-methoxybenzaldehyde + AMP + diphosphate + NADP(+),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:68892,3-methoxybenzoate + ATP + H(+) + NADPH = 3-methoxybenzaldehyde + AMP + diphosphate + NADP(+),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:68900,4-methoxybenzoate + ATP + H(+) + NADPH = 4-methoxybenzaldehyde + AMP + diphosphate + NADP(+),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:68908,ATP + H(+) + NADPH + picolinate = AMP + diphosphate + NADP(+) + picolinal,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:68932,ATP + H(+) + NADPH + octanoate = AMP + diphosphate + NADP(+) + octanal,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:69128,glyoxylate + L-leucine = 4-methyl-2-oxopentanoate + glycine,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:69564,12 ATP + L-asparagine + L-aspartate + L-cysteine + L-glutamate + L-histidine + 3 L-isoleucine + L-leucine + L-lysine + L-ornithine + L-phenylalanine = 12 AMP + bacitracin A + 12 diphosphate + 12 H(+) + H2O,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:69727,2-phenylacetate + ATP + H(+) = diphosphate + phenylacetyl-AMP,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:70283,H2O + N-acetylputrescine + O2 = 4-acetamidobutanal + H2O2 + NH4(+),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:70427,H2O + phenylacetyl-CoA = 2-phenylacetate + CoA + H(+),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:70831,L-arginine(in) + L-leucine(out) + Na(+)(out) = L-arginine(out) + L-leucine(in) + Na(+)(in),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:70943,L-isoleucine(in) = L-isoleucine(out),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:71011,L-isoleucine(in) + L-phenylalanine(out) = L-isoleucine(out) + L-phenylalanine(in),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:71023,L-leucine(in) + L-phenylalanine(out) = L-leucine(out) + L-phenylalanine(in),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:71051,L-leucine(out) + L-methionine(in) = L-leucine(in) + L-methionine(out),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:71059,L-arginine(in) + L-leucine(out) = L-arginine(out) + L-leucine(in),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:71107,L-leucine(out) + S-methylmercury-L-cysteine(in) = L-leucine(in) + S-methylmercury-L-cysteine(out),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:71267,chloride(out) + L-pipecolate(out) + 2 Na(+)(out) = chloride(in) + L-pipecolate(in) + 2 Na(+)(in),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:71279,chloride(out) + L-leucine(out) + 2 Na(+)(out) = chloride(in) + L-leucine(in) + 2 Na(+)(in),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:71299,chloride(out) + L-isoleucine(out) + 2 Na(+)(out) = chloride(in) + L-isoleucine(in) + 2 Na(+)(in),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:71387,L-pipecolate(in) + Na(+)(in) = L-pipecolate(out) + Na(+)(out),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:72023,nicotinate(in) + urate(out) = nicotinate(out) + urate(in),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:72039,nicotinate(in) + orotate(out) = nicotinate(out) + orotate(in),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:72047,A + D-alanine + D-allothreonine + D-leucine + 2 L-leucine + L-proline = AH2 + fusahexin + 6 H2O,1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:72231,chloride(out) + N-methyl-L-proline(out) + 2 Na(+)(out) = chloride(in) + N-methyl-L-proline(in) + 2 Na(+)(in),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:72347,Co(I)-[methoxylated-aromatic-compound-specific corrinoid protein] + H(+) + veratrole = 3-methoxyphenol + methyl-Co(III)-[methoxylated-aromatic-compound-specific corrinoid protein],1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:72955,2 Na(+)(out) + nicotinate(out) = 2 Na(+)(in) + nicotinate(in),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:73011,L-leucine(in) = L-leucine(out),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:73015,D-leucine(in) = D-leucine(out),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:73283,H(+)(out) + L-isoleucine(in) = H(+)(in) + L-isoleucine(out),1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:73955,"3,4-dihydroxystyrene + H(+) + NADH = 4-ethylcatechol + NAD(+)",1.0,0,ignore
+uploaded_model.xml,reaction,R_eff,Ca efflux,metaid_0000025,RHEA:74371,a carboxylate(out) + nicotinate(in) = a carboxylate(in) + nicotinate(out),1.0,0,ignore
