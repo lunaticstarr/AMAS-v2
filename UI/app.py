@@ -27,6 +27,39 @@ app.layout = html.Div([
         html.Button("Save and Update Annotations", id="update-button", n_clicks=0, disabled=True)
     ], style={"display": "flex", "gap": "10px", "margin-bottom": "20px"}),
 
+    # Parameters Section
+    html.Div([
+        html.Label("Match Score Selection Criteria (--mssc):"),
+        dcc.RadioItems(
+            id='mssc-radio',
+            options=[
+                {'label': 'Top', 'value': 'top'},
+                {'label': 'Above', 'value': 'above'}
+            ],
+            value='top',  # Default value
+            inline=True
+        ),
+        html.Label("Match Score Cutoff (--cutoff):"),
+        dcc.Slider(
+            id='cutoff-slider',
+            min=0.0,
+            max=1.0,
+            step=0.01,
+            value=0.0,  # Default value
+            marks={i / 10: f"{i / 10:.1f}" for i in range(11)}
+        ),
+        html.Label("Optimize Predictions (--optimize):"),
+        dcc.RadioItems(
+            id='optimize-radio',
+            options=[
+                {'label': 'Yes', 'value': 'yes'},
+                {'label': 'No', 'value': 'no'}
+            ],
+            value='no',  # Default value
+            inline=True
+        )
+    ], style={"border": "1px solid #ccc", "padding": "10px", "margin-bottom": "20px"}),
+
     # Display processing messages
     html.Div(id="amas-output", style={"whiteSpace": "pre-wrap", "border": "1px solid #ccc", "padding": "10px", 
                                       "margin-top": "10px", "maxHeight": "150px", "overflowY": "scroll"},
@@ -86,16 +119,18 @@ def read_process_output(process):
         if line:
             process_info["output"] += line
 
-# Main callback to handle upload, annotation, real-time output, and updating messages
+# Main callback to handle upload, annotation, real-time output, and parameter handling
 @app.callback(
     [Output("sbml-content", "children"), Output("annotation-button", "disabled"),
      Output("interval-component", "disabled"), Output("amas-output", "children"),
      Output("csv-table", "data"), Output("update-button", "disabled")],
     [Input("upload-sbml", "contents"), Input("annotation-button", "n_clicks"),
      Input("interval-component", "n_intervals"), Input("update-button", "n_clicks")],
-    [State("sbml-content", "children"), State("amas-output", "children"), State("csv-table", "data")]
+    [State("mssc-radio", "value"), State("cutoff-slider", "value"),
+     State("optimize-radio", "value"), State("sbml-content", "children"),
+     State("amas-output", "children"), State("csv-table", "data")]
 )
-def manage_process(contents, annotation_clicks, n_intervals, update_clicks, sbml_text, amas_output, table_data):
+def manage_process(contents, annotation_clicks, n_intervals, update_clicks, mssc, cutoff, optimize, sbml_text, amas_output, table_data):
     global process_info
     ctx = dash.callback_context
     if not ctx.triggered:
@@ -113,14 +148,19 @@ def manage_process(contents, annotation_clicks, n_intervals, update_clicks, sbml
         sbml_text = decoded.decode("utf-8")
         return sbml_text, False, True, "Model uploaded successfully. Click 'Annotate Model' to proceed.", [], True
 
-    # Start annotation process
+    # Start annotation process with user parameters
     elif button_id == "annotation-button" and annotation_clicks > 0 and sbml_text:
         try:
             process_info["process"] = subprocess.Popen(
-                ["python", amas_recommendation_path, "uploaded_model.xml", "--save", "csv", "--outfile", csv_output_path],
+                [
+                    "python", amas_recommendation_path, "uploaded_model.xml",
+                    "--mssc", mssc, "--cutoff", str(cutoff), "--optimize", optimize, 
+                    "--save", "csv", "--outfile", csv_output_path
+                ],
                 stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1
             )
-            process_info["output"] = "Starting AMAS annotation...\n"
+            process_info["output"] = "Starting AMAS annotation with parameters:\n"
+            process_info["output"] += f"  --mssc: {mssc}\n  --cutoff: {cutoff}\n  --optimize: {optimize}\n"
             process_info["output_thread"] = threading.Thread(target=read_process_output, args=(process_info["process"],))
             process_info["output_thread"].start()
             return sbml_text, True, False, process_info["output"], [], True
@@ -145,27 +185,6 @@ def manage_process(contents, annotation_clicks, n_intervals, update_clicks, sbml
             data = df.to_dict("records")
             return sbml_text, True, True, process_info["output"], data, False
         return sbml_text, True, False, process_info["output"], [], True
-
-    # Save and update annotations
-    elif button_id == "update-button" and update_clicks > 0 and table_data:
-        # Instant feedback
-        instant_feedback = "Updating AMAS annotation..."
-        
-        # Save user modifications to `recommendations.csv`, keeping only UPDATE ANNOTATION column
-        df_to_save = pd.DataFrame(table_data)
-        df_to_save.to_csv(csv_output_path, index=False)
-
-        try:
-            subprocess.run(
-                ["python", amas_update_path, "uploaded_model.xml", csv_output_path, "new_model.xml"],
-                check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True
-            )
-            with open("new_model.xml", "r") as f:
-                updated_model_content = f.read()
-            return updated_model_content, True, True, "Model with AMAS annotation updated successfully.", table_data, False
-
-        except subprocess.CalledProcessError as e:
-            return "", True, True, f"Error updating annotation: {e.output}", table_data, True
 
     return sbml_text, True, True, amas_output, table_data, True
 
