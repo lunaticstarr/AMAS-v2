@@ -129,7 +129,6 @@
               <bqbiol:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://identifiers.org/kegg.compound/C00076"/>
-                  <rdf:li rdf:resource="http://identifiers.org/chebi/CHEBI:16586"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
