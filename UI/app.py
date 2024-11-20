@@ -12,10 +12,10 @@ app = dash.Dash(__name__)
 
 # Paths
 csv_output_path = os.path.join(os.getcwd(), "recommendations.csv")
-amas_recommendation_path = "/Users/luna/Desktop/CRBM/AMAS_proj/AMAS-v2/AMAS/recommend_annotation.py"
-amas_species_path = "/Users/luna/Desktop/CRBM/AMAS_proj/AMAS-v2/AMAS/recommend_species.py"
-amas_reactions_path = "/Users/luna/Desktop/CRBM/AMAS_proj/AMAS-v2/AMAS/recommend_reactions.py"
-amas_update_path = "/Users/luna/Desktop/CRBM/AMAS_proj/AMAS-v2/AMAS/update_annotation.py"
+amas_recommendation_path = "../AMAS/recommend_annotation.py"
+amas_species_path = "../AMAS/recommend_species.py"
+amas_reactions_path = "../AMAS/recommend_reactions.py"
+amas_update_path = "../AMAS/update_annotation.py"
 current_model_path = "current_model.xml"
 download_file_path = "new_model.xml"
 
@@ -149,12 +149,13 @@ app.layout = html.Div(
             children=[
                 html.H2("Annotation Table", style={"fontSize": "16px", "textAlign": "center"}),
                 html.H2("Please select instructions for updating the model in the UPDATE ANNOTATION column.", style={"fontSize": "14px", "textAlign": "left"}),
+                html.H2("Shaded: Existing annotations; White: Recommended annotations.", style={"fontSize": "13px", "textAlign": "left"}),
                 dash_table.DataTable(
                     id="csv-table",
                     style_table={"maxHeight": "700px", "overflowY": "scroll", "marginTop": "20px"},
                     style_data={'whiteSpace': 'normal', 'height': 'auto', 'lineHeight': '15px'},
                     editable=True,
-                    filter_action = "native", sort_action = "native", sort_mode = "multi",
+                    filter_action="native", sort_action="native", sort_mode="multi",
                     columns=[
                         {"name": "Type", "id": "type"},
                         {"name": "ID", "id": "id"},
@@ -162,7 +163,7 @@ app.layout = html.Div(
                         {"name": "Annotation", "id": "annotation"},
                         {"name": "Annotation Label", "id": "annotation label"},
                         {"name": "Match Score", "id": "match score"},
-                        {"name": "Existing", "id": "existing"},
+                        {"name": "Existing", "id": "existing"},  # Do not use hideable here
                         {"name": "UPDATE ANNOTATION", "id": "UPDATE ANNOTATION", "presentation": "dropdown"}
                     ],
                     dropdown_conditional=[
@@ -180,6 +181,23 @@ app.layout = html.Div(
                                 {"label": "add", "value": "add"}
                             ],
                         },
+                    ],
+                    style_cell_conditional=[
+                        {
+                            'if': {
+                                'column_id': 'existing'
+                            },
+                            'display': 'none'  # Hide the 'Existing' column by default
+                        }
+                    ],
+                    style_data_conditional=[
+                        {
+                            "if": {
+                                "filter_query": "{existing} = 1"
+                            },
+                            "backgroundColor": "rgba(211, 211, 211, 0.5)",  # Light grey for entire row
+                            "color": "black",
+                        }
                     ]
                 )
             ]
