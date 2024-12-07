@@ -16,6 +16,7 @@ TEST_DIR = os.path.join(CUR_DIR, os.pardir, 'tests')
 CANDIDATES = 'candidates'
 CHEBI = 'chebi'
 OBO_CHEBI = 'obo.chebi'
+NCBI_GENE = 'ncbigene'
 EC = 'ec-code'
 EC_HEADER = 'EC:'
 KEGG_HEADER = 'KEGG:'
@@ -39,9 +40,10 @@ TOLERANCE = 0.00001
 # Digits to be rounded up
 ROUND_DIGITS = 3
 
-# Default URLs for CHEBI/Rhea
+# Default URLs for CHEBI/Rhea/NCBI Gene
 CHEBI_DEFAULT_URL = 'https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI%3A'
 RHEA_DEFAULT_URL = 'https://www.rhea-db.org/rhea/'
+NCBI_GENE_DEFAULT_URL = 'https://www.ncbi.nlm.nih.gov/gene/'
 
 # Output; namedtuple 'Recommendation'
 Recommendation = collections.namedtuple('Recommendation',
@@ -51,6 +53,8 @@ with open(os.path.join(REF_DIR, 'chebi_shortened_formula_comp.lzma'), 'rb') as f
   REF_CHEBI2FORMULA = compress_pickle.load(f)
 with open(os.path.join(REF_DIR, 'chebi2label.lzma'), 'rb') as f:
   REF_CHEBI2LABEL = compress_pickle.load(f)
+with open(os.path.join(REF_DIR, 'ncbigene2label.lzma'), 'rb') as f:
+  REF_NCBI_GENE2LABEL = compress_pickle.load(f)
 with open(os.path.join(REF_DIR, 'ec2mrhea.lzma'), 'rb') as handle:
   REF_EC2RHEA = compress_pickle.load(handle)
 with open(os.path.join(REF_DIR, 'kegg2mrhea.lzma'), 'rb') as handle:

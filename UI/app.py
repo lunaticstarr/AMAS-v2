@@ -11,7 +11,7 @@ import threading
 app = dash.Dash(__name__)
 
 # Paths
-csv_output_path = os.path.join(os.getcwd(), "recommendations.csv")
+csv_output_path = "recommendations.csv"
 amas_recommendation_path = "../AMAS/recommend_annotation.py"
 amas_species_path = "../AMAS/recommend_species.py"
 amas_reactions_path = "../AMAS/recommend_reactions.py"

@@ -52,6 +52,22 @@ def extractExistingSpeciesAnnotation(inp_model, qualifier=cn.CHEBI):
                 if exist_raw[val]}
   return exist_filt
 
+def extractExistingGeneAnnotation(inp_model, qualifier=cn.NCBI_GENE):
+  """
+  Get existing annotation of genes
+  that contains NCBI gene terms
+
+  Parameters
+  ---------
+  qualifier: str
+      'ncbi.gene'
+  """
+  exist_raw = {val.getIdAttribute():getQualifierFromString(val.getAnnotationString(), [cn.NCBI_GENE]) \
+               for val in inp_model.getListOfGeneProducts()}
+  exist_filt = {val:exist_raw[val] for val in exist_raw.keys() \
+                if exist_raw[val]}
+  return exist_filt
+
 def extractExistingReactionAnnotation(inp_model):
   """
   Get existing annotation of reactions in Rhea
@@ -231,10 +247,18 @@ def getPrecision(ref, pred, mean=True):
   for one_k in species_to_test:
     num_intersection = len(set(ref[one_k]).intersection(pred[one_k]))
     num_predicted = len(set(pred[one_k]))
-    precision[one_k] = num_intersection / num_predicted
+    if num_predicted == 0:
+        # Avoid division by zero
+        precision[one_k] = 0.0
+    else:
+        precision[one_k] = num_intersection / num_predicted
   # return value is rounded up to the three decimal places
   if mean:
-    return np.round(np.mean([precision[val] for val in precision.keys()]), cn.ROUND_DIGITS)
+      if precision:
+          return np.round(np.mean([precision[val] for val in precision.keys()]), 3)
+      else:
+          # No species to test, return 0.0
+          return 0.0
   else:
     return {val:np.round(precision[val],cn.ROUND_DIGITS) for val in precision.keys()}
 
@@ -355,4 +379,17 @@ def getAssociatedTermsToRhea(inp_rhea):
   else:
     return [inp_rhea]
 
-  
+def filter_taxonomy(df, tax):
+  """
+  Filter a dataframe based on the taxonomy
+  tax: str
+    name of the taxonomy of interest
+      - 'ecoli_mg1655': Escherichia coli K-12 MG1655
+      - 'human': Homo sapiens
+  """
+  if tax == 'ecoli_mg1655':
+    return df.loc[df['tax_id'] == 511145].drop('tax_id', axis=1)
+  elif tax == 'human':
+    return df.loc[df['tax_id'] == 9606].drop('tax_id', axis=1)
+  else:
+    raise ValueError(f"Taxonomy {tax} not supported, please choose from 'ecoli_mg1655' or 'human'")

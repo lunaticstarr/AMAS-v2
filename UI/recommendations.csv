@@ -1,0 +1,134 @@
+file,type,id,display name,meta id,annotation,annotation label,match score,existing,UPDATE ANNOTATION
+current_model.xml,species,X,Cytoplasmic Calcium,metaid_0000019,CHEBI:83089,octylsulfamic acid,0.934,0,ignore
+current_model.xml,species,X,Cytoplasmic Calcium,metaid_0000019,CHEBI:29108,calcium(2+),0.872,1,keep
+current_model.xml,species,Y,Calcium in ER,metaid_0000020,CHEBI:3957,Cularimine,0.969,0,ignore
+current_model.xml,species,Y,Calcium in ER,metaid_0000020,CHEBI:29108,calcium(2+),0.897,1,keep
+current_model.xml,species,Z,IP3,metaid_0000021,CHEBI:16595,"1D-myo-inositol 1,4,5-trisphosphate",1.0,1,keep
+current_model.xml,reaction,R1,vin,metaid_0000022,RHEA:25711,L-trihomomethionine + O2 + reduced [NADPH--hemoprotein reductase] = 2 H(+) + H2O + N-hydroxy-L-trihomomethionine + oxidized [NADPH--hemoprotein reductase],0.333,0,ignore
+current_model.xml,reaction,R1,vin,metaid_0000022,RHEA:25715,"N-hydroxy-L-trihomomethionine + O2 + reduced [NADPH--hemoprotein reductase] = H(+) + H2O + N,N-dihydroxy-L-trihomomethionine + oxidized [NADPH--hemoprotein reductase]",0.333,0,ignore
+current_model.xml,reaction,R1,vin,metaid_0000022,RHEA:52600,L-methionine + propanoyl-CoA = CoA + H(+) + N-propanoyl-L-methioninate,0.333,0,ignore
+current_model.xml,reaction,R1,vin,metaid_0000022,RHEA:64748,H2O + S-(4-hydroxy-3-methylbutan-2-yl)-L-cysteine = 2-methyl-3-sulfanylbutan-1-ol + NH4(+) + pyruvate,0.333,0,ignore
+current_model.xml,reaction,R1,vin,metaid_0000022,RHEA:64752,3-sulfanylpentan-1-ol-L-cysteine + H2O = 3-sulfanyl-1-pentanol + NH4(+) + pyruvate,0.333,0,ignore
+current_model.xml,reaction,R1,vin,metaid_0000022,RHEA:64772,S-(4-hydroxy-3-methylbutan-2-yl)-L-cysteine = 2-aminoprop-2-enoate + 2-methyl-3-sulfanylbutan-1-ol,0.333,0,ignore
+current_model.xml,reaction,R1,vin,metaid_0000022,RHEA:64776,3-sulfanylpentan-1-ol-L-cysteine = 2-aminoprop-2-enoate + 3-sulfanyl-1-pentanol,0.333,0,ignore
+current_model.xml,reaction,R2,Calcium export from cell,metaid_0000023,RHEA:25711,L-trihomomethionine + O2 + reduced [NADPH--hemoprotein reductase] = 2 H(+) + H2O + N-hydroxy-L-trihomomethionine + oxidized [NADPH--hemoprotein reductase],0.333,0,ignore
+current_model.xml,reaction,R2,Calcium export from cell,metaid_0000023,RHEA:25715,"N-hydroxy-L-trihomomethionine + O2 + reduced [NADPH--hemoprotein reductase] = H(+) + H2O + N,N-dihydroxy-L-trihomomethionine + oxidized [NADPH--hemoprotein reductase]",0.333,0,ignore
+current_model.xml,reaction,R2,Calcium export from cell,metaid_0000023,RHEA:52600,L-methionine + propanoyl-CoA = CoA + H(+) + N-propanoyl-L-methioninate,0.333,0,ignore
+current_model.xml,reaction,R2,Calcium export from cell,metaid_0000023,RHEA:64748,H2O + S-(4-hydroxy-3-methylbutan-2-yl)-L-cysteine = 2-methyl-3-sulfanylbutan-1-ol + NH4(+) + pyruvate,0.333,0,ignore
+current_model.xml,reaction,R2,Calcium export from cell,metaid_0000023,RHEA:64752,3-sulfanylpentan-1-ol-L-cysteine + H2O = 3-sulfanyl-1-pentanol + NH4(+) + pyruvate,0.333,0,ignore
+current_model.xml,reaction,R2,Calcium export from cell,metaid_0000023,RHEA:64772,S-(4-hydroxy-3-methylbutan-2-yl)-L-cysteine = 2-aminoprop-2-enoate + 2-methyl-3-sulfanylbutan-1-ol,0.333,0,ignore
+current_model.xml,reaction,R2,Calcium export from cell,metaid_0000023,RHEA:64776,3-sulfanylpentan-1-ol-L-cysteine = 2-aminoprop-2-enoate + 3-sulfanyl-1-pentanol,0.333,0,ignore
+current_model.xml,reaction,R3,CICR,metaid_0000024,RHEA:10108,salutaridine reductase (NADPH) activity,0.333,0,ignore
+current_model.xml,reaction,R3,CICR,metaid_0000024,RHEA:10444,(S)-reticuline 7-O-methyltransferase activity,0.333,0,ignore
+current_model.xml,reaction,R3,CICR,metaid_0000024,RHEA:13773,(S)-stylopine synthase activity,0.333,0,ignore
+current_model.xml,reaction,R3,CICR,metaid_0000024,RHEA:17569,"1,2-dehydroreticulinium reductase (NADPH) activity",0.333,0,ignore
+current_model.xml,reaction,R3,CICR,metaid_0000024,RHEA:17713,salutaridine synthase activity,0.333,0,ignore
+current_model.xml,reaction,R3,CICR,metaid_0000024,RHEA:17789,3'-hydroxy-N-methyl-(S)-coclaurine 4'-O-methyltransferase activity,0.333,0,ignore
+current_model.xml,reaction,R3,CICR,metaid_0000024,RHEA:19885,reticuline oxidase activity,0.333,0,ignore
+current_model.xml,reaction,R3,CICR,metaid_0000024,RHEA:20485,(S)-cheilanthifoline synthase activity,0.333,0,ignore
+current_model.xml,reaction,R3,CICR,metaid_0000024,RHEA:22180,(S)-norreticuline + S-adenosyl-L-methionine = (S)-norcodamine + H(+) + S-adenosyl-L-homocysteine,0.333,0,ignore
+current_model.xml,reaction,R3,CICR,metaid_0000024,RHEA:22856,salutaridinol 7-O-acetyltransferase activity,0.333,0,ignore
+current_model.xml,reaction,R3,CICR,metaid_0000024,RHEA:23808,(S)-scoulerine 9-O-methyltransferase activity,0.333,0,ignore
+current_model.xml,reaction,R3,CICR,metaid_0000024,RHEA:25711,L-trihomomethionine + O2 + reduced [NADPH--hemoprotein reductase] = 2 H(+) + H2O + N-hydroxy-L-trihomomethionine + oxidized [NADPH--hemoprotein reductase],0.333,0,ignore
+current_model.xml,reaction,R3,CICR,metaid_0000024,RHEA:25715,"N-hydroxy-L-trihomomethionine + O2 + reduced [NADPH--hemoprotein reductase] = H(+) + H2O + N,N-dihydroxy-L-trihomomethionine + oxidized [NADPH--hemoprotein reductase]",0.333,0,ignore
+current_model.xml,reaction,R3,CICR,metaid_0000024,RHEA:38907,(R)-reticuline 7-O-methyltransferase activity,0.333,0,ignore
+current_model.xml,reaction,R3,CICR,metaid_0000024,RHEA:40279,(R)-carnitine + dodecanoyl-CoA = CoA + O-dodecanoyl-R-carnitine,0.333,0,ignore
+current_model.xml,reaction,R3,CICR,metaid_0000024,RHEA:50364,(S)-nandinine synthase activity,0.333,0,ignore
+current_model.xml,reaction,R3,CICR,metaid_0000024,RHEA:51516,(R)-reticuline + S-adenosyl-L-methionine = (R)-tembetarine + H(+) + S-adenosyl-L-homocysteine,0.333,0,ignore
+current_model.xml,reaction,R3,CICR,metaid_0000024,RHEA:51520,(S)-reticuline + S-adenosyl-L-methionine = (S)-tembetarine + H(+) + S-adenosyl-L-homocysteine,0.333,0,ignore
+current_model.xml,reaction,R3,CICR,metaid_0000024,RHEA:51524,S-adenosyl-L-methionine:(S)-corytuberine-N-methyltransferase activity,0.333,0,ignore
+current_model.xml,reaction,R3,CICR,metaid_0000024,RHEA:51540,(S)-corytuberine synthase activity,0.333,0,ignore
+current_model.xml,reaction,R3,CICR,metaid_0000024,RHEA:51560,(S)-bulbocapnine + S-adenosyl-L-methionine = (S)-N-methylbulbocapnine + H(+) + S-adenosyl-L-homocysteine,0.333,0,ignore
+current_model.xml,reaction,R3,CICR,metaid_0000024,RHEA:52600,L-methionine + propanoyl-CoA = CoA + H(+) + N-propanoyl-L-methioninate,0.333,0,ignore
+current_model.xml,reaction,R3,CICR,metaid_0000024,RHEA:56308,"(S)-reticuline + O2 + reduced [NADPH--hemoprotein reductase] = 1,2-dehydroreticuline + H(+) + 2 H2O + oxidized [NADPH--hemoprotein reductase]",0.333,0,ignore
+current_model.xml,reaction,R3,CICR,metaid_0000024,RHEA:59532,(S)-reticuline + S-adenosyl-L-methionine = (S)-codamine + H(+) + S-adenosyl-L-homocysteine,0.333,0,ignore
+current_model.xml,reaction,R3,CICR,metaid_0000024,RHEA:64748,H2O + S-(4-hydroxy-3-methylbutan-2-yl)-L-cysteine = 2-methyl-3-sulfanylbutan-1-ol + NH4(+) + pyruvate,0.333,0,ignore
+current_model.xml,reaction,R3,CICR,metaid_0000024,RHEA:64752,3-sulfanylpentan-1-ol-L-cysteine + H2O = 3-sulfanyl-1-pentanol + NH4(+) + pyruvate,0.333,0,ignore
+current_model.xml,reaction,R3,CICR,metaid_0000024,RHEA:64772,S-(4-hydroxy-3-methylbutan-2-yl)-L-cysteine = 2-aminoprop-2-enoate + 2-methyl-3-sulfanylbutan-1-ol,0.333,0,ignore
+current_model.xml,reaction,R3,CICR,metaid_0000024,RHEA:64776,3-sulfanylpentan-1-ol-L-cysteine = 2-aminoprop-2-enoate + 3-sulfanyl-1-pentanol,0.333,0,ignore
+current_model.xml,reaction,R4,serca,metaid_0000025,RHEA:10108,salutaridine reductase (NADPH) activity,0.333,0,ignore
+current_model.xml,reaction,R4,serca,metaid_0000025,RHEA:10444,(S)-reticuline 7-O-methyltransferase activity,0.333,0,ignore
+current_model.xml,reaction,R4,serca,metaid_0000025,RHEA:13773,(S)-stylopine synthase activity,0.333,0,ignore
+current_model.xml,reaction,R4,serca,metaid_0000025,RHEA:17569,"1,2-dehydroreticulinium reductase (NADPH) activity",0.333,0,ignore
+current_model.xml,reaction,R4,serca,metaid_0000025,RHEA:17713,salutaridine synthase activity,0.333,0,ignore
+current_model.xml,reaction,R4,serca,metaid_0000025,RHEA:17789,3'-hydroxy-N-methyl-(S)-coclaurine 4'-O-methyltransferase activity,0.333,0,ignore
+current_model.xml,reaction,R4,serca,metaid_0000025,RHEA:19885,reticuline oxidase activity,0.333,0,ignore
+current_model.xml,reaction,R4,serca,metaid_0000025,RHEA:20485,(S)-cheilanthifoline synthase activity,0.333,0,ignore
+current_model.xml,reaction,R4,serca,metaid_0000025,RHEA:22180,(S)-norreticuline + S-adenosyl-L-methionine = (S)-norcodamine + H(+) + S-adenosyl-L-homocysteine,0.333,0,ignore
+current_model.xml,reaction,R4,serca,metaid_0000025,RHEA:22856,salutaridinol 7-O-acetyltransferase activity,0.333,0,ignore
+current_model.xml,reaction,R4,serca,metaid_0000025,RHEA:23808,(S)-scoulerine 9-O-methyltransferase activity,0.333,0,ignore
+current_model.xml,reaction,R4,serca,metaid_0000025,RHEA:25711,L-trihomomethionine + O2 + reduced [NADPH--hemoprotein reductase] = 2 H(+) + H2O + N-hydroxy-L-trihomomethionine + oxidized [NADPH--hemoprotein reductase],0.333,0,ignore
+current_model.xml,reaction,R4,serca,metaid_0000025,RHEA:25715,"N-hydroxy-L-trihomomethionine + O2 + reduced [NADPH--hemoprotein reductase] = H(+) + H2O + N,N-dihydroxy-L-trihomomethionine + oxidized [NADPH--hemoprotein reductase]",0.333,0,ignore
+current_model.xml,reaction,R4,serca,metaid_0000025,RHEA:38907,(R)-reticuline 7-O-methyltransferase activity,0.333,0,ignore
+current_model.xml,reaction,R4,serca,metaid_0000025,RHEA:40279,(R)-carnitine + dodecanoyl-CoA = CoA + O-dodecanoyl-R-carnitine,0.333,0,ignore
+current_model.xml,reaction,R4,serca,metaid_0000025,RHEA:50364,(S)-nandinine synthase activity,0.333,0,ignore
+current_model.xml,reaction,R4,serca,metaid_0000025,RHEA:51516,(R)-reticuline + S-adenosyl-L-methionine = (R)-tembetarine + H(+) + S-adenosyl-L-homocysteine,0.333,0,ignore
+current_model.xml,reaction,R4,serca,metaid_0000025,RHEA:51520,(S)-reticuline + S-adenosyl-L-methionine = (S)-tembetarine + H(+) + S-adenosyl-L-homocysteine,0.333,0,ignore
+current_model.xml,reaction,R4,serca,metaid_0000025,RHEA:51524,S-adenosyl-L-methionine:(S)-corytuberine-N-methyltransferase activity,0.333,0,ignore
+current_model.xml,reaction,R4,serca,metaid_0000025,RHEA:51540,(S)-corytuberine synthase activity,0.333,0,ignore
+current_model.xml,reaction,R4,serca,metaid_0000025,RHEA:51560,(S)-bulbocapnine + S-adenosyl-L-methionine = (S)-N-methylbulbocapnine + H(+) + S-adenosyl-L-homocysteine,0.333,0,ignore
+current_model.xml,reaction,R4,serca,metaid_0000025,RHEA:52600,L-methionine + propanoyl-CoA = CoA + H(+) + N-propanoyl-L-methioninate,0.333,0,ignore
+current_model.xml,reaction,R4,serca,metaid_0000025,RHEA:56308,"(S)-reticuline + O2 + reduced [NADPH--hemoprotein reductase] = 1,2-dehydroreticuline + H(+) + 2 H2O + oxidized [NADPH--hemoprotein reductase]",0.333,0,ignore
+current_model.xml,reaction,R4,serca,metaid_0000025,RHEA:59532,(S)-reticuline + S-adenosyl-L-methionine = (S)-codamine + H(+) + S-adenosyl-L-homocysteine,0.333,0,ignore
+current_model.xml,reaction,R4,serca,metaid_0000025,RHEA:64748,H2O + S-(4-hydroxy-3-methylbutan-2-yl)-L-cysteine = 2-methyl-3-sulfanylbutan-1-ol + NH4(+) + pyruvate,0.333,0,ignore
+current_model.xml,reaction,R4,serca,metaid_0000025,RHEA:64752,3-sulfanylpentan-1-ol-L-cysteine + H2O = 3-sulfanyl-1-pentanol + NH4(+) + pyruvate,0.333,0,ignore
+current_model.xml,reaction,R4,serca,metaid_0000025,RHEA:64772,S-(4-hydroxy-3-methylbutan-2-yl)-L-cysteine = 2-aminoprop-2-enoate + 2-methyl-3-sulfanylbutan-1-ol,0.333,0,ignore
+current_model.xml,reaction,R4,serca,metaid_0000025,RHEA:64776,3-sulfanylpentan-1-ol-L-cysteine = 2-aminoprop-2-enoate + 3-sulfanyl-1-pentanol,0.333,0,ignore
+current_model.xml,reaction,R5,Leak flux,metaid_0000026,RHEA:10108,salutaridine reductase (NADPH) activity,0.333,0,ignore
+current_model.xml,reaction,R5,Leak flux,metaid_0000026,RHEA:10444,(S)-reticuline 7-O-methyltransferase activity,0.333,0,ignore
+current_model.xml,reaction,R5,Leak flux,metaid_0000026,RHEA:13773,(S)-stylopine synthase activity,0.333,0,ignore
+current_model.xml,reaction,R5,Leak flux,metaid_0000026,RHEA:17569,"1,2-dehydroreticulinium reductase (NADPH) activity",0.333,0,ignore
+current_model.xml,reaction,R5,Leak flux,metaid_0000026,RHEA:17713,salutaridine synthase activity,0.333,0,ignore
+current_model.xml,reaction,R5,Leak flux,metaid_0000026,RHEA:17789,3'-hydroxy-N-methyl-(S)-coclaurine 4'-O-methyltransferase activity,0.333,0,ignore
+current_model.xml,reaction,R5,Leak flux,metaid_0000026,RHEA:19885,reticuline oxidase activity,0.333,0,ignore
+current_model.xml,reaction,R5,Leak flux,metaid_0000026,RHEA:20485,(S)-cheilanthifoline synthase activity,0.333,0,ignore
+current_model.xml,reaction,R5,Leak flux,metaid_0000026,RHEA:22180,(S)-norreticuline + S-adenosyl-L-methionine = (S)-norcodamine + H(+) + S-adenosyl-L-homocysteine,0.333,0,ignore
+current_model.xml,reaction,R5,Leak flux,metaid_0000026,RHEA:22856,salutaridinol 7-O-acetyltransferase activity,0.333,0,ignore
+current_model.xml,reaction,R5,Leak flux,metaid_0000026,RHEA:23808,(S)-scoulerine 9-O-methyltransferase activity,0.333,0,ignore
+current_model.xml,reaction,R5,Leak flux,metaid_0000026,RHEA:25711,L-trihomomethionine + O2 + reduced [NADPH--hemoprotein reductase] = 2 H(+) + H2O + N-hydroxy-L-trihomomethionine + oxidized [NADPH--hemoprotein reductase],0.333,0,ignore
+current_model.xml,reaction,R5,Leak flux,metaid_0000026,RHEA:25715,"N-hydroxy-L-trihomomethionine + O2 + reduced [NADPH--hemoprotein reductase] = H(+) + H2O + N,N-dihydroxy-L-trihomomethionine + oxidized [NADPH--hemoprotein reductase]",0.333,0,ignore
+current_model.xml,reaction,R5,Leak flux,metaid_0000026,RHEA:38907,(R)-reticuline 7-O-methyltransferase activity,0.333,0,ignore
+current_model.xml,reaction,R5,Leak flux,metaid_0000026,RHEA:40279,(R)-carnitine + dodecanoyl-CoA = CoA + O-dodecanoyl-R-carnitine,0.333,0,ignore
+current_model.xml,reaction,R5,Leak flux,metaid_0000026,RHEA:50364,(S)-nandinine synthase activity,0.333,0,ignore
+current_model.xml,reaction,R5,Leak flux,metaid_0000026,RHEA:51516,(R)-reticuline + S-adenosyl-L-methionine = (R)-tembetarine + H(+) + S-adenosyl-L-homocysteine,0.333,0,ignore
+current_model.xml,reaction,R5,Leak flux,metaid_0000026,RHEA:51520,(S)-reticuline + S-adenosyl-L-methionine = (S)-tembetarine + H(+) + S-adenosyl-L-homocysteine,0.333,0,ignore
+current_model.xml,reaction,R5,Leak flux,metaid_0000026,RHEA:51524,S-adenosyl-L-methionine:(S)-corytuberine-N-methyltransferase activity,0.333,0,ignore
+current_model.xml,reaction,R5,Leak flux,metaid_0000026,RHEA:51540,(S)-corytuberine synthase activity,0.333,0,ignore
+current_model.xml,reaction,R5,Leak flux,metaid_0000026,RHEA:51560,(S)-bulbocapnine + S-adenosyl-L-methionine = (S)-N-methylbulbocapnine + H(+) + S-adenosyl-L-homocysteine,0.333,0,ignore
+current_model.xml,reaction,R5,Leak flux,metaid_0000026,RHEA:52600,L-methionine + propanoyl-CoA = CoA + H(+) + N-propanoyl-L-methioninate,0.333,0,ignore
+current_model.xml,reaction,R5,Leak flux,metaid_0000026,RHEA:56308,"(S)-reticuline + O2 + reduced [NADPH--hemoprotein reductase] = 1,2-dehydroreticuline + H(+) + 2 H2O + oxidized [NADPH--hemoprotein reductase]",0.333,0,ignore
+current_model.xml,reaction,R5,Leak flux,metaid_0000026,RHEA:59532,(S)-reticuline + S-adenosyl-L-methionine = (S)-codamine + H(+) + S-adenosyl-L-homocysteine,0.333,0,ignore
+current_model.xml,reaction,R5,Leak flux,metaid_0000026,RHEA:64748,H2O + S-(4-hydroxy-3-methylbutan-2-yl)-L-cysteine = 2-methyl-3-sulfanylbutan-1-ol + NH4(+) + pyruvate,0.333,0,ignore
+current_model.xml,reaction,R5,Leak flux,metaid_0000026,RHEA:64752,3-sulfanylpentan-1-ol-L-cysteine + H2O = 3-sulfanyl-1-pentanol + NH4(+) + pyruvate,0.333,0,ignore
+current_model.xml,reaction,R5,Leak flux,metaid_0000026,RHEA:64772,S-(4-hydroxy-3-methylbutan-2-yl)-L-cysteine = 2-aminoprop-2-enoate + 2-methyl-3-sulfanylbutan-1-ol,0.333,0,ignore
+current_model.xml,reaction,R5,Leak flux,metaid_0000026,RHEA:64776,3-sulfanylpentan-1-ol-L-cysteine = 2-aminoprop-2-enoate + 3-sulfanyl-1-pentanol,0.333,0,ignore
+current_model.xml,reaction,R6,PLC,metaid_0000027,RHEA:11020,"inositol-1,4,5-trisphosphate 3-kinase activity",0.333,0,ignore
+current_model.xml,reaction,R6,PLC,metaid_0000027,RHEA:11392,"inositol-1,3,4,5-tetrakisphosphate 5-phosphatase activity",0.333,0,ignore
+current_model.xml,reaction,R6,PLC,metaid_0000027,RHEA:13253,"inositol-1,3,4-trisphosphate 5-kinase activity",0.333,0,ignore
+current_model.xml,reaction,R6,PLC,metaid_0000027,RHEA:17717,"1D-myo-inositol 1,4,5-trisphosphate + ATP = 1D-myo-inositol 1,4,5,6-tetrakisphosphate + ADP + H(+)",0.333,0,ignore
+current_model.xml,reaction,R6,PLC,metaid_0000027,RHEA:19797,"inositol-1,4,5-trisphosphate 5-phosphatase activity",0.333,0,ignore
+current_model.xml,reaction,R6,PLC,metaid_0000027,RHEA:20940,"inositol-1,3,4-trisphosphate 6-kinase activity",0.333,0,ignore
+current_model.xml,reaction,R6,PLC,metaid_0000027,RHEA:32359,"1D-myo-inositol 1,4,5-trisphosphate + 2 ATP = 1D-myo-inositol 1,3,4,5,6-pentakisphosphate + 2 ADP + 2 H(+)",0.333,0,ignore
+current_model.xml,reaction,R6,PLC,metaid_0000027,RHEA:33179,phosphatidylinositol phospholipase C activity,0.333,0,ignore
+current_model.xml,reaction,R6,PLC,metaid_0000027,RHEA:43392,"inositol-1,3,4-trisphosphate 4-phosphatase activity",0.333,0,ignore
+current_model.xml,reaction,R6,PLC,metaid_0000027,RHEA:68316,"1D-myo-inositol 2,3,4,5-tetrakisphosphate + H2O = 1D-myo-inositol 2,4,5-triphosphate + phosphate",0.333,0,ignore
+current_model.xml,reaction,R6,PLC,metaid_0000027,RHEA:68320,"1D-myo-inositol 2,4,5-triphosphate + H2O = 1D-myo-inositol 2,5-bisphosphate + phosphate",0.333,0,ignore
+current_model.xml,reaction,R6,PLC,metaid_0000027,RHEA:70263,"1D-myo-inositol 1,3,4,5,6-pentakisphosphate + 1D-myo-inositol 1,3,4-trisphosphate = 1D-myo-inositol 1,3,4,6-tetrakisphosphate + 1D-myo-inositol 3,4,5,6-tetrakisphosphate",0.333,0,ignore
+current_model.xml,reaction,R6,PLC,metaid_0000027,RHEA:70271,"1D-myo-inositol 1,3,4,5,6-pentakisphosphate + 1D-myo-inositol 1,3,4-trisphosphate = 1D-myo-inositol 1,3,4,5-tetrakisphosphate + 1D-myo-inositol 3,4,5,6-tetrakisphosphate",0.333,0,ignore
+current_model.xml,reaction,R6,PLC,metaid_0000027,RHEA:70287,"1D-myo-inositol 3,4,6-trisphosphate + ATP = 1D-myo-inositol 1,3,4,6-tetrakisphosphate + ADP + H(+)",0.333,0,ignore
+current_model.xml,reaction,R6,PLC,metaid_0000027,RHEA:70319,"1D-myo-inositol 1,3,4-trisphosphate + H2O = 1D-myo-inositol 3,4-bisphosphate + phosphate",0.333,0,ignore
+current_model.xml,reaction,R7,IP3 degradation,metaid_0000028,RHEA:11020,"inositol-1,4,5-trisphosphate 3-kinase activity",0.333,0,ignore
+current_model.xml,reaction,R7,IP3 degradation,metaid_0000028,RHEA:11392,"inositol-1,3,4,5-tetrakisphosphate 5-phosphatase activity",0.333,0,ignore
+current_model.xml,reaction,R7,IP3 degradation,metaid_0000028,RHEA:13253,"inositol-1,3,4-trisphosphate 5-kinase activity",0.333,0,ignore
+current_model.xml,reaction,R7,IP3 degradation,metaid_0000028,RHEA:17717,"1D-myo-inositol 1,4,5-trisphosphate + ATP = 1D-myo-inositol 1,4,5,6-tetrakisphosphate + ADP + H(+)",0.333,0,ignore
+current_model.xml,reaction,R7,IP3 degradation,metaid_0000028,RHEA:19797,"inositol-1,4,5-trisphosphate 5-phosphatase activity",0.333,0,ignore
+current_model.xml,reaction,R7,IP3 degradation,metaid_0000028,RHEA:20940,"inositol-1,3,4-trisphosphate 6-kinase activity",0.333,0,ignore
+current_model.xml,reaction,R7,IP3 degradation,metaid_0000028,RHEA:32359,"1D-myo-inositol 1,4,5-trisphosphate + 2 ATP = 1D-myo-inositol 1,3,4,5,6-pentakisphosphate + 2 ADP + 2 H(+)",0.333,0,ignore
+current_model.xml,reaction,R7,IP3 degradation,metaid_0000028,RHEA:33179,phosphatidylinositol phospholipase C activity,0.333,0,ignore
+current_model.xml,reaction,R7,IP3 degradation,metaid_0000028,RHEA:43392,"inositol-1,3,4-trisphosphate 4-phosphatase activity",0.333,0,ignore
+current_model.xml,reaction,R7,IP3 degradation,metaid_0000028,RHEA:68316,"1D-myo-inositol 2,3,4,5-tetrakisphosphate + H2O = 1D-myo-inositol 2,4,5-triphosphate + phosphate",0.333,0,ignore
+current_model.xml,reaction,R7,IP3 degradation,metaid_0000028,RHEA:68320,"1D-myo-inositol 2,4,5-triphosphate + H2O = 1D-myo-inositol 2,5-bisphosphate + phosphate",0.333,0,ignore
+current_model.xml,reaction,R7,IP3 degradation,metaid_0000028,RHEA:70263,"1D-myo-inositol 1,3,4,5,6-pentakisphosphate + 1D-myo-inositol 1,3,4-trisphosphate = 1D-myo-inositol 1,3,4,6-tetrakisphosphate + 1D-myo-inositol 3,4,5,6-tetrakisphosphate",0.333,0,ignore
+current_model.xml,reaction,R7,IP3 degradation,metaid_0000028,RHEA:70271,"1D-myo-inositol 1,3,4,5,6-pentakisphosphate + 1D-myo-inositol 1,3,4-trisphosphate = 1D-myo-inositol 1,3,4,5-tetrakisphosphate + 1D-myo-inositol 3,4,5,6-tetrakisphosphate",0.333,0,ignore
+current_model.xml,reaction,R7,IP3 degradation,metaid_0000028,RHEA:70287,"1D-myo-inositol 3,4,6-trisphosphate + ATP = 1D-myo-inositol 1,3,4,6-tetrakisphosphate + ADP + H(+)",0.333,0,ignore
+current_model.xml,reaction,R7,IP3 degradation,metaid_0000028,RHEA:70319,"1D-myo-inositol 1,3,4-trisphosphate + H2O = 1D-myo-inositol 3,4-bisphosphate + phosphate",0.333,0,ignore

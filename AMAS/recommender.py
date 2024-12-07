@@ -21,8 +21,9 @@ from AMAS import iterator as it
 from AMAS import tools
 from AMAS import species_annotation as sa
 from AMAS import reaction_annotation as ra
+from AMAS import gene_annotation as ga
 
-ELEMENT_TYPES = ['species', 'reaction']
+ELEMENT_TYPES = ['species', 'reaction', 'gene']
 
 class Recommender(object):
 
@@ -46,20 +47,23 @@ class Recommender(object):
     # and send the informaton to create species/reaction annotations
     fname = None
     if libsbml_fpath:
-      spec_tuple, reac_tuple = self._parseSBML(libsbml_fpath)
+      spec_tuple, reac_tuple, gene_tuple = self._parseSBML(libsbml_fpath)
       # basically split fpath and use the last one
       fname = libsbml_fpath.split('/')[-1]
     elif libsbml_cl:
-      spec_tuple, reac_tuple = self._parseSBML(libsbml_cl)
+      spec_tuple, reac_tuple, gene_tuple = self._parseSBML(libsbml_cl)
     elif model_specs:
       spec_tuple = model_specs[0]
       reac_tuple = model_specs[1]
+      gene_tuple = model_specs[2]
     else:
       spec_tuple = None
       reac_tuple = None
+      gene_tuple = None
     self.fname = fname
     self.species = sa.SpeciesAnnotation(inp_tuple=spec_tuple)
     self.reactions = ra.ReactionAnnotation(inp_tuple=reac_tuple)
+    self.genes = ga.GeneAnnotation(inp_tuple=gene_tuple)
     # Below are elements to interact with user
     self.current_type = None
     self.just_displayed = None
@@ -552,8 +556,8 @@ class Recommender(object):
   def _parseSBML(self, sbml):
     """
     Parse SBML file and return 
-    two tuples, for species and reactions 
-    respecitvely,
+    three tuples, for species, reactions, and genes
+    respectively,
     equivalent to model_specs.
     Can use either libsbml.Document class
     or a file path.
@@ -564,9 +568,9 @@ class Recommender(object):
 
     Returns
     -------
-    (tuple, tuple): 
-        Two tuples to create species/reaction annotation classes
-        (species_tuple, reaction_tuple)
+    (tuple, tuple, tuple): 
+        Three tuples to create species/reaction/gene annotation classes
+        (species_tuple, reaction_tuple, gene_tuple)
     """
     if isinstance(sbml, str):
       reader = libsbml.SBMLReader()
@@ -577,17 +581,26 @@ class Recommender(object):
     elif isinstance(sbml, libsbml.SBMLDocument):
       self.sbml_document = sbml
     model = self.sbml_document.getModel()
+    if model is None:
+      return None, None, None
     exist_spec_annotation = tools.extractExistingSpeciesAnnotation(model)
     species_names = {val.getId():val.name for val in model.getListOfSpecies()}
     species_tuple = (species_names, exist_spec_annotation)
-    #
+    # Reaction annotation
     reac_exist_annotation = tools.extractExistingReactionAnnotation(inp_model=model)
-    # Next, reaction components for each reaction
     reac_components = {val.getId():list(set([k.species for k in val.getListOfReactants()]+\
                                             [k.species for k in val.getListOfProducts()])) \
                        for val in model.getListOfReactions()}
     reaction_tuple = (reac_components, reac_exist_annotation)
-    return species_tuple, reaction_tuple
+    # Gene annotation
+    model_fbc = self.sbml_document.getModel().getPlugin("fbc")
+    if model_fbc is not None:
+      exist_gene_annotation = tools.extractExistingGeneAnnotation(inp_model=model_fbc)
+      gene_names = {val.getIdAttribute():val.name for val in model_fbc.getListOfGeneProducts()}
+      gene_tuple = (gene_names, exist_gene_annotation)
+    else:
+      gene_tuple = None
+    return species_tuple, reaction_tuple, gene_tuple
 
 
   def getSpeciesStatistics(self,
@@ -621,28 +634,35 @@ class Recommender(object):
 
     Returns
     -------
+    A dictionary with four metrics:
+        recall_formula/precision_formula: compare the shortened chemical formula of predictions with existing ones
+        recall_chebi/precision_chebi: compare the identifiers (e.g., ChEBI IDs) directly
     None/dict
         Return None if there is nothing to evaluate
         (i.e., if there is no existing model annotation)
     """
     # get dictionary of formulas if they exist
-    refs = {val:self.species.exist_annotation_formula[val] \
+    refs_formula = {val:self.species.exist_annotation_formula[val] \
             for val in self.species.exist_annotation_formula.keys() \
             if self.species.exist_annotation_formula[val]}
-    specs2eval = list(refs.keys())
+    refs_chebi = self.species.exist_annotation
+    specs2eval = list(refs_formula.keys())
     if len(specs2eval) == 0:
       return None
     preds_comb = self.getSpeciesListRecommendation(pred_ids=specs2eval,
                                                    mssc=mssc,
                                                    cutoff=cutoff)
-    chebi_preds = {val.id:[k[0] for k in val.candidates] \
+    preds_chebi = {val.id:[k[0] for k in val.candidates] \
                    for val in preds_comb}
-    preds = {k:[cn.REF_CHEBI2FORMULA[val] for val in chebi_preds[k] \
+    preds_formula = {k:[cn.REF_CHEBI2FORMULA[val] for val in preds_chebi[k] \
                 if val in cn.REF_CHEBI2FORMULA.keys()] \
-             for k in chebi_preds.keys()}
-    recall = tools.getRecall(ref=refs, pred=preds, mean=model_mean)
-    precision = tools.getPrecision(ref=refs, pred=preds, mean=model_mean)
-    return {cn.RECALL: recall, cn.PRECISION: precision}
+             for k in preds_chebi.keys()}
+    recall_formula = tools.getRecall(ref=refs_formula, pred=preds_formula, mean=model_mean)
+    precision_formula = tools.getPrecision(ref=refs_formula, pred=preds_formula, mean=model_mean)
+    recall_chebi = tools.getRecall(ref=refs_chebi, pred=preds_chebi, mean=model_mean)
+    precision_chebi = tools.getPrecision(ref=refs_chebi, pred=preds_chebi, mean=model_mean)
+    return {'recall_formula': recall_formula, 'precision_formula': precision_formula, 
+            'recall_chebi': recall_chebi, 'precision_chebi': precision_chebi}
 
 
   def getReactionStatistics(self,
@@ -1480,3 +1500,228 @@ class Recommender(object):
     res = next((np.round(v[1], cn.ROUND_DIGITS) \
                for v in scores if v[0] == inp_rhea), 0.0)
     return res   
+
+################ Gene annotation #################
+  def getGeneRecommendation(self,
+                            tax='ecoli_mg1655',
+                            pred_str=None,
+                            pred_id=None,
+                            method='cdist',
+                            mssc='top',
+                            cutoff=0.0,
+                            update=True,
+                            get_df=False):
+
+    """
+    Predict annotations of genes using
+    the provided string or ID.
+    If pred_str is given, directly use the string;
+    if pred_id is given, determine the appropriate
+    name using the gene ID. 
+    Algorithmically, it is a special case of 
+    self.getGeneListRecommendation.
+
+    Parameters
+    ----------
+    tax: str
+        name of the taxonomy of species
+        - 'ecoli_mg1655': Escherichia coli K-12 MG1655
+        - 'human': Homo sapiens
+    pred_str: str
+        Gene name to predict annotation with
+    pred_id: str
+        ID of gene (search for name using it)
+    method: str
+        One of ['cdist', 'edist']
+        'cdist' represents Cosine Similarity
+        'edist' represents Edit Distance.
+        Default method id 'cdist'
+    mssc: match score selection criteria
+        'top' will recommend candidates with
+        the highest match score above cutoff
+        'above' will recommend all candidates with
+        match scores above cutoff
+    cutoff: float
+        Cutoff value; only candidates with match score
+        at or above the cutoff will be recommended.
+    update: bool
+        If true, update existing gene annotations
+        (i.e., replace or create new entries)
+        in self.genes.candidates and self.genes.formula
+    get_df: bool
+        If true, return a pandas.DataFrame.
+        If False, return a cn.Recommendation
+
+    Returns
+    -------
+    cn.Recommendation (namedtuple) / str
+    """
+    if pred_str:
+      result = self.getGeneListRecommendation(
+        tax=tax,
+        pred_strs=[pred_str],
+        method=method,
+        mssc=mssc,
+        cutoff=cutoff,
+        update=update,
+        get_df=get_df)
+    elif pred_id:
+      result = self.getGeneListRecommendation(
+        tax=tax,
+        pred_ids=[pred_id],
+        method=method,
+        mssc=mssc,
+        cutoff=cutoff,
+        update=update,
+        get_df=get_df)  
+    return result[0]    
+
+  def getGeneIDs(self):
+    """
+    Returns Gene IDs that exist in the model.
+  
+    Returns
+    -------
+    list-str
+    """
+    # list of gene ids
+    genes = list(self.genes.names.keys())
+    return genes
+
+
+  def getGeneListRecommendation(self,
+                                tax='ecoli_mg1655',
+                                pred_strs=None,
+                                pred_ids=None,
+                                method='cdist',
+                                mssc='top',
+                                cutoff=0.0,
+                                update=True,
+                                get_df=False):
+    """
+    Get annotation of multiple genes,
+    given as a list (or an iterable object).
+    self.getGeneRecommendation is applied to
+    each element. 
+
+    Parameters
+    ----------
+    tax: str
+        name of the taxonomy of species
+        - 'ecoli_mg1655': Escherichia coli K-12 MG1655
+        - 'human': Homo sapiens
+    pred_strs: str-list
+        Gene names to predict annotations with
+    pred_ids: str-list
+        Gene IDs to predict annotations with
+        (model info should have been already loaded)
+    method: str
+        One of ['cdist', 'edist']
+        'cdist' represents Cosine Similarity
+        'edist' represents Edit Distance.
+        Default method is 'cdist'
+    mssc: match score selection criteria
+        'top' will recommend candidates with
+        the highest match score above cutoff
+        'above' will recommend all candidates with
+        match scores above cutoff
+    cutoff: float
+        Cutoff value; only candidates with match score
+        at or above the cutoff will be recommended.
+    update: bool
+        If true, update the current annotations
+        (i.e., replace or create new entries)
+        in self.genes.candidates and self.genes.formula
+    get_df: bool
+        If True, return a list of pandas.DataFrame.
+        If False, return a list of cn.Recommendation
+
+    Returns
+    -------
+    list-Recommendation (list-namedtuple) / list-str
+    """
+    scoring_methods = {'edist': self.genes.getEScores,
+                       'cdist': self.genes.getCScores} 
+    if pred_strs: 
+      ids_dict = {k:k for k in pred_strs}
+      inp_strs = pred_strs
+    elif pred_ids:
+      ids_dict = {k:self.genes.getNameToUse(inp_id=k) \
+                  for k in pred_ids}
+      inp_strs = [ids_dict[k] for k in ids_dict.keys()]
+    pred_res = scoring_methods[method](tax=tax,
+                                       inp_strs=inp_strs,
+                                       mssc=mssc,
+                                       cutoff=cutoff)
+    result = []
+    for spec in ids_dict.keys():
+      urls = [cn.NCBI_GENE_DEFAULT_URL + str(val[0]) for val in pred_res[ids_dict[spec]]]
+      labels = [cn.REF_NCBI_GENE2LABEL[val[0]] for val in pred_res[ids_dict[spec]]]
+      one_recom = cn.Recommendation(spec,
+                                    [(val[0], np.round(val[1], cn.ROUND_DIGITS)) \
+                                     for val in pred_res[ids_dict[spec]]],
+                                    urls,
+                                    labels)
+      result.append(one_recom)
+      if update:
+         _ = self.genes.updateGeneWithRecommendation(one_recom)
+    if get_df:
+      return [self.getDataFrameFromRecommendation(rec=val) \
+              for val in result]
+    else:
+      return result
+
+  def getGeneStatistics(self,
+                        tax='ecoli_mg1655',
+                        mssc='top',
+                        cutoff=0.0,
+                        model_mean=True):
+    """
+    Get recall and precision of genes in a model.
+    This method works only if there exists
+    annotation in model; otherwise
+    None will be returned. 
+    In the result, values will be 
+    returned after rounding to the two decimal places. 
+
+    Parameters
+    ----------
+    tax: str
+        name of the taxonomy of species
+        - 'ecoli_mg1655': Escherichia coli K-12 MG1655
+        - 'human': Homo sapiens
+    mssc: str
+        match score selection criteria
+        'top' will recommend candidates with
+        the highest match score above cutoff
+        'above' will recommend all candidates with
+        match scores above cutoff
+    cutoff: float
+        Cutoff value; only candidates with match score
+        at or above the cutoff will be recommended.
+    model_mean: bool
+      If True, get single float values for recall/precision.
+      If False, get a dictionary for recall/precision. 
+
+    Returns
+    -------
+    A dictionary with two metrics:
+        recall: compare the identifiers (e.g., NCBI gene IDs) of predictions with existing ones
+        precision: compare the identifiers (e.g., NCBI gene IDs) of predictions with existing ones
+    None/dict
+        Return None if there is nothing to evaluate
+        (i.e., if there is no existing model annotation)
+    """
+    # get dictionary of formulas if they exist
+    refs = self.genes.exist_annotation
+    genes2eval = list(refs.keys())
+    if len(genes2eval) == 0:
+      return None
+    preds_comb = self.getGeneListRecommendation(tax=tax,
+                                                pred_ids=genes2eval,
+                                                mssc=mssc,
+                                                cutoff=cutoff)
+    preds = {val.id:[str(k[0]) for k in val.candidates] for val in preds_comb}
+    recall = tools.getRecall(ref=refs, pred=preds, mean=model_mean)
+    precision = tools.getPrecision(ref=refs, pred=preds, mean=model_mean)
+    return {'recall': recall, 'precision': precision}
