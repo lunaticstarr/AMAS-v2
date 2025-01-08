@@ -5,7 +5,6 @@ This module is going to be directly used by the users.
 """
 
 # import collections
-import compress_pickle
 import copy
 import fnmatch
 import itertools
@@ -22,8 +21,9 @@ from AMAS import tools
 from AMAS import species_annotation as sa
 from AMAS import reaction_annotation as ra
 from AMAS import gene_annotation as ga
+from AMAS import qual_species_annotation as qsa
 
-ELEMENT_TYPES = ['species', 'reaction', 'gene']
+ELEMENT_TYPES = ['species', 'reaction', 'gene', 'qual_species', 'qual_reaction']
 
 class Recommender(object):
 
@@ -39,36 +39,78 @@ class Recommender(object):
     libsbml_fpath: str
         File path of an SBML model
     mdoel_specs: tuple/list
-        Iterable object of two tuples including model specifications
+        Iterable object of tuples including model specifications
     """
     # Document will be updated and saved if chosen. 
     self.sbml_document = None
+    self.fname = None
     # First of all, collect model information from libsbml model
     # and send the informaton to create species/reaction annotations
-    fname = None
-    if libsbml_fpath:
-      spec_tuple, reac_tuple, gene_tuple = self._parseSBML(libsbml_fpath)
-      # basically split fpath and use the last one
-      fname = libsbml_fpath.split('/')[-1]
-    elif libsbml_cl:
-      spec_tuple, reac_tuple, gene_tuple = self._parseSBML(libsbml_cl)
+
+    if libsbml_fpath or libsbml_cl:
+      model_type = self.check_model_type(libsbml_fpath, libsbml_cl)
+      if model_type == "SBML-qual":
+        qual_spec_tuple, qual_trans_tuple = self._parseSBMLqual()
+        spec_tuple, reac_tuple, gene_tuple = None, None, None
+      else:
+        spec_tuple, reac_tuple, gene_tuple = self._parseSBML()
+        qual_spec_tuple, qual_trans_tuple = None, None
+
     elif model_specs:
       spec_tuple = model_specs[0]
       reac_tuple = model_specs[1]
       gene_tuple = model_specs[2]
+      qual_spec_tuple = model_specs[3]
+      qual_trans_tuple = model_specs[4]
     else:
       spec_tuple = None
       reac_tuple = None
       gene_tuple = None
-    self.fname = fname
+      qual_spec_tuple = None
+      qual_trans_tuple = None
+
+    self.model_type = model_type
     self.species = sa.SpeciesAnnotation(inp_tuple=spec_tuple)
     self.reactions = ra.ReactionAnnotation(inp_tuple=reac_tuple)
     self.genes = ga.GeneAnnotation(inp_tuple=gene_tuple)
+    self.qual_species = qsa.QualSpeciesAnnotation(inp_tuple=qual_spec_tuple)
+    ## TODO: qual_reactions
+
     # Below are elements to interact with user
     self.current_type = None
     self.just_displayed = None
     self.selection = {val:dict() for val in ELEMENT_TYPES}
 
+  def check_model_type(self, libsbml_fpath, libsbml_cl):
+      """
+      Determines whether a model is a standard SBML model or an SBML-Qual model.
+      Parameters
+      ----------
+      libsbml_fpath: str
+        File path of an SBML model
+      libsbml_cl: libsbml.SBMLDocument
+        A libsbml document class instance
+
+      Returns
+      -------
+      str
+        "SBML" or "SBML-qual"
+      """
+      if libsbml_fpath:
+        reader = libsbml.SBMLReader()
+        # Reading the model string file
+        with open(libsbml_fpath, 'r') as f:
+          model_str = f.read()
+        self.sbml_document = reader.readSBMLFromString(model_str)
+        self.fname = libsbml_fpath.split('/')[-1] # basically split fpath and use the last one
+      elif libsbml_cl:
+        self.sbml_document = libsbml_cl
+      if self.sbml_document.getModel() is None:
+          return None
+      model = self.sbml_document.getModel()
+      if self.sbml_document.getPlugin("qual") or model.getPlugin("qual"):
+          return "SBML-qual"
+      return "SBML"
 
   def getDataFrameFromRecommendation(self,
                                      rec,
@@ -553,18 +595,12 @@ class Recommender(object):
     else:
       return result
 
-  def _parseSBML(self, sbml):
+  def _parseSBML(self):
     """
     Parse SBML file and return 
     three tuples, for species, reactions, and genes
     respectively,
     equivalent to model_specs.
-    Can use either libsbml.Document class
-    or a file path.
-
-    Parameters
-    ----------
-    sbml: str(filepath)/libsbml.Document
 
     Returns
     -------
@@ -572,17 +608,10 @@ class Recommender(object):
         Three tuples to create species/reaction/gene annotation classes
         (species_tuple, reaction_tuple, gene_tuple)
     """
-    if isinstance(sbml, str):
-      reader = libsbml.SBMLReader()
-      # Reading the model string file
-      with open(sbml, 'r') as f:
-        model_str = f.read()
-      self.sbml_document = reader.readSBMLFromString(model_str)
-    elif isinstance(sbml, libsbml.SBMLDocument):
-      self.sbml_document = sbml
     model = self.sbml_document.getModel()
     if model is None:
       return None, None, None
+    # Species annotation
     exist_spec_annotation = tools.extractExistingSpeciesAnnotation(model)
     species_names = {val.getId():val.name for val in model.getListOfSpecies()}
     species_tuple = (species_names, exist_spec_annotation)
@@ -602,6 +631,27 @@ class Recommender(object):
       gene_tuple = None
     return species_tuple, reaction_tuple, gene_tuple
 
+  def _parseSBMLqual(self):
+    """
+    Parse SBML-qual model and return two tuples, for species and transitions respectively.
+
+    Returns
+    -------
+    (tuple, tuple): 
+        Two tuples to create species and transitions annotation classes
+        (species_tuple, transition_tuple)
+    """
+    model = self.sbml_document.getModel().getPlugin("qual")
+    # Species annotation
+    exist_spec_annotation = tools.extractExistingQualitativeSpeciesAnnotation(model, description=True)
+    species_names = {val.getId():val.name for val in model.getListOfQualitativeSpecies()}
+    species_tuple = (species_names, exist_spec_annotation)
+
+    # Transition annotation
+    trans_exist_annotation = tools.extractExistingTransitionAnnotation(inp_model=model, description=True)
+    trans_components = {val.getId():val.name for val in model.getListOfTransitions()}
+    transition_tuple = (trans_components, trans_exist_annotation)
+    return species_tuple, transition_tuple
 
   def getSpeciesStatistics(self,
                            mssc='top',
@@ -1503,7 +1553,7 @@ class Recommender(object):
 
 ################ Gene annotation #################
   def getGeneRecommendation(self,
-                            tax='ecoli_mg1655',
+                            tax_id=None,
                             pred_str=None,
                             pred_id=None,
                             method='cdist',
@@ -1523,10 +1573,12 @@ class Recommender(object):
 
     Parameters
     ----------
-    tax: str
+    tax_name: str
         name of the taxonomy of species
         - 'ecoli_mg1655': Escherichia coli K-12 MG1655
         - 'human': Homo sapiens
+    tax_id: int
+        id of the taxonomy of species
     pred_str: str
         Gene name to predict annotation with
     pred_id: str
@@ -1558,7 +1610,7 @@ class Recommender(object):
     """
     if pred_str:
       result = self.getGeneListRecommendation(
-        tax=tax,
+        tax_id=tax_id,
         pred_strs=[pred_str],
         method=method,
         mssc=mssc,
@@ -1567,7 +1619,7 @@ class Recommender(object):
         get_df=get_df)
     elif pred_id:
       result = self.getGeneListRecommendation(
-        tax=tax,
+        tax_id=tax_id,
         pred_ids=[pred_id],
         method=method,
         mssc=mssc,
@@ -1590,7 +1642,7 @@ class Recommender(object):
 
 
   def getGeneListRecommendation(self,
-                                tax='ecoli_mg1655',
+                                tax_id=None,
                                 pred_strs=None,
                                 pred_ids=None,
                                 method='cdist',
@@ -1606,10 +1658,8 @@ class Recommender(object):
 
     Parameters
     ----------
-    tax: str
-        name of the taxonomy of species
-        - 'ecoli_mg1655': Escherichia coli K-12 MG1655
-        - 'human': Homo sapiens
+    tax_id: str
+        Taxonomy ID of the species
     pred_strs: str-list
         Gene names to predict annotations with
     pred_ids: str-list
@@ -1649,7 +1699,7 @@ class Recommender(object):
       ids_dict = {k:self.genes.getNameToUse(inp_id=k) \
                   for k in pred_ids}
       inp_strs = [ids_dict[k] for k in ids_dict.keys()]
-    pred_res = scoring_methods[method](tax=tax,
+    pred_res = scoring_methods[method](tax_id=tax_id,
                                        inp_strs=inp_strs,
                                        mssc=mssc,
                                        cutoff=cutoff)
@@ -1672,7 +1722,7 @@ class Recommender(object):
       return result
 
   def getGeneStatistics(self,
-                        tax='ecoli_mg1655',
+                        tax_id=None,
                         mssc='top',
                         cutoff=0.0,
                         model_mean=True):
@@ -1686,10 +1736,8 @@ class Recommender(object):
 
     Parameters
     ----------
-    tax: str
-        name of the taxonomy of species
-        - 'ecoli_mg1655': Escherichia coli K-12 MG1655
-        - 'human': Homo sapiens
+    tax_id: int
+        Taxonomy ID of the species
     mssc: str
         match score selection criteria
         'top' will recommend candidates with
@@ -1717,8 +1765,227 @@ class Recommender(object):
     genes2eval = list(refs.keys())
     if len(genes2eval) == 0:
       return None
-    preds_comb = self.getGeneListRecommendation(tax=tax,
+    preds_comb = self.getGeneListRecommendation(tax_id=tax_id,
                                                 pred_ids=genes2eval,
+                                                mssc=mssc,
+                                                cutoff=cutoff)
+    preds = {val.id:[str(k[0]) for k in val.candidates] for val in preds_comb}
+    recall = tools.getRecall(ref=refs, pred=preds, mean=model_mean)
+    precision = tools.getPrecision(ref=refs, pred=preds, mean=model_mean)
+    return {'recall': recall, 'precision': precision}
+  
+################ Qualitative Species annotation #################
+  def getQualSpeciesRecommendation(self,
+                            tax_id=None,
+                            pred_str=None,
+                            pred_id=None,
+                            method='cdist',
+                            mssc='top',
+                            cutoff=0.0,
+                            update=True,
+                            get_df=False):
+
+    """
+    Predict annotations of qualitative species using
+    the provided string or ID.
+    If pred_str is given, directly use the string;
+    if pred_id is given, determine the appropriate
+    name using the gene ID. 
+    Algorithmically, it is a special case of 
+    self.getQualSpeciesListRecommendation.
+
+    Parameters
+    ----------
+    tax_id: int
+        id of the taxonomy of species
+    pred_str: str
+        Gene name to predict annotation with
+    pred_id: str
+        ID of qual species (search for name using it)
+    method: str
+        One of ['cdist', 'edist']
+        'cdist' represents Cosine Similarity
+        'edist' represents Edit Distance.
+        Default method id 'cdist'
+    mssc: match score selection criteria
+        'top' will recommend candidates with
+        the highest match score above cutoff
+        'above' will recommend all candidates with
+        match scores above cutoff
+    cutoff: float
+        Cutoff value; only candidates with match score
+        at or above the cutoff will be recommended.
+    update: bool
+        If true, update existing gene annotations
+        (i.e., replace or create new entries)
+        in self.genes.candidates and self.genes.formula
+    get_df: bool
+        If true, return a pandas.DataFrame.
+        If False, return a cn.Recommendation
+
+    Returns
+    -------
+    cn.Recommendation (namedtuple) / str
+    """
+    if pred_str:
+      result = self.getQualSpeciesListRecommendation(
+        tax_id=tax_id,
+        pred_strs=[pred_str],
+        method=method,
+        mssc=mssc,
+        cutoff=cutoff,
+        update=update,
+        get_df=get_df)
+    elif pred_id:
+      result = self.getQualSpeciesListRecommendation(
+        tax_id=tax_id,
+        pred_ids=[pred_id],
+        method=method,
+        mssc=mssc,
+        cutoff=cutoff,
+        update=update,
+        get_df=get_df)  
+    return result[0]    
+
+  def getQualSpeciesIDs(self):
+    """
+    Returns Qualitative Species IDs that exist in the model.
+  
+    Returns
+    -------
+    list-str
+    """
+    # list of qual species ids
+    qual_species = list(self.qual_species.names.keys())
+    return qual_species
+
+
+  def getQualSpeciesListRecommendation(self,
+                                tax_id=None,
+                                pred_strs=None,
+                                pred_ids=None,
+                                method='cdist',
+                                mssc='top',
+                                cutoff=0.0,
+                                update=True,
+                                get_df=False):
+    """
+    Get annotation of multiple qual species,
+    given as a list (or an iterable object).
+    self.getQualSpeciesRecommendation is applied to
+    each element. 
+
+    Parameters
+    ----------
+    tax_id: str
+        Taxonomy ID of the species
+    pred_strs: str-list
+        Qual species names to predict annotations with
+    pred_ids: str-list
+        Qual species IDs to predict annotations with
+        (model info should have been already loaded)
+    method: str
+        One of ['cdist', 'edist']
+        'cdist' represents Cosine Similarity
+        'edist' represents Edit Distance.
+        Default method is 'cdist'
+    mssc: match score selection criteria
+        'top' will recommend candidates with
+        the highest match score above cutoff
+        'above' will recommend all candidates with
+        match scores above cutoff
+    cutoff: float
+        Cutoff value; only candidates with match score
+        at or above the cutoff will be recommended.
+    update: bool
+        If true, update the current annotations
+        (i.e., replace or create new entries)
+        in self.qual_species.candidates
+    get_df: bool
+        If True, return a list of pandas.DataFrame.
+        If False, return a list of cn.Recommendation
+
+    Returns
+    -------
+    list-Recommendation (list-namedtuple) / list-str
+    """
+    scoring_methods = {'edist': self.qual_species.getEScores,
+                       'cdist': self.qual_species.getCScores} 
+    if pred_strs: 
+      ids_dict = {k:k for k in pred_strs}
+      inp_strs = pred_strs
+    elif pred_ids:
+      ids_dict = {k:self.qual_species.getNameToUse(inp_id=k) \
+                  for k in pred_ids}
+      inp_strs = [ids_dict[k] for k in ids_dict.keys()]
+    pred_res = scoring_methods[method](tax_id=tax_id,
+                                       inp_strs=inp_strs,
+                                       mssc=mssc,
+                                       cutoff=cutoff)
+    result = []
+    for spec in ids_dict.keys():
+      urls = [cn.NCBI_GENE_DEFAULT_URL + str(val[0]) for val in pred_res[ids_dict[spec]]]
+      labels = [cn.REF_NCBI_GENE2LABEL[str(val[0])] for val in pred_res[ids_dict[spec]]]
+      one_recom = cn.Recommendation(spec,
+                                    [(val[0], np.round(val[1], cn.ROUND_DIGITS)) \
+                                     for val in pred_res[ids_dict[spec]]],
+                                    urls,
+                                    labels)
+      result.append(one_recom)
+      if update:
+         _ = self.qual_species.updateQualSpeciesWithRecommendation(one_recom)
+    if get_df:
+      return [self.getDataFrameFromRecommendation(rec=val) \
+              for val in result]
+    else:
+      return result
+
+  def getQualSpeciesStatistics(self,
+                        tax_id=None,
+                        mssc='top',
+                        cutoff=0.0,
+                        model_mean=True):
+    """
+    Get recall and precision of qual species in a model.
+    This method works only if there exists
+    annotation in model; otherwise
+    None will be returned. 
+    In the result, values will be 
+    returned after rounding to the two decimal places. 
+
+    Parameters
+    ----------
+    tax_id: int
+        Taxonomy ID of the species
+    mssc: str
+        match score selection criteria
+        'top' will recommend candidates with
+        the highest match score above cutoff
+        'above' will recommend all candidates with
+        match scores above cutoff
+    cutoff: float
+        Cutoff value; only candidates with match score
+        at or above the cutoff will be recommended.
+    model_mean: bool
+      If True, get single float values for recall/precision.
+      If False, get a dictionary for recall/precision. 
+
+    Returns
+    -------
+    A dictionary with two metrics:
+        recall: compare the identifiers (e.g., NCBI gene IDs) of predictions with existing ones
+        precision: compare the identifiers (e.g., NCBI gene IDs) of predictions with existing ones
+    None/dict
+        Return None if there is nothing to evaluate
+        (i.e., if there is no existing model annotation)
+    """
+    # get dictionary of formulas if they exist
+    refs = self.qual_species.exist_annotation
+    qual_species2eval = list(refs.keys())
+    if len(qual_species2eval) == 0:
+      return None
+    preds_comb = self.getQualSpeciesListRecommendation(tax_id=tax_id,
+                                                pred_ids=qual_species2eval,
                                                 mssc=mssc,
                                                 cutoff=cutoff)
     preds = {val.id:[str(k[0]) for k in val.candidates] for val in preds_comb}

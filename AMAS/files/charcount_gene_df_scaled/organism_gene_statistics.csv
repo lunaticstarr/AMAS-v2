@@ -1,0 +1,86 @@
+tax_id,organism,num_genes
+511145,Escherichia coli str. K-12 substr. MG1655,4640
+9606,Homo sapiens,193300
+269797,Methanosarcina barkeri str. Fusaro,0
+269799,Geobacter metallireducens GS-15,0
+5821,Plasmodium berghei,19
+1120755,Plasmodium cynomolgi strain B,5777
+36329,Plasmodium falciparum 3D7,5616
+5851,Plasmodium knowlesi strain H,5462
+126793,Plasmodium vivax Sal-1,4
+405955,Escherichia coli APEC O1,0
+469008,Escherichia coli BL21(DE3),1
+595496,Escherichia coli BW2952,0
+199310,Escherichia coli CFT073,1
+10029,Cricetulus griseus,34825
+509173,Acinetobacter baumannii AYE,1
+272563,Clostridioides difficile 630,1
+574521,Escherichia coli O127:H6 str. E2348/69,1
+216592,Escherichia coli 042,0
+498388,Escherichia coli C,0
+481805,Escherichia coli ATCC 8739,0
+566546,Escherichia coli W,1
+668369,Escherichia coli DH5[alpha],0
+316407,Escherichia coli str. K-12 substr. W3110,0
+585055,Escherichia coli 55989,0
+655817,Escherichia coli ABU 83972,0
+413997,Escherichia coli B str. REL606,0
+866768,Escherichia coli 'BL21-Gold(DE3)pLysS AG',1
+316385,Escherichia coli str. K-12 substr. DH10B,1
+536056,Escherichia coli DH1,0
+331111,Escherichia coli O139:H28 str. E24377A,0
+585397,Escherichia coli ED1a,0
+444450,Escherichia coli O157:H7 str. EC4115,0
+331112,Escherichia coli HS,0
+585034,Escherichia coli IAI1,0
+585057,Escherichia coli IAI39,0
+1033813,Escherichia coli NA114,0
+585395,Escherichia coli O103:H2 str. 12009,0
+585396,Escherichia coli O111:H- str. 11128,0
+573235,Escherichia coli O26:H11 str. 11368,0
+714962,Escherichia coli IHE3034,0
+362663,Escherichia coli 536,0
+386585,Escherichia coli O157:H7 str. Sakai,5418
+585035,Escherichia coli S88,0
+409438,Escherichia coli SE11,0
+431946,Escherichia coli SE15,0
+439855,Escherichia coli SMS-3-5,0
+544404,Escherichia coli O157:H7 str. TW14359,1
+585056,Escherichia coli UMN026,0
+83332,Mycobacterium tuberculosis H37Rv,4009
+595495,Escherichia coli KO11FL,1
+316401,Escherichia coli ETEC H10407,1
+701177,Escherichia coli O55:H7 str. CB9615,0
+748727,Clostridium ljungdahlii DSM 13528,0
+1416333,Trypanosoma cruzi Dm28c,0
+85962,Helicobacter pylori 26695,1
+1140,Synechococcus elongatus PCC 7942,1
+160488,Pseudomonas putida KT2440,1
+1148,Synechocystis sp. PCC 6803,1
+556484,Phaeodactylum tricornutum CCAP 1055/1,10399
+591946,Escherichia coli LF82,1
+243274,Thermotoga maritima MSB8,1
+10090,Mus musculus,112285
+559292,Saccharomyces cerevisiae S288C,6478
+416870,Lactococcus lactis subsp. cremoris MG1363,1
+685038,Escherichia coli O83:H1 str. NRG 857C,0
+214092,Yersinia pestis CO92,1
+3055,Chlamydomonas reinhardtii,17877
+198215,Shigella flexneri 2a str. 2457T,1
+158879,Staphylococcus aureus subsp. aureus N315,1
+344609,Shigella boydii CDC 3083-94,31
+300268,Shigella boydii Sb227,0
+300267,Shigella dysenteriae Sd197,1
+198214,Shigella flexneri 2a str. 301,4789
+373384,Shigella flexneri 5 str. 8401,0
+591020,Shigella flexneri 2002017,0
+300269,Shigella sonnei Ss046,0
+869729,Escherichia coli UM146,0
+696406,Escherichia coli UMNK88,0
+364106,Escherichia coli UTI89,0
+272620,Klebsiella pneumoniae subsp. pneumoniae MGH 78578,1
+224308,Bacillus subtilis subsp. subtilis str. 168,4537
+ ,Salmonella pan-reactome,0
+451516,Staphylococcus aureus subsp. aureus USA300_TCH1516,0
+155864,Escherichia coli O157:H7 str. EDL933,1
+99287,Salmonella enterica subsp. enterica serovar Typhimurium str. LT2,4718

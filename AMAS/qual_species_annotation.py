@@ -1,15 +1,14 @@
 # gene_annotation.py
 """
-<Annotation for Genes>
-gene_annotation creates and predicts
-annotation of NCBI genes.
+<Annotation for Qualitative Species>
+qual_species_annotation creates and predicts
+annotation of qualitative species.
 """
 
 from AMAS import constants as cn
 from AMAS import tools
 
 import collections
-import editdistance
 import itertools
 import libsbml
 import numpy as np
@@ -19,7 +18,7 @@ import re
 import warnings
 
 
-class GeneAnnotation(object):
+class QualSpeciesAnnotation(object):
 
   def __init__(self, libsbml_fpath=None,
                inp_tuple=None):
@@ -28,43 +27,44 @@ class GeneAnnotation(object):
     Parameters
     ----------
     libsbml_fpath: str
-        File path of an SBMl (.xml) model
-        Assuming it use fbc extension.
+        File path of an SBMl (.xml/.sbml) model
+        Assuming it use qual SBML extension.
 
     inp_tuple: tuple 
         Tuple of model information,
         first element (index 0) is information on 
-        gene names,
+        qualitative species names,
         second element (index 1) is existing 
-        NCBI gene information.
-        ({gene_id: gene_display_name},
-         {gene_id: NCBI gene terms})
+        qualitative species information.
+        ({species_id: species_display_name},
+         {species_id: qualitative species terms})
     """
-    # self.exist_annotation stores existing NCBI gene annotations in the model
+    # self.exist_annotation stores existing annotations in the model
+    ## depends on the qualifier, by default it is NCBI gene
     # If none exists, set None
 
     if libsbml_fpath is not None:
       reader = libsbml.SBMLReader()
       document = reader.readSBML(libsbml_fpath)
-      if document.getModel().getPlugin("fbc") is not None:
-        self.model = document.getModel().getPlugin("fbc")
-        self.names = {val.getIdAttribute():val.getName() for val in self.model.getGeneProducts()}
+      if document.getModel().getPlugin("qual") is not None:
+        self.model = document.getModel().getPlugin("qual")
+        self.names = {val.getId():val.getName() for val in self.model.getListOfQualitativeSpecies()}
       else:
         self.model = None
         self.names = None
-      self.exist_annotation = tools.extractExistingGeneAnnotation(self.model)
+      self.exist_annotation = tools.extractExistingQualitativeSpeciesAnnotation(self.model, qualifier=cn.NCBI_GENE, description=True)
       
     # inp_tuple: ({gene_id:gene_name}, {gene_id: [NCBI gene annotations]})
     elif inp_tuple is not None:
       self.model = None
       self.names = inp_tuple[0]
       self.exist_annotation = inp_tuple[1]
-
+      
     else:
       self.model = None
       self.names = None
       self.exist_annotation = None
-      self.exist_annotation_formula = None
+      
     # Below are predicted annotations in dictionary format
     # Once created, each will be {gene_ID: float/str-list}
     self.candidates = dict()
@@ -112,20 +112,20 @@ class GeneAnnotation(object):
 
     # Prepare the query matrix
     unq_strs = list(set(inp_strs))
-    one_query, name_used = self.prepareCounterQuery(genes=unq_strs,
+    one_query, name_used = self.prepareCounterQuery(species=unq_strs,
                                                     ref_cols=ref_df.columns,
                                                     use_id=False) 
     multi_mat = ref_df.dot(one_query)
     # updated code to avoid repeated prediction
     cscores = dict()
     multi_mat[cn.NCBI_GENE] = info_df[cn.NCBI_GENE]
-    for gene in inp_strs:
+    for species in inp_strs:
       # Get max-value of each chebi term
-      g_res = multi_mat.loc[:,[cn.NCBI_GENE, gene]].groupby([cn.NCBI_GENE]).max()[gene]
-      gene_cscore = tools.applyMSSC(pred=zip(g_res.index, g_res),
+      g_res = multi_mat.loc[:,[cn.NCBI_GENE, species]].groupby([cn.NCBI_GENE]).max()[species]
+      species_cscore = tools.applyMSSC(pred=zip(g_res.index, g_res),
                                     mssc=mssc,
                                     cutoff=cutoff)
-      cscores[gene] = gene_cscore
+      cscores[species] = species_cscore
     return cscores
 
   # Methods to use Cosine Similarity
@@ -145,7 +145,7 @@ class GeneAnnotation(object):
     return collections.Counter(itertools.chain(*re.findall('[a-z0-9]+', inp_str.lower())))
 
   def prepareCounterQuery(self,
-                          genes,
+                          species,
                           ref_cols,
                           use_id=True):
     """
@@ -158,8 +158,8 @@ class GeneAnnotation(object):
   
     Parameters
     ----------
-    genes: list-str
-        IDs of genes
+    species: list-str
+        IDs of species
     ref_cols: list-str
         Column names to use
     use_id: bool
@@ -172,17 +172,17 @@ class GeneAnnotation(object):
     : dict
     """
     name_used = dict()
-    query_mat = pd.DataFrame(0, index=ref_cols, columns=genes)
-    for one_gene in genes:
+    query_mat = pd.DataFrame(0, index=ref_cols, columns=species)
+    for one_species in species:
       if use_id:
-        name2use = self.getNameToUse(one_gene)
+        name2use = self.getNameToUse(one_species)
       else:
-        name2use = one_gene
+        name2use = one_species
       # characters are lowered in getCountOfIndividualCharacters()
       char_counts = self.getCountOfIndividualCharacters(name2use)
-      name_used[one_gene] = name2use
+      name_used[one_species] = name2use
       for one_char in char_counts:
-        query_mat.loc[one_char, one_gene] = char_counts[one_char] 
+        query_mat.loc[one_char, one_species] = char_counts[one_char] 
     # Now, scale it using the vector distance
     div_row = query_mat.apply(lambda col : np.sqrt(np.sum([val**2 for val in col])), axis = 0)
     norm_query = query_mat.divide(div_row, axis=1)
@@ -202,25 +202,25 @@ class GeneAnnotation(object):
     -------
     str
     """
-    gene_name = self.names[inp_id]
-    if len(gene_name) > 0:
-      res_name = gene_name
+    species_name = self.names[inp_id]
+    if len(species_name) > 0:
+      res_name = species_name
     else:
       res_name = inp_id
     return res_name
 
-  def updateGeneWithRecommendation(self, inp_recom):
+  def updateQualSpeciesWithRecommendation(self, inp_recom):
     """
-    Update gene_annotation class using
+    Update qual_species_annotation class using
     Recommendation namedtuple.
   
     self.candidates is a sorted list of tuples,
-    (ncbigene: match_score)
+    (qual_species: match_score)
   
     Parameters
     ----------
     inp_recom: cn.Recommendation
-       A namedtuple. Created by recom.getGeneRecommendation
+       A namedtuple. Created by recom.getQualSpeciesRecommendation
   
     Returns
     -------
@@ -229,10 +229,10 @@ class GeneAnnotation(object):
     self.candidates.update({inp_recom.id: inp_recom.candidates})
     return None
 
-  def updateGeneWithDict(self, inp_dict):
+  def updateQualSpeciesWithDict(self, inp_dict):
     """
-    A direct way of updating gene annotations,
-    using NCBI gene terms.
+    A direct way of updating qual species annotations,
+    using qual species terms.
     As match scores are given
     when exact matches are found, 
     match scores were given as 1.0. 
@@ -240,7 +240,7 @@ class GeneAnnotation(object):
     Parameters
     ----------
     inp_dict: dict
-        {gene_id: [ncbigene terms]}
+        {qual_species_id: [ncbigene terms]}
   
     Returns
     -------

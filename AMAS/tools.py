@@ -5,6 +5,8 @@ from AMAS import constants as cn
 import itertools
 import numpy as np
 import re
+import os
+import compress_pickle
 
 def applyMSSC(pred,
               mssc,
@@ -97,6 +99,41 @@ def extractExistingReactionAnnotation(inp_model):
                 if exist_raw[val]}
   return exist_filt
 
+def extractExistingQualitativeSpeciesAnnotation(inp_model, qualifier=cn.NCBI_GENE, description=False):
+  """
+  Get existing annotation of qualitative species
+  that contains gene terms (by default, NCBI gene)
+
+  Parameters
+  ---------
+  qualifier: str
+      'ncbigene'
+  description: bool
+      If True, also extract the description using <bqbiol:isDescribedBy>
+  """
+  exist_raw = {val.getId():getQualifierFromString(val.getAnnotationString(), [qualifier], description) \
+               for val in inp_model.getListOfQualitativeSpecies()}
+  exist_filt = {val:exist_raw[val] for val in exist_raw.keys() \
+                if exist_raw[val]}
+  return exist_filt
+
+def extractExistingTransitionAnnotation(inp_model, qualifier=cn.PUBMED, description=False):
+  # TODO: need to be tested
+  """
+  Get existing annotation of transitions
+  that contains pubmed terms
+
+  Parameters
+  ---------
+  qualifier: str
+      'pubmed'
+  """
+  exist_raw = {val.getId():getQualifierFromString(val.getAnnotationString(), [qualifier], description) \
+               for val in inp_model.getListOfTransitions()}
+  exist_filt = {val:exist_raw[val] for val in exist_raw.keys() \
+                if exist_raw[val]}
+  return exist_filt
+
 def extractRheaFromAnnotationString(inp_str):
   """
   Extract Rhea from existing annotation string,
@@ -147,24 +184,29 @@ def formatRhea(one_rhea):
 
 
 def getOntologyFromString(string_annotation,
-                          bqbiol_qualifiers=['is', 'isVersionOf']):
+                          description = False):
   """
   Parse string and return string annotation,
-  marked as <bqbiol:is> or <bqbiol:isVersionOf>.
+  marked as <bqbiol:is> or <bqbiol:isVersionOf>;
+  (and extract the description using <bqbiol:isDescribedBy>)
   If neither exists, return None.
 
   Parameters
   ----------
   string_annotation: str
-  bqbiol_qualifiers: str-list
-      Use 'is' and 'isVersionOf' by default
-  
+  description: bool
+      If True, also extract the description using <bqbiol:isDescribedBy>
+
 
   Returns
   -------
   list-tuple (ontology type, ontology id)
        Return [] if none is provided
+  
   """
+  bqbiol_qualifiers=['is', 'isVersionOf']
+  if description:
+    bqbiol_qualifiers.append('isDescribedBy')
   combined_str = ''
   for one_qualifier in bqbiol_qualifiers:
     one_match = '<bqbiol:' + one_qualifier + \
@@ -179,13 +221,19 @@ def getOntologyFromString(string_annotation,
     else:
       one_str = ''
     combined_str = combined_str + one_str
+
   identifiers_list = re.findall('identifiers\.org/.*/', combined_str)
   result_identifiers = [(r.split('/')[1],r.split('/')[2].replace('\"', '')) \
                         for r in identifiers_list]
+  if description:
+    identifiers_list.extend(re.findall(r'rdf:resource="urn:miriam:([^"]+)"', combined_str))
+    result_identifiers.extend([(r.rsplit(':', 1)[0], r.rsplit(':', 1)[1]) for r in identifiers_list])
+
   return result_identifiers
 
 
-def getQualifierFromString(input_str, qualifier):
+def getQualifierFromString(input_str, qualifier,
+                          description = False):
   """
   Parses string and returns an identifier. 
   If not, return None.
@@ -201,7 +249,7 @@ def getQualifierFromString(input_str, qualifier):
   str (ontology Id)
       Returns an empty list if none is provided
   """
-  ontologies = getOntologyFromString(input_str)
+  ontologies = getOntologyFromString(input_str, description)
   # To make sure it works, make it lower
   if isinstance(qualifier, str):
     qualifier_list = [val for val in ontologies if val[0].lower()==qualifier.lower()]
@@ -379,17 +427,26 @@ def getAssociatedTermsToRhea(inp_rhea):
   else:
     return [inp_rhea]
 
-def filter_taxonomy(df, tax):
+def get_gene_char_count_df(tax_id):
   """
-  Filter a dataframe based on the taxonomy
-  tax: str
-    name of the taxonomy of interest
-      - 'ecoli_mg1655': Escherichia coli K-12 MG1655
-      - 'human': Homo sapiens
+  Get the gene character count dataframe for a given tax_id
+  
+  Parameters
+  ----------
+  tax_id: str
+      Taxonomy ID to load data for
+      
+  Returns
+  -------
+  DataFrame
+      Gene character count dataframe for the taxonomy
+      
+  Raises
+  ------
+  FileNotFoundError
+      If the data file for the given tax_id does not exist
   """
-  if tax == 'ecoli_mg1655':
-    return df.loc[df['tax_id'] == 511145].drop('tax_id', axis=1)
-  elif tax == 'human':
-    return df.loc[df['tax_id'] == 9606].drop('tax_id', axis=1)
-  else:
-    raise ValueError(f"Taxonomy {tax} not supported, please choose from 'ecoli_mg1655' or 'human'")
+  filepath = os.path.join(cn.REF_GENE_CHARCOUNT_DIR, f"charcount_gene_df_scaled_{tax_id}.lzma")
+  if not os.path.exists(filepath):
+      raise FileNotFoundError(f"Reference data not found for tax_id {tax_id}")
+  return compress_pickle.load(filepath)

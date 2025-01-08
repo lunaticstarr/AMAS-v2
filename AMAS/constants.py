@@ -10,6 +10,7 @@ import os
 # Folder for reference data
 CUR_DIR = os.path.dirname(os.path.realpath(__file__))
 REF_DIR = os.path.join(CUR_DIR, 'files')
+REF_GENE_CHARCOUNT_DIR = os.path.join(REF_DIR, 'charcount_gene_df_scaled')
 TEST_DIR = os.path.join(CUR_DIR, os.pardir, 'tests')
 
 # Strings used in the modules
@@ -17,6 +18,7 @@ CANDIDATES = 'candidates'
 CHEBI = 'chebi'
 OBO_CHEBI = 'obo.chebi'
 NCBI_GENE = 'ncbigene'
+PUBMED = 'pubmed'
 EC = 'ec-code'
 EC_HEADER = 'EC:'
 KEGG_HEADER = 'KEGG:'
@@ -53,7 +55,7 @@ with open(os.path.join(REF_DIR, 'chebi_shortened_formula_comp.lzma'), 'rb') as f
   REF_CHEBI2FORMULA = compress_pickle.load(f)
 with open(os.path.join(REF_DIR, 'chebi2label.lzma'), 'rb') as f:
   REF_CHEBI2LABEL = compress_pickle.load(f)
-with open(os.path.join(REF_DIR, 'ncbigene2label.lzma'), 'rb') as f:
+with open(os.path.join(REF_DIR, 'ncbigene2label_bigg_organisms.lzma'), 'rb') as f:
   REF_NCBI_GENE2LABEL = compress_pickle.load(f)
 with open(os.path.join(REF_DIR, 'ec2mrhea.lzma'), 'rb') as handle:
   REF_EC2RHEA = compress_pickle.load(handle)
