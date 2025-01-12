@@ -119,8 +119,8 @@ class QualSpeciesAnnotation(object):
     # updated code to avoid repeated prediction
     cscores = dict()
     multi_mat[cn.NCBI_GENE] = info_df[cn.NCBI_GENE]
-    for species in inp_strs:
-      # Get max-value of each chebi term
+    for species in inp_strs:    
+      # Get max-value of each term
       g_res = multi_mat.loc[:,[cn.NCBI_GENE, species]].groupby([cn.NCBI_GENE]).max()[species]
       species_cscore = tools.applyMSSC(pred=zip(g_res.index, g_res),
                                     mssc=mssc,
@@ -178,6 +178,10 @@ class QualSpeciesAnnotation(object):
         name2use = self.getNameToUse(one_species)
       else:
         name2use = one_species
+
+      # Remove everything after the first underscore
+      name2use = name2use.split('_', 1)[0]
+
       # characters are lowered in getCountOfIndividualCharacters()
       char_counts = self.getCountOfIndividualCharacters(name2use)
       name_used[one_species] = name2use
