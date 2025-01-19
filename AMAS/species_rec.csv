@@ -1,0 +1,289 @@
+file,type,id,display name,meta id,annotation,annotation label,match score,existing,UPDATE ANNOTATION
+e_coli_core.xml,species,M_glc__D_e,D-Glucose,M_glc__D_e,CHEBI:17634,D-glucose,1,1,delete
+e_coli_core.xml,species,M_glc__D_e,D-Glucose,M_glc__D_e,CHEBI:4167,D-glucopyranose,1,1,delete
+e_coli_core.xml,species,M_glc__D_e,D-Glucose,M_glc__D_e,CHEBI:42758,aldehydo-D-glucose,1,0,add
+e_coli_core.xml,species,M_gln__L_c,L-Glutamine,M_gln__L_c,CHEBI:18050,L-glutamine,1,1,keep
+e_coli_core.xml,species,M_gln__L_c,L-Glutamine,M_gln__L_c,CHEBI:30011,L-glutamine residue,1,0,ignore
+e_coli_core.xml,species,M_gln__L_c,L-Glutamine,M_gln__L_c,CHEBI:58359,L-glutamine zwitterion,1,1,keep
+e_coli_core.xml,species,M_gln__L_c,L-Glutamine,M_gln__L_c,CHEBI:32679,glutaminium,0.843,1,keep
+e_coli_core.xml,species,M_gln__L_c,L-Glutamine,M_gln__L_c,CHEBI:32678,glutaminate,0.894,1,keep
+e_coli_core.xml,species,M_gln__L_c,L-Glutamine,M_gln__L_c,CHEBI:28300,glutamine,0.962,1,keep
+e_coli_core.xml,species,M_gln__L_c,L-Glutamine,M_gln__L_c,CHEBI:32666,L-glutaminium,0.906,1,keep
+e_coli_core.xml,species,M_gln__L_c,L-Glutamine,M_gln__L_c,CHEBI:32665,L-glutaminate,0.953,1,keep
+e_coli_core.xml,species,M_gln__L_e,L-Glutamine,M_gln__L_e,CHEBI:18050,L-glutamine,1,1,keep
+e_coli_core.xml,species,M_gln__L_e,L-Glutamine,M_gln__L_e,CHEBI:30011,L-glutamine residue,1,0,ignore
+e_coli_core.xml,species,M_gln__L_e,L-Glutamine,M_gln__L_e,CHEBI:58359,L-glutamine zwitterion,1,1,keep
+e_coli_core.xml,species,M_gln__L_e,L-Glutamine,M_gln__L_e,CHEBI:32679,glutaminium,0.843,1,keep
+e_coli_core.xml,species,M_gln__L_e,L-Glutamine,M_gln__L_e,CHEBI:32678,glutaminate,0.894,1,keep
+e_coli_core.xml,species,M_gln__L_e,L-Glutamine,M_gln__L_e,CHEBI:28300,glutamine,0.962,1,keep
+e_coli_core.xml,species,M_gln__L_e,L-Glutamine,M_gln__L_e,CHEBI:32666,L-glutaminium,0.906,1,keep
+e_coli_core.xml,species,M_gln__L_e,L-Glutamine,M_gln__L_e,CHEBI:32665,L-glutaminate,0.953,1,keep
+e_coli_core.xml,species,M_glu__L_c,L-Glutamate,M_glu__L_c,CHEBI:29985,L-glutamate(1-),1,1,keep
+e_coli_core.xml,species,M_glu__L_c,L-Glutamate,M_glu__L_c,CHEBI:29988,L-glutamate(2-),1,1,keep
+e_coli_core.xml,species,M_glu__L_c,L-Glutamate,M_glu__L_c,CHEBI:76051,"glutamic acid-2,3,3,4,4-d5",0.656,1,keep
+e_coli_core.xml,species,M_glu__L_c,L-Glutamate,M_glu__L_c,CHEBI:29987,glutamate(2-),0.971,1,keep
+e_coli_core.xml,species,M_glu__L_c,L-Glutamate,M_glu__L_c,CHEBI:18237,glutamic acid,0.971,1,keep
+e_coli_core.xml,species,M_glu__L_c,L-Glutamate,M_glu__L_c,CHEBI:16015,L-glutamic acid,0.971,1,keep
+e_coli_core.xml,species,M_glu__L_c,L-Glutamate,M_glu__L_c,CHEBI:14321,glutamate(1-),0.971,1,keep
+e_coli_core.xml,species,M_glu__L_e,L-Glutamate,M_glu__L_e,CHEBI:29985,L-glutamate(1-),1,1,keep
+e_coli_core.xml,species,M_glu__L_e,L-Glutamate,M_glu__L_e,CHEBI:29988,L-glutamate(2-),1,1,keep
+e_coli_core.xml,species,M_glu__L_e,L-Glutamate,M_glu__L_e,CHEBI:76051,"glutamic acid-2,3,3,4,4-d5",0.656,1,keep
+e_coli_core.xml,species,M_glu__L_e,L-Glutamate,M_glu__L_e,CHEBI:29987,glutamate(2-),0.971,1,keep
+e_coli_core.xml,species,M_glu__L_e,L-Glutamate,M_glu__L_e,CHEBI:18237,glutamic acid,0.971,1,keep
+e_coli_core.xml,species,M_glu__L_e,L-Glutamate,M_glu__L_e,CHEBI:16015,L-glutamic acid,0.971,1,keep
+e_coli_core.xml,species,M_glu__L_e,L-Glutamate,M_glu__L_e,CHEBI:14321,glutamate(1-),0.971,1,keep
+e_coli_core.xml,species,M_glx_c,Glyoxylate,M_glx_c,CHEBI:16891,glyoxylic acid,1,1,keep
+e_coli_core.xml,species,M_glx_c,Glyoxylate,M_glx_c,CHEBI:36655,glyoxylate,1,1,keep
+e_coli_core.xml,species,M_h2o_c,H2O H2O,M_h2o_c,CHEBI:15377,water,1,1,keep
+e_coli_core.xml,species,M_h2o_c,H2O H2O,M_h2o_c,CHEBI:25935,hydroperoxyl,1,0,ignore
+e_coli_core.xml,species,M_h2o_c,H2O H2O,M_h2o_c,CHEBI:29192,hydrogenperoxide(1-),1,0,ignore
+e_coli_core.xml,species,M_h2o_c,H2O H2O,M_h2o_c,CHEBI:29793,hydridodioxygen(1+),1,0,ignore
+e_coli_core.xml,species,M_h2o_c,H2O H2O,M_h2o_c,CHEBI:30490,tetrahydridooxygen(2+),0.866,1,keep
+e_coli_core.xml,species,M_h2o_c,H2O H2O,M_h2o_c,CHEBI:33813,((18)O)water,0.775,1,keep
+e_coli_core.xml,species,M_h2o_c,H2O H2O,M_h2o_c,CHEBI:29356,oxide(2-),0.816,1,keep
+e_coli_core.xml,species,M_h2o_c,H2O H2O,M_h2o_c,CHEBI:29412,oxonium,0.667,1,keep
+e_coli_core.xml,species,M_h2o_c,H2O H2O,M_h2o_c,CHEBI:16234,hydroxide,0.816,1,keep
+e_coli_core.xml,species,M_h2o_e,H2O H2O,M_h2o_e,CHEBI:15377,water,1,1,keep
+e_coli_core.xml,species,M_h2o_e,H2O H2O,M_h2o_e,CHEBI:25935,hydroperoxyl,1,0,ignore
+e_coli_core.xml,species,M_h2o_e,H2O H2O,M_h2o_e,CHEBI:29192,hydrogenperoxide(1-),1,0,ignore
+e_coli_core.xml,species,M_h2o_e,H2O H2O,M_h2o_e,CHEBI:29793,hydridodioxygen(1+),1,0,ignore
+e_coli_core.xml,species,M_h2o_e,H2O H2O,M_h2o_e,CHEBI:30490,tetrahydridooxygen(2+),0.866,1,keep
+e_coli_core.xml,species,M_h2o_e,H2O H2O,M_h2o_e,CHEBI:33813,((18)O)water,0.775,1,keep
+e_coli_core.xml,species,M_h2o_e,H2O H2O,M_h2o_e,CHEBI:29356,oxide(2-),0.816,1,keep
+e_coli_core.xml,species,M_h2o_e,H2O H2O,M_h2o_e,CHEBI:29412,oxonium,0.667,1,keep
+e_coli_core.xml,species,M_h2o_e,H2O H2O,M_h2o_e,CHEBI:16234,hydroxide,0.816,1,keep
+e_coli_core.xml,species,M_h_c,H+,M_h_c,CHEBI:15378,hydron,1,1,keep
+e_coli_core.xml,species,M_h_c,H+,M_h_c,CHEBI:15971,L-histidine,1,0,ignore
+e_coli_core.xml,species,M_h_c,H+,M_h_c,CHEBI:29235,hydrogen(.),1,0,ignore
+e_coli_core.xml,species,M_h_c,H+,M_h_c,CHEBI:29239,hydride,1,0,ignore
+e_coli_core.xml,species,M_h_c,H+,M_h_c,CHEBI:29979,L-histidine residue,1,0,ignore
+e_coli_core.xml,species,M_h_c,H+,M_h_c,CHEBI:30220,helion,1,0,ignore
+e_coli_core.xml,species,M_h_c,H+,M_h_c,CHEBI:48237,hydrido group,1,0,ignore
+e_coli_core.xml,species,M_h_c,H+,M_h_c,CHEBI:48238,mu-hydrido group,1,0,ignore
+e_coli_core.xml,species,M_h_c,H+,M_h_c,CHEBI:49637,hydrogen atom,1,0,ignore
+e_coli_core.xml,species,M_h_c,H+,M_h_c,CHEBI:74051,His-His,1,0,ignore
+e_coli_core.xml,species,M_h_e,H+,M_h_e,CHEBI:15378,hydron,1,1,keep
+e_coli_core.xml,species,M_h_e,H+,M_h_e,CHEBI:15971,L-histidine,1,0,ignore
+e_coli_core.xml,species,M_h_e,H+,M_h_e,CHEBI:29235,hydrogen(.),1,0,ignore
+e_coli_core.xml,species,M_h_e,H+,M_h_e,CHEBI:29239,hydride,1,0,ignore
+e_coli_core.xml,species,M_h_e,H+,M_h_e,CHEBI:29979,L-histidine residue,1,0,ignore
+e_coli_core.xml,species,M_h_e,H+,M_h_e,CHEBI:30220,helion,1,0,ignore
+e_coli_core.xml,species,M_h_e,H+,M_h_e,CHEBI:48237,hydrido group,1,0,ignore
+e_coli_core.xml,species,M_h_e,H+,M_h_e,CHEBI:48238,mu-hydrido group,1,0,ignore
+e_coli_core.xml,species,M_h_e,H+,M_h_e,CHEBI:49637,hydrogen atom,1,0,ignore
+e_coli_core.xml,species,M_h_e,H+,M_h_e,CHEBI:74051,His-His,1,0,ignore
+e_coli_core.xml,species,M_icit_c,Isocitrate,M_icit_c,CHEBI:16087,isocitrate(3-),0.966,1,keep
+e_coli_core.xml,species,M_icit_c,Isocitrate,M_icit_c,CHEBI:36453,isocitrate(2-),0.966,1,keep
+e_coli_core.xml,species,M_icit_c,Isocitrate,M_icit_c,CHEBI:36454,isocitrate(1-),0.966,1,keep
+e_coli_core.xml,species,M_icit_c,Isocitrate,M_icit_c,CHEBI:85129,ristocetin,0.966,0,ignore
+e_coli_core.xml,species,M_icit_c,Isocitrate,M_icit_c,CHEBI:30887,isocitric acid,0.816,1,keep
+e_coli_core.xml,species,M_lac__D_c,D-Lactate,M_lac__D_c,CHEBI:16004,(R)-lactate,1,1,keep
+e_coli_core.xml,species,M_lac__D_c,D-Lactate,M_lac__D_c,CHEBI:42111,(R)-lactic acid,0.722,1,keep
+e_coli_core.xml,species,M_lac__D_e,D-Lactate,M_lac__D_e,CHEBI:16004,(R)-lactate,1,1,keep
+e_coli_core.xml,species,M_lac__D_e,D-Lactate,M_lac__D_e,CHEBI:42111,(R)-lactic acid,0.722,1,keep
+e_coli_core.xml,species,M_mal__L_c,L-Malate,M_mal__L_c,CHEBI:15589,(S)-malate(2-),1,1,keep
+e_coli_core.xml,species,M_mal__L_c,L-Malate,M_mal__L_c,CHEBI:30797,(S)-malic acid,0.959,1,keep
+e_coli_core.xml,species,M_mal__L_e,L-Malate,M_mal__L_e,CHEBI:15589,(S)-malate(2-),1,1,keep
+e_coli_core.xml,species,M_mal__L_e,L-Malate,M_mal__L_e,CHEBI:30797,(S)-malic acid,0.959,1,keep
+e_coli_core.xml,species,M_nad_c,Nicotinamide adenine dinucleotide,M_nad_c,CHEBI:15846,NAD(+),1,1,keep
+e_coli_core.xml,species,M_nad_c,Nicotinamide adenine dinucleotide,M_nad_c,CHEBI:44215,NAD zwitterion,1,1,keep
+e_coli_core.xml,species,M_nad_c,Nicotinamide adenine dinucleotide,M_nad_c,CHEBI:57540,NAD(1-),0.748,1,keep
+e_coli_core.xml,species,M_nadh_c,Nicotinamide adenine dinucleotide - reduced,M_nadh_c,CHEBI:16908,NADH,1,1,keep
+e_coli_core.xml,species,M_nadh_c,Nicotinamide adenine dinucleotide - reduced,M_nadh_c,CHEBI:57945,NADH(2-),0.711,1,keep
+e_coli_core.xml,species,M_nadp_c,Nicotinamide adenine dinucleotide phosphate,M_nadp_c,CHEBI:18009,NADP(+),1,1,keep
+e_coli_core.xml,species,M_nadp_c,Nicotinamide adenine dinucleotide phosphate,M_nadp_c,CHEBI:25523,NADP,0,1,keep
+e_coli_core.xml,species,M_nadp_c,Nicotinamide adenine dinucleotide phosphate,M_nadp_c,CHEBI:58349,NADP(3-),0.792,1,keep
+e_coli_core.xml,species,M_nadp_c,Nicotinamide adenine dinucleotide phosphate,M_nadp_c,CHEBI:44409,NADP zwitterion,0.993,1,keep
+e_coli_core.xml,species,M_nadph_c,Nicotinamide adenine dinucleotide phosphate - reduced,M_nadph_c,CHEBI:16474,NADPH,1,1,keep
+e_coli_core.xml,species,M_nadph_c,Nicotinamide adenine dinucleotide phosphate - reduced,M_nadph_c,CHEBI:57783,NADPH(4-),0.738,1,keep
+e_coli_core.xml,species,M_nh4_c,Ammonium,M_nh4_c,CHEBI:28938,ammonium,1,1,keep
+e_coli_core.xml,species,M_nh4_c,Ammonium,M_nh4_c,CHEBI:135980,ammonia-(13)N,0.802,1,keep
+e_coli_core.xml,species,M_nh4_c,Ammonium,M_nh4_c,CHEBI:29337,azanide,0.598,1,keep
+e_coli_core.xml,species,M_nh4_c,Ammonium,M_nh4_c,CHEBI:29340,hydridonitrate(2-),0.505,1,keep
+e_coli_core.xml,species,M_nh4_c,Ammonium,M_nh4_c,CHEBI:16134,ammonia,0.886,1,keep
+e_coli_core.xml,species,M_13dpg_c,3-Phospho-D-glyceroyl phosphate,M_13dpg_c,CHEBI:16001,3-phospho-D-glyceroyl dihydrogen phosphate,1,1,keep
+e_coli_core.xml,species,M_13dpg_c,3-Phospho-D-glyceroyl phosphate,M_13dpg_c,CHEBI:89363,"Glyceric acid 1,3-biphosphate",1,0,ignore
+e_coli_core.xml,species,M_13dpg_c,3-Phospho-D-glyceroyl phosphate,M_13dpg_c,CHEBI:57604,3-phosphonato-D-glyceroyl phosphate(4-),0.98,1,keep
+e_coli_core.xml,species,M_nh4_e,Ammonium,M_nh4_e,CHEBI:28938,ammonium,1,1,keep
+e_coli_core.xml,species,M_nh4_e,Ammonium,M_nh4_e,CHEBI:135980,ammonia-(13)N,0.802,1,keep
+e_coli_core.xml,species,M_nh4_e,Ammonium,M_nh4_e,CHEBI:29337,azanide,0.598,1,keep
+e_coli_core.xml,species,M_nh4_e,Ammonium,M_nh4_e,CHEBI:29340,hydridonitrate(2-),0.505,1,keep
+e_coli_core.xml,species,M_nh4_e,Ammonium,M_nh4_e,CHEBI:16134,ammonia,0.886,1,keep
+e_coli_core.xml,species,M_o2_c,O2 O2,M_o2_c,CHEBI:15379,dioxygen,1,1,keep
+e_coli_core.xml,species,M_o2_c,O2 O2,M_o2_c,CHEBI:18421,superoxide,1,0,ignore
+e_coli_core.xml,species,M_o2_c,O2 O2,M_o2_c,CHEBI:27140,triplet dioxygen,1,1,keep
+e_coli_core.xml,species,M_o2_c,O2 O2,M_o2_c,CHEBI:29194,monooxygen,1,0,ignore
+e_coli_core.xml,species,M_o2_c,O2 O2,M_o2_c,CHEBI:29356,oxide(2-),1,0,ignore
+e_coli_core.xml,species,M_o2_c,O2 O2,M_o2_c,CHEBI:29372,dioxygen(.1+),1,0,ignore
+e_coli_core.xml,species,M_o2_c,O2 O2,M_o2_c,CHEBI:26689,singlet dioxygen,0.816,1,keep
+e_coli_core.xml,species,M_o2_c,O2 O2,M_o2_c,CHEBI:29793,hydridodioxygen(1+),0.816,1,keep
+e_coli_core.xml,species,M_2pg_c,D-Glycerate 2-phosphate,M_2pg_c,CHEBI:17835,2-phospho-D-glyceric acid,1,1,keep
+e_coli_core.xml,species,M_2pg_c,D-Glycerate 2-phosphate,M_2pg_c,CHEBI:58289,2-phosphonato-D-glycerate(3-),0.918,1,keep
+e_coli_core.xml,species,M_2pg_c,D-Glycerate 2-phosphate,M_2pg_c,CHEBI:24344,2-phosphoglyceric acid,0.735,1,keep
+e_coli_core.xml,species,M_2pg_c,D-Glycerate 2-phosphate,M_2pg_c,CHEBI:88350,2-phosphoglycerate(3-),0.908,1,keep
+e_coli_core.xml,species,M_o2_e,O2 O2,M_o2_e,CHEBI:15379,dioxygen,1,1,keep
+e_coli_core.xml,species,M_o2_e,O2 O2,M_o2_e,CHEBI:18421,superoxide,1,0,ignore
+e_coli_core.xml,species,M_o2_e,O2 O2,M_o2_e,CHEBI:27140,triplet dioxygen,1,1,keep
+e_coli_core.xml,species,M_o2_e,O2 O2,M_o2_e,CHEBI:29194,monooxygen,1,0,ignore
+e_coli_core.xml,species,M_o2_e,O2 O2,M_o2_e,CHEBI:29356,oxide(2-),1,0,ignore
+e_coli_core.xml,species,M_o2_e,O2 O2,M_o2_e,CHEBI:29372,dioxygen(.1+),1,0,ignore
+e_coli_core.xml,species,M_o2_e,O2 O2,M_o2_e,CHEBI:26689,singlet dioxygen,0.816,1,keep
+e_coli_core.xml,species,M_o2_e,O2 O2,M_o2_e,CHEBI:29793,hydridodioxygen(1+),0.816,1,keep
+e_coli_core.xml,species,M_3pg_c,3-Phospho-D-glycerate,M_3pg_c,CHEBI:17794,3-phospho-D-glyceric acid,1,1,keep
+e_coli_core.xml,species,M_3pg_c,3-Phospho-D-glycerate,M_3pg_c,CHEBI:58272,3-phosphonato-D-glycerate(3-),0.954,1,keep
+e_coli_core.xml,species,M_oaa_c,Oxaloacetate,M_oaa_c,CHEBI:16452,oxaloacetate(2-),1,1,keep
+e_coli_core.xml,species,M_oaa_c,Oxaloacetate,M_oaa_c,CHEBI:30744,oxaloacetic acid,0.807,1,keep
+e_coli_core.xml,species,M_pep_c,Phosphoenolpyruvate,M_pep_c,CHEBI:18021,phosphoenolpyruvate,1,1,keep
+e_coli_core.xml,species,M_pep_c,Phosphoenolpyruvate,M_pep_c,CHEBI:44897,phosphoenolpyruvic acid,1,1,keep
+e_coli_core.xml,species,M_pep_c,Phosphoenolpyruvate,M_pep_c,CHEBI:58702,phosphonatoenolpyruvate,1,1,keep
+e_coli_core.xml,species,M_6pgc_c,6-Phospho-D-gluconate,M_6pgc_c,CHEBI:16863,6-phospho-D-gluconate,1,1,keep
+e_coli_core.xml,species,M_6pgc_c,6-Phospho-D-gluconate,M_6pgc_c,CHEBI:48928,6-phospho-D-gluconic acid,1,1,keep
+e_coli_core.xml,species,M_6pgc_c,6-Phospho-D-gluconate,M_6pgc_c,CHEBI:58759,6-phosphonatooxy-D-gluconate,1,1,keep
+e_coli_core.xml,species,M_pi_c,Phosphate,M_pi_c,CHEBI:18367,phosphate(3-),1,1,keep
+e_coli_core.xml,species,M_pi_c,Phosphate,M_pi_c,CHEBI:26078,phosphoric acid,1,1,keep
+e_coli_core.xml,species,M_pi_c,Phosphate,M_pi_c,CHEBI:43474,hydrogenphosphate,1,1,keep
+e_coli_core.xml,species,M_pi_c,Phosphate,M_pi_c,CHEBI:35780,phosphate ion,0,1,keep
+e_coli_core.xml,species,M_pi_c,Phosphate,M_pi_c,CHEBI:26020,phosphate,0,1,keep
+e_coli_core.xml,species,M_pi_c,Phosphate,M_pi_c,CHEBI:39745,dihydrogenphosphate,0.821,1,keep
+e_coli_core.xml,species,M_6pgl_c,"6-phospho-D-glucono-1,5-lactone",M_6pgl_c,CHEBI:16938,"6-O-phosphono-D-glucono-1,5-lactone",1,1,keep
+e_coli_core.xml,species,M_6pgl_c,"6-phospho-D-glucono-1,5-lactone",M_6pgl_c,CHEBI:57955,"6-O-phosphonato-D-glucono-1,5-lactone(2-)",1,1,keep
+e_coli_core.xml,species,M_pi_e,Phosphate,M_pi_e,CHEBI:18367,phosphate(3-),1,1,keep
+e_coli_core.xml,species,M_pi_e,Phosphate,M_pi_e,CHEBI:26078,phosphoric acid,1,1,keep
+e_coli_core.xml,species,M_pi_e,Phosphate,M_pi_e,CHEBI:43474,hydrogenphosphate,1,1,keep
+e_coli_core.xml,species,M_pi_e,Phosphate,M_pi_e,CHEBI:35780,phosphate ion,0,1,keep
+e_coli_core.xml,species,M_pi_e,Phosphate,M_pi_e,CHEBI:26020,phosphate,0,1,keep
+e_coli_core.xml,species,M_pi_e,Phosphate,M_pi_e,CHEBI:39745,dihydrogenphosphate,0.821,1,keep
+e_coli_core.xml,species,M_ac_c,Acetate,M_ac_c,CHEBI:30089,acetate,1,1,keep
+e_coli_core.xml,species,M_ac_c,Acetate,M_ac_c,CHEBI:47622,acetate ester,1,0,ignore
+e_coli_core.xml,species,M_ac_c,Acetate,M_ac_c,CHEBI:15366,acetic acid,0.777,1,keep
+e_coli_core.xml,species,M_pyr_c,Pyruvate,M_pyr_c,CHEBI:15361,pyruvate,1,1,keep
+e_coli_core.xml,species,M_pyr_c,Pyruvate,M_pyr_c,CHEBI:32816,pyruvic acid,0.712,1,keep
+e_coli_core.xml,species,M_pyr_e,Pyruvate,M_pyr_e,CHEBI:15361,pyruvate,1,1,keep
+e_coli_core.xml,species,M_pyr_e,Pyruvate,M_pyr_e,CHEBI:32816,pyruvic acid,0.712,1,keep
+e_coli_core.xml,species,M_q8_c,Ubiquinone-8,M_q8_c,CHEBI:61683,ubiquinone-8,1,1,keep
+e_coli_core.xml,species,M_q8h2_c,Ubiquinol-8,M_q8h2_c,CHEBI:61682,ubiquinol-8,1,1,keep
+e_coli_core.xml,species,M_r5p_c,Alpha-D-Ribose 5-phosphate,M_r5p_c,CHEBI:18189,alpha-D-ribofuranose 5-phosphate,1,1,keep
+e_coli_core.xml,species,M_ru5p__D_c,D-Ribulose 5-phosphate,M_ru5p__D_c,CHEBI:17363,D-ribulose 5-phosphate,1,1,keep
+e_coli_core.xml,species,M_ru5p__D_c,D-Ribulose 5-phosphate,M_ru5p__D_c,CHEBI:58121,D-ribulose 5-phosphate(2-),1,1,keep
+e_coli_core.xml,species,M_ru5p__D_c,D-Ribulose 5-phosphate,M_ru5p__D_c,CHEBI:37455,ribulose 5-phosphate,0.983,1,keep
+e_coli_core.xml,species,M_ac_e,Acetate,M_ac_e,CHEBI:30089,acetate,1,1,keep
+e_coli_core.xml,species,M_ac_e,Acetate,M_ac_e,CHEBI:47622,acetate ester,1,0,ignore
+e_coli_core.xml,species,M_ac_e,Acetate,M_ac_e,CHEBI:15366,acetic acid,0.777,1,keep
+e_coli_core.xml,species,M_acald_c,Acetaldehyde,M_acald_c,CHEBI:15343,acetaldehyde,1,1,keep
+e_coli_core.xml,species,M_s7p_c,Sedoheptulose 7-phosphate,M_s7p_c,CHEBI:15721,sedoheptulose 7-phosphate,1,1,keep
+e_coli_core.xml,species,M_s7p_c,Sedoheptulose 7-phosphate,M_s7p_c,CHEBI:57483,sedoheptulose 7-phosphate(2-),0.992,1,keep
+e_coli_core.xml,species,M_acald_e,Acetaldehyde,M_acald_e,CHEBI:15343,acetaldehyde,1,1,keep
+e_coli_core.xml,species,M_accoa_c,Acetyl-CoA,M_accoa_c,CHEBI:15351,acetyl-CoA,1,1,keep
+e_coli_core.xml,species,M_accoa_c,Acetyl-CoA,M_accoa_c,CHEBI:57288,acetyl-CoA(4-),1,1,keep
+e_coli_core.xml,species,M_succ_c,Succinate,M_succ_c,CHEBI:30031,succinate(2-),1,1,keep
+e_coli_core.xml,species,M_succ_c,Succinate,M_succ_c,CHEBI:15741,succinic acid,0.905,1,keep
+e_coli_core.xml,species,M_succ_c,Succinate,M_succ_c,CHEBI:30779,succinate(1-),0.957,1,keep
+e_coli_core.xml,species,M_succ_c,Succinate,M_succ_c,CHEBI:90372,succinic acid-d4,0.825,1,keep
+e_coli_core.xml,species,M_succ_e,Succinate,M_succ_e,CHEBI:30031,succinate(2-),1,1,keep
+e_coli_core.xml,species,M_succ_e,Succinate,M_succ_e,CHEBI:15741,succinic acid,0.905,1,keep
+e_coli_core.xml,species,M_succ_e,Succinate,M_succ_e,CHEBI:30779,succinate(1-),0.957,1,keep
+e_coli_core.xml,species,M_succ_e,Succinate,M_succ_e,CHEBI:90372,succinic acid-d4,0.825,1,keep
+e_coli_core.xml,species,M_succoa_c,Succinyl-CoA,M_succoa_c,CHEBI:15380,succinyl-CoA,1,1,keep
+e_coli_core.xml,species,M_succoa_c,Succinyl-CoA,M_succoa_c,CHEBI:57292,succinyl-CoA(5-),1,1,keep
+e_coli_core.xml,species,M_acon_C_c,Cis-Aconitate,M_acon_C_c,CHEBI:16383,cis-aconitate(3-),1,1,keep
+e_coli_core.xml,species,M_acon_C_c,Cis-Aconitate,M_acon_C_c,CHEBI:32805,cis-aconitic acid,0.873,1,keep
+e_coli_core.xml,species,M_xu5p__D_c,D-Xylulose 5-phosphate,M_xu5p__D_c,CHEBI:16332,D-xylulose 5-phosphate,1,1,keep
+e_coli_core.xml,species,M_xu5p__D_c,D-Xylulose 5-phosphate,M_xu5p__D_c,CHEBI:57737,D-xylulose 5-phosphate(2-),1,1,keep
+e_coli_core.xml,species,M_xu5p__D_c,D-Xylulose 5-phosphate,M_xu5p__D_c,CHEBI:27354,xylulose 5-phosphate,0.984,1,keep
+e_coli_core.xml,species,M_actp_c,Acetyl phosphate,M_actp_c,CHEBI:15350,acetyl dihydrogen phosphate,1,1,keep
+e_coli_core.xml,species,M_actp_c,Acetyl phosphate,M_actp_c,CHEBI:22191,acetyl phosphate(2-),1,1,keep
+e_coli_core.xml,species,M_actp_c,Acetyl phosphate,M_actp_c,CHEBI:13711,acetyl phosphate(1-),0.981,1,keep
+e_coli_core.xml,species,M_adp_c,ADP C10H12N5O10P2,M_adp_c,CHEBI:186206,PA(21:0/15:0),0.873,0,ignore
+e_coli_core.xml,species,M_adp_c,ADP C10H12N5O10P2,M_adp_c,CHEBI:186230,PA(12:0/15:0),0.873,0,ignore
+e_coli_core.xml,species,M_adp_c,ADP C10H12N5O10P2,M_adp_c,CHEBI:16761,ADP,0.511,1,keep
+e_coli_core.xml,species,M_adp_c,ADP C10H12N5O10P2,M_adp_c,CHEBI:456216,ADP(3-),0.454,1,keep
+e_coli_core.xml,species,M_adp_c,ADP C10H12N5O10P2,M_adp_c,CHEBI:87518,ADP(2-),0.567,1,keep
+e_coli_core.xml,species,M_akg_c,2-Oxoglutarate,M_akg_c,CHEBI:16810,2-oxoglutarate(2-),1,1,keep
+e_coli_core.xml,species,M_akg_c,2-Oxoglutarate,M_akg_c,CHEBI:30916,2-oxoglutarate(1-),0.975,1,keep
+e_coli_core.xml,species,M_akg_c,2-Oxoglutarate,M_akg_c,CHEBI:30915,2-oxoglutaric acid,0.749,1,keep
+e_coli_core.xml,species,M_akg_e,2-Oxoglutarate,M_akg_e,CHEBI:16810,2-oxoglutarate(2-),1,1,keep
+e_coli_core.xml,species,M_akg_e,2-Oxoglutarate,M_akg_e,CHEBI:30916,2-oxoglutarate(1-),0.975,1,keep
+e_coli_core.xml,species,M_akg_e,2-Oxoglutarate,M_akg_e,CHEBI:30915,2-oxoglutaric acid,0.749,1,keep
+e_coli_core.xml,species,M_amp_c,AMP C10H12N5O7P,M_amp_c,CHEBI:86186,"1-[(11Z)-octadecenoyl]-2-[(5Z,8Z,11Z,14Z,17Z)-eicosapentaenoyl]-sn-glycero-3-phosphocholine",0.811,0,ignore
+e_coli_core.xml,species,M_amp_c,AMP C10H12N5O7P,M_amp_c,CHEBI:88925,"PC(20:5(5Z,8Z,11Z,14Z,17Z)/16:1(9Z))",0.811,0,ignore
+e_coli_core.xml,species,M_amp_c,AMP C10H12N5O7P,M_amp_c,CHEBI:88927,"PC(20:5(5Z,8Z,11Z,14Z,17Z)/18:1(11Z))",0.811,0,ignore
+e_coli_core.xml,species,M_amp_c,AMP C10H12N5O7P,M_amp_c,CHEBI:89065,"PC(20:5(5Z,8Z,11Z,14Z,17Z)/P-18:1(11Z))",0.811,0,ignore
+e_coli_core.xml,species,M_amp_c,AMP C10H12N5O7P,M_amp_c,CHEBI:89739,"PC(16:1(9Z)/20:5(5Z,8Z,11Z,14Z,17Z))",0.811,0,ignore
+e_coli_core.xml,species,M_amp_c,AMP C10H12N5O7P,M_amp_c,CHEBI:89926,"PC(P-18:1(11Z)/20:5(5Z,8Z,11Z,14Z,17Z))",0.811,0,ignore
+e_coli_core.xml,species,M_amp_c,AMP C10H12N5O7P,M_amp_c,CHEBI:16027,adenosine 5'-monophosphate,0.589,1,keep
+e_coli_core.xml,species,M_amp_c,AMP C10H12N5O7P,M_amp_c,CHEBI:40721,adenosine 5'-monophosphate(1+),0.707,1,keep
+e_coli_core.xml,species,M_amp_c,AMP C10H12N5O7P,M_amp_c,CHEBI:456215,adenosine 5'-monophosphate(2-),0.589,1,keep
+e_coli_core.xml,species,M_atp_c,ATP C10H12N5O13P3,M_atp_c,CHEBI:153955,"[(2R,3S,4S,5S,6R)-6-[(2S,3S,4S,5S,6R)-2-[[(2R,3S,4S,5S,6R)-6-[(2R,3S,4R,5R,6S)-5-Amino-4,6-dihydroxy-2-(hydroxymethyl)oxan-3-yl]oxy-5-[2-aminoethoxy(hydroxy)phosphoryl]oxy-3,4-dihydroxyoxan-2-yl]methoxy]-6-[[2-aminoethoxy(hydroxy)phosphoryl]oxymethyl]-4,5-dihydroxyoxan-3-yl]oxy-3,4,5-trihydroxyoxan-2-yl]methyl 2-aminoethyl hydrogen phosphate",0.84,0,ignore
+e_coli_core.xml,species,M_atp_c,ATP C10H12N5O13P3,M_atp_c,CHEBI:15422,ATP,0.453,1,keep
+e_coli_core.xml,species,M_atp_c,ATP C10H12N5O13P3,M_atp_c,CHEBI:237958,"({[(2R,3S,4R,5R)-3,4-dihydroxy-5-(9H-purin-9-yl)oxolan-2-yl]methyl phosphonato}oxy)(phosphonatooxy)phosphinate",0,1,keep
+e_coli_core.xml,species,M_atp_c,ATP C10H12N5O13P3,M_atp_c,CHEBI:30616,ATP(4-),0.453,1,keep
+e_coli_core.xml,species,M_atp_c,ATP C10H12N5O13P3,M_atp_c,CHEBI:57299,ATP(3-),0.588,1,keep
+e_coli_core.xml,species,M_cit_c,Citrate,M_cit_c,CHEBI:16947,citrate(3-),1,1,keep
+e_coli_core.xml,species,M_cit_c,Citrate,M_cit_c,CHEBI:8774,ramipril,1,0,ignore
+e_coli_core.xml,species,M_cit_c,Citrate,M_cit_c,CHEBI:35802,3-carboxy-2-(carboxymethyl)-2-hydroxypropanoate,0.479,1,keep
+e_coli_core.xml,species,M_cit_c,Citrate,M_cit_c,CHEBI:133748,citrate anion,0,1,keep
+e_coli_core.xml,species,M_cit_c,Citrate,M_cit_c,CHEBI:35809,2-(carboxymethyl)-2-hydroxysuccinate,0.589,1,keep
+e_coli_core.xml,species,M_cit_c,Citrate,M_cit_c,CHEBI:76049,citric acid-d4,0.654,1,keep
+e_coli_core.xml,species,M_cit_c,Citrate,M_cit_c,CHEBI:35810,3-carboxy-3-hydroxypentanedioate,0.579,1,keep
+e_coli_core.xml,species,M_cit_c,Citrate,M_cit_c,CHEBI:30769,citric acid,0.711,1,keep
+e_coli_core.xml,species,M_cit_c,Citrate,M_cit_c,CHEBI:35808,citrate(2-),0.949,1,keep
+e_coli_core.xml,species,M_cit_c,Citrate,M_cit_c,CHEBI:132362,citrate(4-),0.949,1,keep
+e_coli_core.xml,species,M_cit_c,Citrate,M_cit_c,CHEBI:35804,citrate(1-),0.949,1,keep
+e_coli_core.xml,species,M_cit_c,Citrate,M_cit_c,CHEBI:35806,"3,4-dicarboxy-3-hydroxybutanoate",0.525,1,keep
+e_coli_core.xml,species,M_co2_c,CO2 CO2,M_co2_c,CHEBI:16526,carbon dioxide,1,1,keep
+e_coli_core.xml,species,M_co2_c,CO2 CO2,M_co2_c,CHEBI:29325,oxidooxomethyl,1,0,ignore
+e_coli_core.xml,species,M_co2_c,CO2 CO2,M_co2_c,CHEBI:29334,oxidocarbon(2+),1,0,ignore
+e_coli_core.xml,species,M_co2_c,CO2 CO2,M_co2_c,CHEBI:48828,cobalt(2+),1,0,ignore
+e_coli_core.xml,species,M_co2_e,CO2 CO2,M_co2_e,CHEBI:16526,carbon dioxide,1,1,keep
+e_coli_core.xml,species,M_co2_e,CO2 CO2,M_co2_e,CHEBI:29325,oxidooxomethyl,1,0,ignore
+e_coli_core.xml,species,M_co2_e,CO2 CO2,M_co2_e,CHEBI:29334,oxidocarbon(2+),1,0,ignore
+e_coli_core.xml,species,M_co2_e,CO2 CO2,M_co2_e,CHEBI:48828,cobalt(2+),1,0,ignore
+e_coli_core.xml,species,M_coa_c,Coenzyme A,M_coa_c,CHEBI:15346,coenzyme A,1,1,keep
+e_coli_core.xml,species,M_coa_c,Coenzyme A,M_coa_c,CHEBI:57287,coenzyme A(4-),0.957,1,keep
+e_coli_core.xml,species,M_dhap_c,Dihydroxyacetone phosphate,M_dhap_c,CHEBI:16108,dihydroxyacetone phosphate,1,1,keep
+e_coli_core.xml,species,M_dhap_c,Dihydroxyacetone phosphate,M_dhap_c,CHEBI:57642,glycerone phosphate(2-),1,1,keep
+e_coli_core.xml,species,M_e4p_c,D-Erythrose 4-phosphate,M_e4p_c,CHEBI:16897,D-erythrose 4-phosphate(2-),1,1,keep
+e_coli_core.xml,species,M_e4p_c,D-Erythrose 4-phosphate,M_e4p_c,CHEBI:48153,D-erythrose 4-phosphate,1,1,keep
+e_coli_core.xml,species,M_etoh_c,Ethanol,M_etoh_c,CHEBI:16236,ethanol,1,1,keep
+e_coli_core.xml,species,M_etoh_c,Ethanol,M_etoh_c,CHEBI:52092,ethoxide,0.781,1,keep
+e_coli_core.xml,species,M_etoh_e,Ethanol,M_etoh_e,CHEBI:16236,ethanol,1,1,keep
+e_coli_core.xml,species,M_etoh_e,Ethanol,M_etoh_e,CHEBI:52092,ethoxide,0.781,1,keep
+e_coli_core.xml,species,M_f6p_c,D-Fructose 6-phosphate,M_f6p_c,CHEBI:15946,keto-D-fructose 6-phosphate,1,0,ignore
+e_coli_core.xml,species,M_f6p_c,D-Fructose 6-phosphate,M_f6p_c,CHEBI:57579,D-fructose 6-phosphate(2-),1,0,ignore
+e_coli_core.xml,species,M_f6p_c,D-Fructose 6-phosphate,M_f6p_c,CHEBI:61527,D-fructofuranose 6-phosphate(2-),1,0,ignore
+e_coli_core.xml,species,M_f6p_c,D-Fructose 6-phosphate,M_f6p_c,CHEBI:61553,D-fructofuranose 6-phosphate,1,0,ignore
+e_coli_core.xml,species,M_f6p_c,D-Fructose 6-phosphate,M_f6p_c,CHEBI:16084,beta-D-fructofuranose 6-phosphate,0.984,1,keep
+e_coli_core.xml,species,M_f6p_c,D-Fructose 6-phosphate,M_f6p_c,CHEBI:57634,beta-D-fructofuranose 6-phosphate(2-),0.964,1,keep
+e_coli_core.xml,species,M_fdp_c,"D-Fructose 1,6-bisphosphate",M_fdp_c,CHEBI:16905,"keto-D-fructose 1,6-bisphosphate",1,0,ignore
+e_coli_core.xml,species,M_fdp_c,"D-Fructose 1,6-bisphosphate",M_fdp_c,CHEBI:49299,"D-fructofuranose 1,6-bisphosphate(4-)",1,1,keep
+e_coli_core.xml,species,M_fdp_c,"D-Fructose 1,6-bisphosphate",M_fdp_c,CHEBI:37736,"D-fructofuranose 1,6-bisphosphate",0.954,1,keep
+e_coli_core.xml,species,M_for_c,Formate,M_for_c,CHEBI:15740,formate,1,1,keep
+e_coli_core.xml,species,M_for_c,Formate,M_for_c,CHEBI:32270,trospium chloride,1,0,ignore
+e_coli_core.xml,species,M_for_c,Formate,M_for_c,CHEBI:30751,formic acid,0.642,1,keep
+e_coli_core.xml,species,M_for_e,Formate,M_for_e,CHEBI:15740,formate,1,1,keep
+e_coli_core.xml,species,M_for_e,Formate,M_for_e,CHEBI:32270,trospium chloride,1,0,ignore
+e_coli_core.xml,species,M_for_e,Formate,M_for_e,CHEBI:30751,formic acid,0.642,1,keep
+e_coli_core.xml,species,M_fru_e,D-Fructose,M_fru_e,CHEBI:15824,D-fructose,1,1,keep
+e_coli_core.xml,species,M_fru_e,D-Fructose,M_fru_e,CHEBI:37721,D-fructofuranose,1,1,keep
+e_coli_core.xml,species,M_fru_e,D-Fructose,M_fru_e,CHEBI:48095,keto-D-fructose,1,1,keep
+e_coli_core.xml,species,M_fru_e,D-Fructose,M_fru_e,CHEBI:28757,fructose,0,1,keep
+e_coli_core.xml,species,M_fru_e,D-Fructose,M_fru_e,CHEBI:37714,D-fructopyranose,0.841,1,keep
+e_coli_core.xml,species,M_fum_c,Fumarate,M_fum_c,CHEBI:29806,fumarate(2-),1,1,keep
+e_coli_core.xml,species,M_fum_c,Fumarate,M_fum_c,CHEBI:36180,butenedioate,0.566,1,keep
+e_coli_core.xml,species,M_fum_c,Fumarate,M_fum_c,CHEBI:37155,hydrogen butenedioate,0.598,1,keep
+e_coli_core.xml,species,M_fum_c,Fumarate,M_fum_c,CHEBI:18012,fumaric acid,0.871,1,keep
+e_coli_core.xml,species,M_fum_c,Fumarate,M_fum_c,CHEBI:37154,fumarate(1-),0.953,1,keep
+e_coli_core.xml,species,M_fum_c,Fumarate,M_fum_c,CHEBI:22958,butenedioic acid,0.365,1,keep
+e_coli_core.xml,species,M_fum_e,Fumarate,M_fum_e,CHEBI:29806,fumarate(2-),1,1,keep
+e_coli_core.xml,species,M_fum_e,Fumarate,M_fum_e,CHEBI:36180,butenedioate,0.566,1,keep
+e_coli_core.xml,species,M_fum_e,Fumarate,M_fum_e,CHEBI:37155,hydrogen butenedioate,0.598,1,keep
+e_coli_core.xml,species,M_fum_e,Fumarate,M_fum_e,CHEBI:18012,fumaric acid,0.871,1,keep
+e_coli_core.xml,species,M_fum_e,Fumarate,M_fum_e,CHEBI:37154,fumarate(1-),0.953,1,keep
+e_coli_core.xml,species,M_fum_e,Fumarate,M_fum_e,CHEBI:22958,butenedioic acid,0.365,1,keep
+e_coli_core.xml,species,M_g3p_c,Glyceraldehyde 3-phosphate,M_g3p_c,CHEBI:17138,glyceraldehyde 3-phosphate,1,1,keep
+e_coli_core.xml,species,M_g3p_c,Glyceraldehyde 3-phosphate,M_g3p_c,CHEBI:29052,D-glyceraldehyde 3-phosphate,1,1,keep
+e_coli_core.xml,species,M_g3p_c,Glyceraldehyde 3-phosphate,M_g3p_c,CHEBI:58027,glyceraldehyde 3-phosphate(2-),1,1,keep
+e_coli_core.xml,species,M_g3p_c,Glyceraldehyde 3-phosphate,M_g3p_c,CHEBI:59776,D-glyceraldehyde 3-phosphate(2-),0.992,1,keep
+e_coli_core.xml,species,M_g6p_c,D-Glucose 6-phosphate,M_g6p_c,CHEBI:14314,D-glucose 6-phosphate,1,1,keep
+e_coli_core.xml,species,M_g6p_c,D-Glucose 6-phosphate,M_g6p_c,CHEBI:4170,D-glucopyranose 6-phosphate,1,1,keep
+e_coli_core.xml,species,M_g6p_c,D-Glucose 6-phosphate,M_g6p_c,CHEBI:61548,D-glucopyranose 6-phosphate(2-),1,1,keep
