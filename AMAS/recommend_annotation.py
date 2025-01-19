@@ -2,11 +2,11 @@
 
 # recommend_annotation.py
 """
-Predicts annotations of species and reactions using a local XML file
-and the reaction ID. 
-This is a combined version of recommend_species and recommend_reaction,
+Predicts annotations of species, reactions, and genes (if exist) using a local XML file
+This is a combined version of recommend_species, recommend_reaction, and recommend_genes,
 but is more convenient because user will just get the updated XML file or whole recommendations. 
-Usage: python recommend_reaction.py files/BIOMD0000000190.xml --cutoff 0.6 --save csv --outfile res.csv 
+
+Usage: python recommend_annotation.py files/e_coli_core.xml --tax 511145 --cutoff 0.6 --save csv --outfile res.csv 
 """
 
 import argparse
@@ -23,12 +23,13 @@ from AMAS import iterator as it
 from AMAS import species_annotation as sa
 from AMAS import reaction_annotation as ra
 from AMAS import recommender
-
+from AMAS import tools
 
 def main():
   parser = argparse.ArgumentParser(description='Recommend annotations of an SBML model ' +\
-                                               '(for both species and reactions) and save results.') 
+                                               '(for species, reactions, and genes) and save results.') 
   parser.add_argument('model', type=str, help='SBML model file (.xml).')
+  parser.add_argument('--tax', type=str, help='Taxonomy ID of the species', nargs='?', default='9606')
   # One or more reaction IDs can be given
   parser.add_argument('--cutoff', type=float, help='Match score cutoff.', nargs='?', default=0.0)
   parser.add_argument('--optimize', type=str, help='Whether to optimize or not. ' +\
@@ -65,12 +66,17 @@ def main():
   mssc = args.mssc.lower()
   save = args.save
   outfile = args.outfile
-  #
+
   recom = recommender.Recommender(libsbml_fpath=one_fpath)
   specs = recom.getSpeciesIDs()
   print("...\nAnalyzing %d species...\n" % len(specs))
   reacts = recom.getReactionIDs()
   print("...\nAnalyzing %d reaction(s)...\n" % len(reacts))
+  genes = recom.getGeneIDs()
+  if not genes:
+    pass
+  else:
+    print("...\nAnalyzing %d gene(s)...\n" % len(genes))
 
   res_tab = recom.recommendAnnotation(mssc=mssc,
                                       cutoff=cutoff,

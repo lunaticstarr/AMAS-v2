@@ -55,8 +55,10 @@ with open(os.path.join(REF_DIR, 'chebi_shortened_formula_comp.lzma'), 'rb') as f
   REF_CHEBI2FORMULA = compress_pickle.load(f)
 with open(os.path.join(REF_DIR, 'chebi2label.lzma'), 'rb') as f:
   REF_CHEBI2LABEL = compress_pickle.load(f)
-with open(os.path.join(REF_DIR, 'ncbigene2label_bigg_organisms.lzma'), 'rb') as f:
+with open(os.path.join(REF_DIR, 'ncbigene2label_bigg_organisms_protein_coding.lzma'), 'rb') as f:
   REF_NCBI_GENE2LABEL = compress_pickle.load(f)
+with open(os.path.join(REF_DIR, 'taxid2label.lzma'), 'rb') as f:
+  REF_TAXID2LABEL = compress_pickle.load(f)
 with open(os.path.join(REF_DIR, 'ec2mrhea.lzma'), 'rb') as handle:
   REF_EC2RHEA = compress_pickle.load(handle)
 with open(os.path.join(REF_DIR, 'kegg2mrhea.lzma'), 'rb') as handle:
@@ -69,4 +71,3 @@ with open(os.path.join(REF_DIR, 'rhea2label.lzma'), 'rb') as f:
   REF_RHEA2LABEL = compress_pickle.load(f)  
 with open(os.path.join(REF_DIR, 'mrhea2eckegg.lzma'), 'rb') as f:
   REF_RHEA2ECKEGG = compress_pickle.load(f)  
-

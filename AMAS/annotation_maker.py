@@ -16,9 +16,11 @@ RDF_TAG_ITEM = ['rdf:RDF',
 RDF_TAG = ' '.join(RDF_TAG_ITEM)
 
 MATCH_SCORE_BY = {'species': 'by_name',
-                  'reaction': 'by_component'}
+                  'reaction': 'by_component',
+                  'genes':'by_name'}
 KNOWLEDGE_RESOURCE = {'species': 'chebi',
-                      'reaction': 'rhea'}
+                      'reaction': 'rhea',
+                      'genes': 'ncbigene'}
 
 
 class AnnotationMaker(object):
@@ -30,7 +32,7 @@ class AnnotationMaker(object):
     Parameters
     ----------
     element: str
-        Either 'species' or 'reaction'
+        Either 'species' or 'reaction' or 'genes'
         This will determine 
         the type of match score
         and the knowledge resource used. 

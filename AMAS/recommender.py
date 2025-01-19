@@ -23,7 +23,7 @@ from AMAS import reaction_annotation as ra
 from AMAS import gene_annotation as ga
 from AMAS import qual_species_annotation as qsa
 
-ELEMENT_TYPES = ['species', 'reaction', 'gene', 'qual_species', 'qual_reaction']
+ELEMENT_TYPES = ['species', 'reaction', 'genes', 'qual_species', 'qual_reaction']
 
 class Recommender(object):
 
@@ -851,7 +851,7 @@ class Recommender(object):
                           optimize=False,
                           outtype='table'):
     """
-    Combine recommendSpecies and recommendReactions
+    Combine recommendSpecies, recommendReactions, and recommendGenes
     methods; can optimize.
   
     Parameters
@@ -1137,7 +1137,8 @@ class Recommender(object):
  
   def getRecomTable(self,
                     element_type,
-                    recommended):
+                    recommended,
+                    tax_id='9606'):
     """
     Extend the dataframe using
     results obtained by
@@ -1147,13 +1148,17 @@ class Recommender(object):
     saved as CSV or shown to the user.   
 
     Parameters
-    ----------
+    ----------    
     element_type: str
-        either 'species' or 'reaction'
+        either 'species' or 'reaction' or 'genes'
       
     recommended: list-pandas.DataFrame
         result of get....ListRecommendation method
-      
+    
+    tax_id: str
+        Taxonomy ID of the species
+        Default to '9606'
+    
     Returns
     -------
     :pandas.DataFrame
@@ -1163,11 +1168,14 @@ class Recommender(object):
     etype = element_type
     model = self.sbml_document.getModel()
     TYPE_EXISTING_ATTR = {'species': self.species.exist_annotation,
-                          'reaction': self.reactions.exist_annotation} 
+                          'reaction': self.reactions.exist_annotation,
+                          'genes': self.genes.exist_annotation} 
     ELEMENT_FUNC = {'species': model.getSpecies,
-                    'reaction': model.getReaction}
+                    'reaction': model.getReaction,
+                    'genes':model.getPlugin("fbc").getGeneProduct}
     TYPE_LABEL = {'species': cn.REF_CHEBI2LABEL,
-                  'reaction': cn.REF_RHEA2LABEL}
+                  'reaction': cn.REF_RHEA2LABEL,
+                  'genes':cn.REF_NCBI_GENE2LABEL}
     pd.set_option('display.max_colwidth', 255)
     edfs = []   
     for one_edf in recommended:
@@ -1202,6 +1210,9 @@ class Recommender(object):
         elif etype=='species':
           match_scores.append(self.getMatchScoreOfCHEBI(element_id, new_anot))
           labels.append(cn.REF_CHEBI2LABEL[new_anot])
+        elif etype=='genes':
+          match_scores.append(self.getMatchScoreOfNCBIGENE(element_id, new_anot, tax_id))
+          labels.append(cn.REF_NCBI_GENE2LABEL[new_anot])
         existings.append(1)
         upd_annotation.append('keep')
       new_edf = pd.DataFrame({'type': [etype]*len(annotations),
@@ -1470,7 +1481,8 @@ class Recommender(object):
         'species' or 'reaction'
     """
     plural_str = {'species': '',
-                  'reaction': '(s)'}
+                  'reaction': '(s)',
+                  'genes': ''}
     num_saved = len(saved)
     if num_saved == 0:
       return None
@@ -1637,8 +1649,11 @@ class Recommender(object):
     list-str
     """
     # list of gene ids
-    genes = list(self.genes.names.keys())
-    return genes
+    if self.genes.names is None:
+      return None
+    else:
+      genes = list(self.genes.names.keys())
+      return genes
 
 
   def getGeneListRecommendation(self,
@@ -1706,9 +1721,9 @@ class Recommender(object):
     result = []
     for spec in ids_dict.keys():
       urls = [cn.NCBI_GENE_DEFAULT_URL + str(val[0]) for val in pred_res[ids_dict[spec]]]
-      labels = [cn.REF_NCBI_GENE2LABEL[val[0]] for val in pred_res[ids_dict[spec]]]
+      labels = [cn.REF_NCBI_GENE2LABEL[str(val[0])] for val in pred_res[ids_dict[spec]]]
       one_recom = cn.Recommendation(spec,
-                                    [(val[0], np.round(val[1], cn.ROUND_DIGITS)) \
+                                    [(str(val[0]), np.round(val[1], cn.ROUND_DIGITS)) \
                                      for val in pred_res[ids_dict[spec]]],
                                     urls,
                                     labels)
@@ -1773,7 +1788,113 @@ class Recommender(object):
     recall = tools.getRecall(ref=refs, pred=preds, mean=model_mean)
     precision = tools.getPrecision(ref=refs, pred=preds, mean=model_mean)
     return {'recall': recall, 'precision': precision}
+
+  def getMatchScoreOfNCBIGENE(self, inp_id, inp_ncbigene, tax_id):
+    """
+    Calculate match score of a gene (by ID)
+    with a NCBI gene term. 
+    This is to inform user of how well it matches with
+    a specific NCBI gene term.
+    If the NCBI gene term somehow 
+    doesn't exist in the dictionary,
+    0.0 will be returned. 
+
+    Parameters
+    ----------
+    inp_id: str
+        ID of a gene
+
+    inp_ncbigene: str
+        A NCBI gene term. 
+
+    tax_id: str
+        Taxonomy ID of the species
+
+    Returns
+    -------
+    res: float
+    """
+    inp_str = self.genes.getNameToUse(inp_id)
+    scores = self.genes.getCScores(tax_id=tax_id,
+                                     inp_strs=[inp_str],
+                                     mssc='above',
+                                     cutoff=0.0)[inp_str]
+    # searching for the match score
+    res = next((np.round(v[1], cn.ROUND_DIGITS) \
+               for v in scores if v[0] == inp_ncbigene), 0.0)
+    return res
+
+  def recommendGene(self,
+                       tax_id='9606',
+                       ids=None, 
+                       min_len=0,
+                       mssc='top',
+                       cutoff=0.0,
+                       outtype='table'):
+    """
+    Recommend one or more ids of genes
+    and returns a single dataframe or
+    a list of dataframes.
   
+    Parameters
+    ----------
+    tax_id: int
+        Taxonomy ID of the species
+        Use human (9606) as default
+
+    ids: str/list-str
+        If None, will predict all
+
+    min_len: int
+        Minimum length of gene name
+        to be returned for results
+
+    mssc: str
+        Match score selection criteria. 
+  
+    cutoff: match score cutoff
+        If None given, returns all values.
+
+    outtype: str
+        Either 'table' or 'sbml'.
+        'table' will return a pandas.DataFrame
+        'sbml' will return an sbml string
+
+    Returns
+    -------
+    : pd.DataFrame/str/None
+        Either 
+    """
+    self.updateCurrentElementType('genes')
+    self.tax_id = tax_id
+    if isinstance(ids, str):
+      genes = [ids]
+    elif ids is None:
+      genes = self.getGeneIDs()
+    else:
+      genes = ids
+    filt_genes = [val for val in genes \
+                  if len(self.genes.getNameToUse(val))>=min_len]
+    if len(filt_genes) == 0:
+      print("No genes after the element filter.\n")
+      return None
+    pred = self.getGeneListRecommendation(tax_id=tax_id,
+                                             pred_ids=filt_genes,
+                                             mssc=mssc,
+                                             cutoff=cutoff,
+                                             get_df=True)
+    res_table = self.getRecomTable(tax_id=tax_id, 
+                                   element_type='genes',
+                                   recommended=pred)
+    if outtype == 'table':
+      return res_table
+    elif outtype == 'sbml':
+      res_sbml = self.getSBMLDocument(sbml_document=self.sbml_document,
+                                      chosen=res_table,
+                                      auto_feedback=True)
+      return libsbml.writeSBMLToString(res_sbml)
+    return None
+
 ################ Qualitative Species annotation #################
   def getQualSpeciesRecommendation(self,
                             tax_id=None,
