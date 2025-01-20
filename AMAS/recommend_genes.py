@@ -4,7 +4,7 @@
 """
 Predicts annotations of gene using a local SBML file
 and the gene ID. 
-Usage: python recommend_genes.py files/e_coli_core.xml --tax 511145 --min_len 2 --cutoff 0.6 --outfile res.csv
+Usage: python recommend_genes.py files/e_coli_core.xml --tax 511145 --min_len 2 --cutoff 0.6 --outfile genes_rec.csv
 """
 
 import argparse

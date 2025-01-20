@@ -6,7 +6,7 @@ Predicts annotations of species, reactions, and genes (if exist) using a local X
 This is a combined version of recommend_species, recommend_reaction, and recommend_genes,
 but is more convenient because user will just get the updated XML file or whole recommendations. 
 
-Usage: python recommend_annotation.py files/e_coli_core.xml --tax 511145 --cutoff 0.6 --save csv --outfile res.csv 
+Usage: python recommend_annotation.py files/e_coli_core.xml --tax 511145 --cutoff 0.6 --save csv --outfile rec.csv 
 """
 
 import argparse
@@ -29,8 +29,8 @@ def main():
   parser = argparse.ArgumentParser(description='Recommend annotations of an SBML model ' +\
                                                '(for species, reactions, and genes) and save results.') 
   parser.add_argument('model', type=str, help='SBML model file (.xml).')
-  parser.add_argument('--tax', type=str, help='Taxonomy ID of the species', nargs='?', default='9606')
-  # One or more reaction IDs can be given
+  # taxonomy id for gene annotation, by default is human
+  parser.add_argument('--tax', type=str, help='Taxonomy ID of the species', nargs='?', default='9606') 
   parser.add_argument('--cutoff', type=float, help='Match score cutoff.', nargs='?', default=0.0)
   parser.add_argument('--optimize', type=str, help='Whether to optimize or not. ' +\
                                                    'If y or yes is given, predictions will be ' +\
@@ -57,6 +57,7 @@ def main():
   args = parser.parse_args()
   recom = recommender.Recommender(libsbml_fpath=args.model)
   one_fpath = args.model
+  tax = str(args.tax)
   cutoff = args.cutoff
   optim_raw = args.optimize
   if optim_raw.lower() in ['y', 'yes']:
@@ -78,7 +79,8 @@ def main():
   else:
     print("...\nAnalyzing %d gene(s)...\n" % len(genes))
 
-  res_tab = recom.recommendAnnotation(mssc=mssc,
+  res_tab = recom.recommendAnnotation(tax_id = tax,
+                                      mssc=mssc,
                                       cutoff=cutoff,
                                       optimize=optim,
                                       outtype='table')

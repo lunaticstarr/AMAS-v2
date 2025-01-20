@@ -846,6 +846,7 @@ class Recommender(object):
 
 
   def recommendAnnotation(self,
+                          tax_id = '9606',
                           mssc='top',
                           cutoff=0.0,
                           optimize=False,
@@ -878,6 +879,15 @@ class Recommender(object):
                                                    mssc=mssc,
                                                    cutoff=cutoff,
                                                    get_df=True)
+    if self.getGeneIDs() is not None:
+      pred_gene = self.getGeneListRecommendation(pred_ids=self.getGeneIDs(),
+                                                    tax_id = tax_id,
+                                                    mssc=mssc,
+                                                    cutoff=cutoff,
+                                                    get_df=True)
+    else:
+      pred_gene = []
+    
     if optimize:
       res_tab = self.optimizePrediction(pred_spec=pred_spec,
                                          pred_reac=pred_reac)
@@ -886,7 +896,9 @@ class Recommender(object):
                                 recommended=pred_spec)
       r_df = self.getRecomTable(element_type='reaction',
                                 recommended=pred_reac)
-      res_tab = pd.concat([s_df, r_df],
+      g_df = self.getRecomTable(element_type='genes',
+                                recommended=pred_gene)
+      res_tab = pd.concat([s_df, r_df, g_df],
                            ignore_index=True)
     if outtype == 'table':
       return res_tab
@@ -1170,9 +1182,13 @@ class Recommender(object):
     TYPE_EXISTING_ATTR = {'species': self.species.exist_annotation,
                           'reaction': self.reactions.exist_annotation,
                           'genes': self.genes.exist_annotation} 
-    ELEMENT_FUNC = {'species': model.getSpecies,
-                    'reaction': model.getReaction,
-                    'genes':model.getPlugin("fbc").getGeneProduct}
+    if model.getPlugin("fbc"):
+      ELEMENT_FUNC = {'species': model.getSpecies,
+                      'reaction': model.getReaction,
+                      'genes':model.getPlugin("fbc").getGeneProduct}
+    else:
+      ELEMENT_FUNC = {'species': model.getSpecies,
+                      'reaction': model.getReaction}
     TYPE_LABEL = {'species': cn.REF_CHEBI2LABEL,
                   'reaction': cn.REF_RHEA2LABEL,
                   'genes':cn.REF_NCBI_GENE2LABEL}
@@ -1272,7 +1288,8 @@ class Recommender(object):
     if auto_feedback:
       chosen.replace('ignore', 'add', inplace=True)
     ELEMENT_FUNC = {'species': model.getSpecies,
-                    'reaction': model.getReaction}
+                    'reaction': model.getReaction,
+                    'genes':model.getPlugin("fbc").getGeneProduct}
     element_types = list(np.unique(chosen['type']))
     for one_type in element_types:
       maker = am.AnnotationMaker(one_type)
@@ -1286,6 +1303,7 @@ class Recommender(object):
         orig_str = ELEMENT_FUNC[one_type](one_id).getAnnotationString()
         df_id = df_type[df_type['id']==one_id]
         dels = list(df_id[df_id[cn.DF_UPDATE_ANNOTATION_COL]=='delete'].loc[:, 'annotation'])
+        dels = [str(val) for val in dels]
         adds_raw = list(df_id[df_id[cn.DF_UPDATE_ANNOTATION_COL]=='add'].loc[:, 'annotation'])
         # existing annotations to be kept 
         keeps = list(df_id[df_id[cn.DF_UPDATE_ANNOTATION_COL]=='keep'].loc[:, 'annotation'])
@@ -1298,12 +1316,12 @@ class Recommender(object):
             adds.append(one_add[5:])
           # if it is else, store as it is
           else:
-            adds.append(one_add)
+            adds.append(str(one_add))
         # if type is 'reaction', need to map rhea terms back to ec/kegg terms to delete them. 
         if one_type == 'reaction':
           rhea_del_terms = list(set(itertools.chain(*[tools.getAssociatedTermsToRhea(val) for val in dels])))
           deled = maker.deleteAnnotation(rhea_del_terms, orig_str)
-        elif one_type == 'species':
+        elif one_type == 'species' or one_type == 'genes':
           deled = maker.deleteAnnotation(dels, orig_str)
         added = maker.addAnnotation(adds, deled, meta_ids[one_id])
         ELEMENT_FUNC[one_type](one_id).setAnnotation(added)
