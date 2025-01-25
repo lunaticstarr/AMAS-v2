@@ -48,10 +48,12 @@ def extractExistingSpeciesAnnotation(inp_model, qualifier=cn.CHEBI):
   qualifier: str
       'chebi' or 'obo.chebi'?
   """
-  exist_raw = {val.getId():getQualifierFromString(val.getAnnotationString(), [cn.CHEBI, cn.OBO_CHEBI]) \
+  exist_raw = {val.getId():getOneOntologyFromString(val.getAnnotationString(), [cn.CHEBI, cn.OBO_CHEBI]) \
                for val in inp_model.getListOfSpecies()}
   exist_filt = {val:exist_raw[val] for val in exist_raw.keys() \
                 if exist_raw[val]}
+  # remove duplicates
+  exist_filt = {val:list(set(exist_filt[val])) for val in exist_filt.keys()}
   return exist_filt
 
 def extractExistingGeneAnnotation(inp_model, qualifier=cn.NCBI_GENE):
@@ -64,10 +66,12 @@ def extractExistingGeneAnnotation(inp_model, qualifier=cn.NCBI_GENE):
   qualifier: str
       'ncbi.gene'
   """
-  exist_raw = {val.getIdAttribute():getQualifierFromString(val.getAnnotationString(), [cn.NCBI_GENE]) \
+  exist_raw = {val.getIdAttribute():getOneOntologyFromString(val.getAnnotationString(), [cn.NCBI_GENE]) \
                for val in inp_model.getListOfGeneProducts()}
   exist_filt = {val:exist_raw[val] for val in exist_raw.keys() \
                 if exist_raw[val]}
+  # remove duplicates
+  exist_filt = {val:list(set(exist_filt[val])) for val in exist_filt.keys()}
   return exist_filt
 
 def extractExistingReactionAnnotation(inp_model):
@@ -97,6 +101,8 @@ def extractExistingReactionAnnotation(inp_model):
                for val in inp_model.getListOfReactions()}
   exist_filt = {val:exist_raw[val] for val in exist_raw.keys() \
                 if exist_raw[val]}
+  # remove duplicates
+  exist_filt = {val:list(set(exist_filt[val])) for val in exist_filt.keys()}
   return exist_filt
 
 def extractExistingQualitativeSpeciesAnnotation(inp_model, qualifier=cn.NCBI_GENE, description=False):
@@ -111,10 +117,12 @@ def extractExistingQualitativeSpeciesAnnotation(inp_model, qualifier=cn.NCBI_GEN
   description: bool
       If True, also extract the description using <bqbiol:isDescribedBy>
   """
-  exist_raw = {val.getId():getQualifierFromString(val.getAnnotationString(), [qualifier], description) \
+  exist_raw = {val.getId():getOneOntologyFromString(val.getAnnotationString(), [qualifier], description) \
                for val in inp_model.getListOfQualitativeSpecies()}
   exist_filt = {val:exist_raw[val] for val in exist_raw.keys() \
                 if exist_raw[val]}
+  # remove duplicates
+  exist_filt = {val:list(set(exist_filt[val])) for val in exist_filt.keys()}
   return exist_filt
 
 def extractExistingTransitionAnnotation(inp_model, qualifier=cn.PUBMED, description=False):
@@ -128,7 +136,7 @@ def extractExistingTransitionAnnotation(inp_model, qualifier=cn.PUBMED, descript
   qualifier: str
       'pubmed'
   """
-  exist_raw = {val.getId():getQualifierFromString(val.getAnnotationString(), [qualifier], description) \
+  exist_raw = {val.getId():getOneOntologyFromString(val.getAnnotationString(), [qualifier], description) \
                for val in inp_model.getListOfTransitions()}
   exist_filt = {val:exist_raw[val] for val in exist_raw.keys() \
                 if exist_raw[val]}
@@ -148,14 +156,14 @@ def extractRheaFromAnnotationString(inp_str):
   -------
   list-str
   """
-  exist_rheas = [formatRhea(val) for val in getQualifierFromString(inp_str, cn.RHEA)]
+  exist_rheas = [formatRhea(val) for val in getOneOntologyFromString(inp_str, cn.RHEA)]
   map_rhea_bis = [cn.REF_RHEA2MASTER[val] for val in exist_rheas if val in cn.REF_RHEA2MASTER.keys()]
 
-  exist_keggs = [cn.KEGG_HEADER+val for val in getQualifierFromString(inp_str, cn.KEGG_REACTION)]
+  exist_keggs = [cn.KEGG_HEADER+val for val in getOneOntologyFromString(inp_str, cn.KEGG_REACTION)]
   map_kegg2rhea = list(itertools.chain(*[cn.REF_KEGG2RHEA[val] \
                                          for val in exist_keggs if val in cn.REF_KEGG2RHEA.keys()]))
 
-  exist_ecs = [cn.EC_HEADER+val for val in getQualifierFromString(inp_str, cn.EC)]
+  exist_ecs = [cn.EC_HEADER+val for val in getOneOntologyFromString(inp_str, cn.EC)]
   map_ec2rhea = list(itertools.chain(*[cn.REF_EC2RHEA[val] \
                                       for val in exist_ecs if val in cn.REF_EC2RHEA.keys()]))
 
@@ -182,86 +190,310 @@ def formatRhea(one_rhea):
     str_to_add = one_rhea
   return cn.RHEA_HEADER + str_to_add
 
+def remove_duplicate_namespaces(xml_string):
+    """
+    Remove duplicate namespace declarations from the RDF_TAG in the XML string.
 
-def getOntologyFromString(string_annotation,
-                          description = False):
-  """
-  Parse string and return string annotation,
-  marked as <bqbiol:is> or <bqbiol:isVersionOf>;
-  (and extract the description using <bqbiol:isDescribedBy>)
-  If neither exists, return None.
+    Parameters
+    ----------
+    xml_string: str
+        The XML string to clean.
 
-  Parameters
-  ----------
-  string_annotation: str
-  description: bool
-      If True, also extract the description using <bqbiol:isDescribedBy>
+    Returns
+    -------
+    str:
+        The cleaned XML string with duplicate attributes removed.
+    """
+    # Regex to locate the <rdf:RDF> opening tag and extract its attributes
+    rdf_opening_pattern = r"(<rdf:RDF\b)([^>]*)(>)"
+    match = re.search(rdf_opening_pattern, xml_string)
 
+    if match:
+        opening_tag_start = match.group(1)  # '<rdf:RDF'
+        attributes = match.group(2)  # All attributes
+        closing_tag = match.group(3)  # '>'
 
-  Returns
-  -------
-  list-tuple (ontology type, ontology id)
-       Return [] if none is provided
-  
-  """
-  bqbiol_qualifiers=['is', 'isVersionOf']
-  if description:
-    bqbiol_qualifiers.append('isDescribedBy')
-  combined_str = ''
-  for one_qualifier in bqbiol_qualifiers:
-    one_match = '<bqbiol:' + one_qualifier + \
-                '[^a-zA-Z].*?<\/bqbiol:' + \
-                one_qualifier + '>'
-    one_matched = re.findall(one_match,
-                  string_annotation,
-                  flags=re.DOTALL)
-    if len(one_matched)>0:
-      matched_filt = [s.replace("      ", "") for s in one_matched]
-      one_str = '\n'.join(matched_filt) 
+        # Split attributes and retain only unique ones
+        attr_list = attributes.split()
+        unique_attrs = {}
+        for attr in attr_list:
+            key, value = attr.split("=", 1)
+            if key not in unique_attrs:
+                unique_attrs[key] = value
+
+        # Reconstruct the cleaned <rdf:RDF> opening tag
+        cleaned_attributes = " ".join([f'{key}={value}' for key, value in unique_attrs.items()])
+        cleaned_rdf_opening = f"{opening_tag_start} {cleaned_attributes}{closing_tag}"
+
+        # Replace the original <rdf:RDF> opening tag with the cleaned one
+        xml_string = xml_string.replace(match.group(0), cleaned_rdf_opening)
+
+    return xml_string
+
+def divideExistingAnnotation(inp_str, qualifier):
+    """
+    Parse the annotation string to extract items in multiple <rdf:Bag> elements 
+    under the specified qualifier (e.g., <bqbiol:is>), and keep the rest in the container.
+    Ensures namespaces and structure are preserved when creating an empty qualifier block.
+
+    Parameters
+    ----------
+    inp_str: str
+        The full annotation string.
+    qualifier: str
+        The qualifier to target (e.g., bqbiol:is, bqbiol:isDescribedBy).
+
+    Returns
+    -------
+    dict:
+        - 'container': The annotation string with the qualifier blocks replaced by a single empty block.
+        - 'items': A list of <rdf:li> elements found in all <rdf:Bag> containers of the specified qualifier.
+        - If no qualifier blocks are found, returns None.
+    """
+
+    # Regex to match all blocks for the specified qualifier, including attributes
+    qualifier_pattern = rf"(<{qualifier}\b[^>]*?>\s*<rdf:Bag>.*?</rdf:Bag>\s*</{qualifier}>)"
+    qualifier_matches = re.findall(qualifier_pattern, inp_str, re.DOTALL)
+
+    if not qualifier_matches:
+        return None  # Return None if no blocks for the qualifier are found
+
+    # Collect all <rdf:li> elements from each matched block
+    rdf_li_pattern = r"<rdf:li[^>]*\/>"
+    items = []
+    for block in qualifier_matches:
+        items.extend(re.findall(rdf_li_pattern, block))
+
+    # Extract the opening tag with attributes from the first match
+    match_prefix = re.match(rf"<{qualifier}.*?>", qualifier_matches[0])
+    if match_prefix:
+        qualifier_opening = match_prefix.group()  # Capture opening tag with attributes
     else:
-      one_str = ''
-    combined_str = combined_str + one_str
+        qualifier_opening = f"<{qualifier}>"
 
-  identifiers_list = re.findall('identifiers\.org/.*/', combined_str)
-  result_identifiers = [(r.split('/')[1],r.split('/')[2].replace('\"', '')) \
-                        for r in identifiers_list]
-  if description:
-    identifiers_list.extend(re.findall(r'rdf:resource="urn:miriam:([^"]+)"', combined_str))
-    result_identifiers.extend([(r.rsplit(':', 1)[0], r.rsplit(':', 1)[1]) for r in identifiers_list])
+    # Construct a single empty qualifier block using the preserved attributes
+    empty_qualifier_block = (
+        f"      {qualifier_opening}\n"
+        f"        <rdf:Bag>\n"
+        f"        </rdf:Bag>\n"
+        f"      </{qualifier}>"
+    )
+    # Remove all original qualifier blocks from the container
+    stripped_annotation = re.sub(qualifier_pattern, "", inp_str, flags=re.DOTALL).strip()
 
-  return result_identifiers
+    # Reinsert the empty qualifier block with namespaces added
+    if cn.RDF_TAG not in stripped_annotation:
+        container = stripped_annotation.replace(
+            "<rdf:RDF",
+            f"<{cn.RDF_TAG}",
+        )
+    else:
+        container = stripped_annotation
+
+    container = container.replace(
+        "</rdf:Description>",
+        f"{empty_qualifier_block}\n    </rdf:Description>"
+    )
+    # Remove repeated blank lines
+    container = re.sub(r"\n\s*\n", "\n", container)
+    container = remove_duplicate_namespaces(container)
+    return {"container": container, "items": items}
 
 
-def getQualifierFromString(input_str, qualifier,
+def insertItemsBackToContainer(container, items, qualifier):
+    """
+    Insert <rdf:li> items back into the <rdf:Bag> of the specified qualifier in the container.
+    If no block for the specified qualifier exists, create a new one with attributes preserved.
+
+    Parameters
+    ----------
+    container: str
+        The annotation string with the specified qualifier and its <rdf:Bag>.
+    items: list
+        List of <rdf:li> items to insert back into the <rdf:Bag> of the qualifier.
+    qualifier: str
+        The qualifier to target (e.g., bqbiol:is, bqbiol:isDescribedBy).
+
+    Returns
+    -------
+    str:
+        The updated annotation string with the <rdf:li> items inserted into the correct <rdf:Bag>.
+    """
+    # Regex to locate the <rdf:Bag> inside the specified qualifier
+    bag_pattern = rf"(<{qualifier}\b[^>]*?>\s*<rdf:Bag>).*?</rdf:Bag>\s*</{qualifier}>"
+    match = re.search(bag_pattern, container, re.DOTALL)
+
+    # Construct the new <rdf:Bag> content with the items
+    items_str = "\n".join([f"          {item}" for item in items])
+
+    if match:
+        # If qualifier block exists, replace its <rdf:Bag> content
+        qualifier_opening = match.group(1)  # Capture opening tag with attributes
+        updated_bag = f"{qualifier_opening}\n{items_str}\n        </rdf:Bag>"
+        # Replace the old <rdf:Bag> block with the updated one
+        updated_container = re.sub(bag_pattern, updated_bag + f"\n      </{qualifier}>", container, flags=re.DOTALL)
+    else:
+        # If qualifier block does not exist, create a new one
+        qualifier_opening = f"<{qualifier} xmlns:bqbiol=\"http://biomodels.net/biology-qualifiers/\">"
+        updated_bag = f"      {qualifier_opening}\n        <rdf:Bag>\n{items_str}\n        </rdf:Bag>\n      </{qualifier}>"
+        if cn.RDF_TAG not in container:
+          updated_container = container.replace(
+              "<rdf:RDF",
+              f"<{cn.RDF_TAG}")
+        updated_container = updated_container.replace(
+            "</rdf:Description>",
+            f"{updated_bag}\n    </rdf:Description>"
+        )
+    updated_container = remove_duplicate_namespaces(updated_container)
+
+    return updated_container
+
+
+def extract_ontology_from_items(items_list):
+    """
+    Extract ontology from items and return a flat list of tuples.
+    Each tuple contains (ontology type, ontology id).
+
+    Parameters
+    ----------
+    items_list : list
+        A list of string items containing ontology annotations.
+
+    Returns
+    -------
+    list of tuples
+        A flat list of (ontology type, ontology id).
+    """
+    result_identifiers = []
+    for item in items_list:
+        # Extract identifiers from "urn:miriam" URIs
+        identifiers_list = re.findall(r'urn:miriam:([^"]+)"', item)
+        for r in identifiers_list:
+            ontology_type, ontology_id = r.split(":", 1)
+            result_identifiers.append((ontology_type, ontology_id))
+    return result_identifiers
+
+
+def getOntologyFromString(string_annotation, description=False):
+    """
+    Parse string and return string annotation,
+    marked as <bqbiol:is> or <bqbiol:isVersionOf>;
+    (and extract the description using <bqbiol:isDescribedBy>)
+    If neither exists, return None.
+
+    Parameters
+    ----------
+    string_annotation: annotation string that starts with <annotation>
+
+    description: bool
+        If True, also extract the description using <bqbiol:isDescribedBy>.
+
+    Returns
+    -------
+    list-tuple (ontology type, ontology id)
+         Return [] if none is provided.
+    """
+
+    # Define the bqbiol qualifiers to search
+    bqbiol_qualifiers = ['is', 'isVersionOf']
+    if description:
+        bqbiol_qualifiers.append('isDescribedBy')
+
+    result_identifiers = []
+    for one_qualifier in bqbiol_qualifiers:
+        res = divideExistingAnnotation(string_annotation, 'bqbiol:' + one_qualifier)
+        if res is None:
+            continue
+        items = res['items']
+        res = extract_ontology_from_items(items)
+        # remove empty lists and duplicates
+        res = [r for r in res if r is not None and r != [] and r not in result_identifiers]
+        result_identifiers.extend(res)
+
+    return result_identifiers
+
+# def getOntologyFromString(string_annotation,
+#                           description = False):
+#   """
+#   Parse string and return string annotation,
+#   marked as <bqbiol:is> or <bqbiol:isVersionOf>;
+#   (and extract the description using <bqbiol:isDescribedBy>)
+#   If neither exists, return None.
+
+#   Parameters
+#   ----------
+#   string_annotation: str
+#   description: bool
+#       If True, also extract the description using <bqbiol:isDescribedBy>
+
+
+#   Returns
+#   -------
+#   list-tuple (ontology type, ontology id)
+#        Return [] if none is provided
+  
+#   """
+#   bqbiol_qualifiers=['is', 'isVersionOf']
+#   if description:
+#     bqbiol_qualifiers.append('isDescribedBy')
+#   combined_str = ''
+#   for one_qualifier in bqbiol_qualifiers:
+#     one_match = '<bqbiol:' + one_qualifier + \
+#                 '[^a-zA-Z].*?<\/bqbiol:' + \
+#                 one_qualifier + '>'
+#     one_matched = re.findall(one_match,
+#                   string_annotation,
+#                   flags=re.DOTALL)
+#     if len(one_matched)>0:
+#       matched_filt = [s.replace("      ", "") for s in one_matched]
+#       one_str = '\n'.join(matched_filt) 
+#     else:
+#       one_str = ''
+#     combined_str = combined_str + one_str
+
+#   identifiers_list = re.findall('identifiers\.org/.*/', combined_str)
+#   result_identifiers = [(r.split('/')[1],r.split('/')[2].replace('\"', '')) \
+#                         for r in identifiers_list]
+#   if description:
+#     identifiers_list.extend(re.findall(r'rdf:resource="urn:miriam:([^"]+)"', combined_str))
+#     result_identifiers.extend([(r.rsplit(':', 1)[0], r.rsplit(':', 1)[1]) for r in identifiers_list])
+
+#   return result_identifiers
+
+
+def getOneOntologyFromString(input_str, ontology_type,
                           description = False):
   """
   Parses string and returns an identifier. 
   If not, return None.
   Qualifier is allowed to be
   either a string or a list of string. 
+  Usage; getOneOntologyFromString(annotationstring, [cn.NCBI_GENE], description)
 
   Parameters
   ----------
-  str/list-str: (list of) string_annotation
+  input_str: str/list-str: (list of) string_annotation
+  ontology_type: str/list-str: (list of) ontology type for resources
+  description: bool
+      If True, also extract the description using <bqbiol:isDescribedBy>
 
   Returns
   -------
-  str (ontology Id)
+  str/list-str (ontology Id)
       Returns an empty list if none is provided
   """
   ontologies = getOntologyFromString(input_str, description)
   # To make sure it works, make it lower
-  if isinstance(qualifier, str):
-    qualifier_list = [val for val in ontologies if val[0].lower()==qualifier.lower()]
-  elif isinstance(qualifier, list):
-    lower_qualifiers = [q.lower() for q in qualifier]
-    qualifier_list = [val for val in ontologies \
-                      if val[0].lower() in lower_qualifiers]
-  if qualifier_list:
-    return [val[1] for val in qualifier_list]
+  if isinstance(ontology_type, str):
+    ontology_type_list = [val for val in ontologies if val[0].lower()==ontology_type.lower()]
+  elif isinstance(ontology_type, list):
+    lower_ontology_types = [q.lower() for q in ontology_type]
+    ontology_type_list = [val for val in ontologies \
+                      if val[0].lower() in lower_ontology_types]
+  if ontology_type_list:
+    return [val[1] for val in ontology_type_list]
   else:
     return []
-
 
 def getPrecision(ref, pred, mean=True):
   """

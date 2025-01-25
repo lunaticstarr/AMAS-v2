@@ -303,22 +303,25 @@ class Recommender(object):
     list-str/None
         None returned if no match was found
     """
-    # list of species ids
-    specs = list(self.species.names.keys())
-    # returns a list of ids thta match pattern, if None, return all
-    if pattern is None:
-      return specs
+    if self.model_type == 'SBML-qual':
+      return None
     else:
-      if regex:
-        re_pattern = pattern
+      # list of species ids
+      specs = list(self.species.names.keys())
+      # returns a list of ids thta match pattern, if None, return all
+      if pattern is None:
+        return specs
       else:
-        re_pattern = fnmatch.translate(pattern)
-      matched = [re.match(re_pattern, val) for val in specs]
-      filt_matched = [val.group(0) for val in matched if val]
-      if len(filt_matched)>0:
-        return filt_matched
-      else:
-        return None
+        if regex:
+          re_pattern = pattern
+        else:
+          re_pattern = fnmatch.translate(pattern)
+        matched = [re.match(re_pattern, val) for val in specs]
+        filt_matched = [val.group(0) for val in matched if val]
+        if len(filt_matched)>0:
+          return filt_matched
+        else:
+          return None
 
   def getSpeciesListRecommendation(self,
                                    pred_strs=None,
@@ -477,27 +480,30 @@ class Recommender(object):
       If True, use regex expression
       If False, convert it to regex.
     """
-    reacts = list(self.reactions.reaction_components.keys())
-    if pattern is None:
-      return reacts
-    # returns a list of ids thta match pattern, if None, return all
-    if regex:
-      re_pattern = pattern
+    if self.model_type == 'SBML-qual':
+      return None
     else:
-      re_pattern = fnmatch.translate(pattern)
-    if by_species:
-      specs2use = self.getSpeciesIDs(pattern=re_pattern, regex=True)
-      if any(specs2use):
-        comp_items = list(self.reactions.reaction_components.items())
-        result = [val[0] for val in comp_items \
-                  if any(set(val[1]).intersection(specs2use))]
-      # if no species match was found
+      reacts = list(self.reactions.reaction_components.keys())
+      if pattern is None:
+        return reacts
+      # returns a list of ids thta match pattern, if None, return all
+      if regex:
+        re_pattern = pattern
       else:
-        return None
-    else:
-      matched = [re.match(re_pattern, val) for val in reacts]
-      result = [val.group(0) for val in matched if val]
-    return result
+        re_pattern = fnmatch.translate(pattern)
+      if by_species:
+        specs2use = self.getSpeciesIDs(pattern=re_pattern, regex=True)
+        if any(specs2use):
+          comp_items = list(self.reactions.reaction_components.items())
+          result = [val[0] for val in comp_items \
+                    if any(set(val[1]).intersection(specs2use))]
+        # if no species match was found
+        else:
+          return None
+      else:
+        matched = [re.match(re_pattern, val) for val in reacts]
+        result = [val.group(0) for val in matched if val]
+      return result
 
   def getReactionListRecommendation(self, pred_ids,
                                     use_exist_species_annotation=False,
@@ -871,14 +877,22 @@ class Recommender(object):
     # Ensure all components have metaids
     self.ensureMetaIdForComponents()
 
-    pred_spec = self.getSpeciesListRecommendation(pred_ids=self.getSpeciesIDs(),
-                                                  mssc=mssc,
-                                                  cutoff=cutoff,
-                                                  get_df=True)
-    pred_reac = self.getReactionListRecommendation(pred_ids=self.getReactionIDs(),
+    if self.getSpeciesIDs() is not None:
+      pred_spec = self.getSpeciesListRecommendation(pred_ids=self.getSpeciesIDs(),
+                                                    mssc=mssc,
+                                                    cutoff=cutoff,
+                                                    get_df=True)
+    else:
+      pred_spec = []
+
+    if self.getReactionIDs() is not None:
+      pred_reac = self.getReactionListRecommendation(pred_ids=self.getReactionIDs(),
                                                    mssc=mssc,
                                                    cutoff=cutoff,
                                                    get_df=True)
+    else:
+      pred_reac = []
+
     if self.getGeneIDs() is not None:
       pred_gene = self.getGeneListRecommendation(pred_ids=self.getGeneIDs(),
                                                     tax_id = tax_id,
@@ -1162,7 +1176,7 @@ class Recommender(object):
     Parameters
     ----------    
     element_type: str
-        either 'species' or 'reaction' or 'genes'
+        either 'species' or 'reaction' or 'genes' or 'qual_species'
       
     recommended: list-pandas.DataFrame
         result of get....ListRecommendation method
@@ -1181,17 +1195,22 @@ class Recommender(object):
     model = self.sbml_document.getModel()
     TYPE_EXISTING_ATTR = {'species': self.species.exist_annotation,
                           'reaction': self.reactions.exist_annotation,
-                          'genes': self.genes.exist_annotation} 
-    if model.getPlugin("fbc"):
-      ELEMENT_FUNC = {'species': model.getSpecies,
-                      'reaction': model.getReaction,
-                      'genes':model.getPlugin("fbc").getGeneProduct}
+                          'genes': self.genes.exist_annotation,
+                          'qual_species': self.qual_species.exist_annotation} 
+    if self.model_type == 'SBML-qual':
+      ELEMENT_FUNC = {'qual_species': model.getPlugin("qual").getQualitativeSpecies}
     else:
-      ELEMENT_FUNC = {'species': model.getSpecies,
-                      'reaction': model.getReaction}
+      if model.getPlugin("fbc"):
+        ELEMENT_FUNC = {'species': model.getSpecies,
+                        'reaction': model.getReaction,
+                        'genes':model.getPlugin("fbc").getGeneProduct}
+      else:
+        ELEMENT_FUNC = {'species': model.getSpecies,
+                        'reaction': model.getReaction}
     TYPE_LABEL = {'species': cn.REF_CHEBI2LABEL,
                   'reaction': cn.REF_RHEA2LABEL,
-                  'genes':cn.REF_NCBI_GENE2LABEL}
+                  'genes':cn.REF_NCBI_GENE2LABEL,
+                  'qual_species': cn.REF_NCBI_GENE2LABEL}
     pd.set_option('display.max_colwidth', 255)
     edfs = []   
     for one_edf in recommended:
@@ -1204,7 +1223,7 @@ class Recommender(object):
       # if there is existing annotation among predicted candidates;
       if element_id in TYPE_EXISTING_ATTR[etype].keys():
         existings = [1 if val in TYPE_EXISTING_ATTR[etype][element_id] else 0 \
-                     for idx, val in enumerate(one_edf['annotation'])]
+                    for idx, val in enumerate(one_edf['annotation'])]
         upd_annotation = ['keep' if val in TYPE_EXISTING_ATTR[etype][element_id] else 'ignore' \
                           for idx, val in enumerate(one_edf['annotation'])]
         annotation2add_raw = [val for val in TYPE_EXISTING_ATTR[etype][element_id] \
@@ -1229,8 +1248,12 @@ class Recommender(object):
         elif etype=='genes':
           match_scores.append(self.getMatchScoreOfNCBIGENE(element_id, new_anot, tax_id))
           labels.append(cn.REF_NCBI_GENE2LABEL[new_anot])
+        elif etype=='qual_species':
+          match_scores.append(self.getMatchScoreOfNCBIGENE_qual(element_id, new_anot, tax_id))
+          labels.append(cn.REF_NCBI_GENE2LABEL[new_anot])
         existings.append(1)
         upd_annotation.append('keep')
+
       new_edf = pd.DataFrame({'type': [etype]*len(annotations),
                               'id': [element_id]*len(annotations),
                               'display name': [ELEMENT_FUNC[etype](element_id).name]*len(annotations),
@@ -1287,9 +1310,16 @@ class Recommender(object):
     model = sbml_document.getModel()
     if auto_feedback:
       chosen.replace('ignore', 'add', inplace=True)
-    ELEMENT_FUNC = {'species': model.getSpecies,
-                    'reaction': model.getReaction,
-                    'genes':model.getPlugin("fbc").getGeneProduct}
+    if self.model_type == 'SBML-qual':
+      ELEMENT_FUNC = {'qual_species': model.getPlugin("qual").getQualitativeSpecies}
+    else:
+      if model.getPlugin("fbc"):
+        ELEMENT_FUNC = {'species': model.getSpecies,
+                        'reaction': model.getReaction,
+                        'genes':model.getPlugin("fbc").getGeneProduct}
+      else:
+        ELEMENT_FUNC = {'species': model.getSpecies,
+                        'reaction': model.getReaction}
     element_types = list(np.unique(chosen['type']))
     for one_type in element_types:
       maker = am.AnnotationMaker(one_type)
@@ -1321,7 +1351,7 @@ class Recommender(object):
         if one_type == 'reaction':
           rhea_del_terms = list(set(itertools.chain(*[tools.getAssociatedTermsToRhea(val) for val in dels])))
           deled = maker.deleteAnnotation(rhea_del_terms, orig_str)
-        elif one_type == 'species' or one_type == 'genes':
+        elif one_type == 'species' or one_type == 'genes' or one_type == 'qual_species':
           deled = maker.deleteAnnotation(dels, orig_str)
         added = maker.addAnnotation(adds, deled, meta_ids[one_id])
         ELEMENT_FUNC[one_type](one_id).setAnnotation(added)
@@ -1500,7 +1530,8 @@ class Recommender(object):
     """
     plural_str = {'species': '',
                   'reaction': '(s)',
-                  'genes': ''}
+                  'genes': '',
+                  'qual_species':''}
     num_saved = len(saved)
     if num_saved == 0:
       return None
@@ -1667,11 +1698,17 @@ class Recommender(object):
     list-str
     """
     # list of gene ids
-    if self.genes.names is None:
-      return None
+    if self.model_type == 'SBML-qual':
+      if self.qual_species.names is None:
+        return None
+      else:
+        return list(self.qual_species.names.keys())
     else:
-      genes = list(self.genes.names.keys())
-      return genes
+      if self.genes.names is None:
+        return None
+      else:
+        genes = list(self.genes.names.keys())
+        return genes
 
 
   def getGeneListRecommendation(self,
@@ -2066,7 +2103,7 @@ class Recommender(object):
       urls = [cn.NCBI_GENE_DEFAULT_URL + str(val[0]) for val in pred_res[ids_dict[spec]]]
       labels = [cn.REF_NCBI_GENE2LABEL[str(val[0])] for val in pred_res[ids_dict[spec]]]
       one_recom = cn.Recommendation(spec,
-                                    [(val[0], np.round(val[1], cn.ROUND_DIGITS)) \
+                                    [(str(val[0]), np.round(val[1], cn.ROUND_DIGITS)) \
                                      for val in pred_res[ids_dict[spec]]],
                                     urls,
                                     labels)
@@ -2131,3 +2168,109 @@ class Recommender(object):
     recall = tools.getRecall(ref=refs, pred=preds, mean=model_mean)
     precision = tools.getPrecision(ref=refs, pred=preds, mean=model_mean)
     return {'recall': recall, 'precision': precision}
+
+  def getMatchScoreOfNCBIGENE_qual(self, inp_id, inp_ncbigene, tax_id):
+    """
+    Calculate match score of a gene (by ID)
+    with a NCBI gene term. 
+    This is to inform user of how well it matches with
+    a specific NCBI gene term.
+    If the NCBI gene term somehow 
+    doesn't exist in the dictionary,
+    0.0 will be returned. 
+
+    Parameters
+    ----------
+    inp_id: str
+        ID of a qualitative species
+
+    inp_ncbigene: str
+        A NCBI gene term. 
+
+    tax_id: str
+        Taxonomy ID of the species
+
+    Returns
+    -------
+    res: float
+    """
+    inp_str = self.qual_species.getNameToUse(inp_id)
+    scores = self.qual_species.getCScores(tax_id=tax_id,
+                                      inp_strs=[inp_str],
+                                      mssc='above',
+                                      cutoff=0.0)[inp_str]
+    # searching for the match score
+    res = next((np.round(v[1], cn.ROUND_DIGITS) \
+                for v in scores if str(v[0]) == inp_ncbigene), 0.0)
+    return res
+
+  def recommendQualitativeSpecies(self,
+                       tax_id='9606',
+                       ids=None, 
+                       min_len=0,
+                       mssc='top',
+                       cutoff=0.0,
+                       outtype='table'):
+    """
+    Recommend one or more ids of qualitative species
+    and returns a single dataframe or
+    a list of dataframes.
+  
+    Parameters
+    ----------
+    tax_id: int
+        Taxonomy ID of the species
+        Use human (9606) as default
+
+    ids: str/list-str
+        If None, will predict all
+
+    min_len: int
+        Minimum length of gene name
+        to be returned for results
+
+    mssc: str
+        Match score selection criteria. 
+  
+    cutoff: match score cutoff
+        If None given, returns all values.
+
+    outtype: str
+        Either 'table' or 'sbml'.
+        'table' will return a pandas.DataFrame
+        'sbml' will return an sbml string
+
+    Returns
+    -------
+    : pd.DataFrame/str/None
+        Either 
+    """
+    self.updateCurrentElementType('qual_species')
+    self.tax_id = tax_id
+    if isinstance(ids, str):
+      genes = [ids]
+    elif ids is None:
+      genes = self.getQualSpeciesIDs()
+    else:
+      genes = ids
+    filt_genes = [val for val in genes \
+                  if len(self.qual_species.getNameToUse(val))>=min_len]
+    if len(filt_genes) == 0:
+      print("No qualitative species after the element filter.\n")
+      return None
+    pred = self.getQualSpeciesListRecommendation(tax_id=tax_id,
+                                             pred_ids=filt_genes,
+                                             mssc=mssc,
+                                             cutoff=cutoff,
+                                             get_df=True)
+    res_table = self.getRecomTable(tax_id=tax_id, 
+                                   element_type='qual_species',
+                                   recommended=pred)
+    if outtype == 'table':
+      return res_table
+    elif outtype == 'sbml':
+      res_sbml = self.getSBMLDocument(sbml_document=self.sbml_document,
+                                      chosen=res_table,
+                                      auto_feedback=True)
+      return libsbml.writeSBMLToString(res_sbml)
+    return None

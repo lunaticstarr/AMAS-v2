@@ -5,6 +5,7 @@
 Predicts annotations of gene using a local SBML file
 and the gene ID. 
 Usage: python recommend_genes.py files/e_coli_core.xml --tax 511145 --min_len 2 --cutoff 0.6 --outfile genes_rec.csv
+Usage (SBML-qual model): python recommend_genes.py files/111_APOPTOSIS_source.sbml
 """
 
 import argparse
@@ -65,23 +66,29 @@ def main():
     if not genes:
       print("No genes found in the model.")
       sys.exit(1)
-
+  if recom.model_type == 'SBML-qual':
+    print("...\nAnnotating SBML-qual model\n")
   print("...\nRunning for organism: %s (tax_id: %s)\n" % (tax_name, tax_id))
   print("...\nAnalyzing %d genes...\n" % len(genes))
 
-  try:
-      res_tab = recom.recommendGene(tax_id=tax_id,
-                                    ids=genes,
-                                    mssc=mssc,
-                                    cutoff=cutoff,
-                                    min_len=min_len,
-                                    outtype='table')
-      recom.saveToCSV(res_tab, outfile)
-      if isinstance(res_tab, pd.DataFrame):
-          print("Recommendations saved as:\n%s\n" % os.path.abspath(outfile))
-  except Exception as e:
-      print(f"Error during gene recommendation: {e}")
-      sys.exit(1)
+  if recom.model_type == 'SBML':
+    res_tab = recom.recommendGene(tax_id=tax_id,
+                                  ids=genes,
+                                  mssc=mssc,
+                                  cutoff=cutoff,
+                                  min_len=min_len,
+                                  outtype='table')
+  else:
+    res_tab = recom.recommendQualitativeSpecies(tax_id=tax_id,
+                                  ids=genes,
+                                  mssc=mssc,
+                                  cutoff=cutoff,
+                                  min_len=min_len,
+                                  outtype='table')
+  recom.saveToCSV(res_tab, outfile)
+  if isinstance(res_tab, pd.DataFrame):
+      print("Recommendations saved as:\n%s\n" % os.path.abspath(outfile))
+
 
 if __name__ == '__main__':
   main()

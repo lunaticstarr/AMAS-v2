@@ -1,3 +1,26 @@
+"""
+This script provides a web interface for annotating SBML models using the AMAS (Automated Model Annotation System) framework.
+
+Usage:
+1. Run the application:
+   python app.py
+
+2. Open the web application in browser:
+   Navigate to http://127.0.0.1:8050/ (default address) in web browser.
+
+3. Workflow:
+   a. Upload an SBML file for annotation. Only files in valid SBML format are supported.
+   b. Choose whether to annotate all elements or only specific types (species, reactions, or genes).
+   c. Adjust match score criteria, cutoff, minimum name length, and optimization settings as needed.
+   d. Click "Recommend Annotations" to generate recommendations based on the selected parameters.
+   e. Use the annotation table to make interactive updates to the recommendations.
+   f. Download the annotated and updated SBML model to your local machine.
+
+4. Stopping the Server:
+   Press `Ctrl+C` in the terminal to stop the application.
+
+"""
+
 import dash
 from dash import dcc, html, dash_table
 from dash.dependencies import Input, Output, State
@@ -15,6 +38,7 @@ csv_output_path = "recommendations.csv"
 amas_recommendation_path = "../AMAS/recommend_annotation.py"
 amas_species_path = "../AMAS/recommend_species.py"
 amas_reactions_path = "../AMAS/recommend_reactions.py"
+amas_genes_path = "../AMAS/recommend_genes.py"
 amas_update_path = "../AMAS/update_annotation.py"
 current_model_path = "current_model.xml"
 download_file_path = "new_model.xml"
@@ -34,7 +58,7 @@ def read_process_output(process, params_used):
 
 # Define the layout of the app
 app.layout = html.Div(
-    style={"display": "flex", "flexDirection": "row", "width": "100%", "height": "200vh", "overflow": "hidden"},
+    style={"display": "flex", "flexDirection": "row", "width": "100%", "height": "95vh", "overflow": "hidden"},
     children=[
         # Left Section: Menu, Parameters, Messages
         html.Div(
@@ -57,18 +81,42 @@ app.layout = html.Div(
 
                 # Annotation Type Selection
                 html.Label("What to Annotate:", 
-                title = "To annotate all elements, or species/reactions only."),
+                title = "To annotate all elements, or species/reactions/genes only."),
                 dcc.RadioItems(
                     id="annotation-type",
                     options=[
                         {"label": "All", "value": "all"},
                         {"label": "Species", "value": "species"},
-                        {"label": "Reactions", "value": "reactions"}
+                        {"label": "Reactions", "value": "reactions"},
+                        {"label": "Genes", "value": "genes"}
                     ],
                     value="all",
                     inline=True
                 ),
                 html.Br(),
+
+                # Tax_id for gene annotation
+                html.Label("Taxonomy:", 
+                title="Choose a taxonomy or enter its taxonomy ID for gene annotation."),
+                dcc.Dropdown(
+                    id="taxonomy-dropdown",
+                    options=[
+                        {"label": "Human", "value": "9606"},
+                        {"label": "E coli", "value": "511145"},
+                        {"label": "Mouse", "value": "10090"},
+                    ],
+                    value="9606",
+                    placeholder="Select taxonomy for gene annotation",
+                    style={"marginBottom": "10px", "width": "100%"},
+                ),
+                html.Label("Or enter its Taxonomy ID:"),
+                dcc.Input(
+                    id="taxonomy-id-input",
+                    type="text",
+                    placeholder="Enter taxonomy ID",
+                    style={"marginBottom": "20px", "width": "30%"},
+                ),
+                html.Br(),                
 
                 # Parameters Section
                 html.Div([
@@ -124,7 +172,7 @@ app.layout = html.Div(
                 # Processing Messages
                 html.Div(id="amas-output", style={
                     "whiteSpace": "pre-wrap", "border": "1px solid #ccc", "padding": "10px",
-                    "maxHeight": "500px", "overflowY": "scroll"
+                    "maxHeight": "700px", "overflowY": "scroll"
                 }, children="Please upload an SBML model to begin.")
             ]
         ),
@@ -137,7 +185,7 @@ app.layout = html.Div(
                 html.H2("SBML Model", style={"fontSize": "16px", "textAlign": "center"}),
                 html.Div(id='sbml-content', style={
                     "whiteSpace": "pre-wrap", "border": "1px solid #ccc", "padding": "10px",
-                    "maxHeight": "700px", "overflowY": "scroll"
+                    "maxHeight": "900px", "overflowY": "scroll"
                 })
             ]
         ),
@@ -152,7 +200,7 @@ app.layout = html.Div(
                 html.H2("Shaded: Existing annotations; White: Recommended annotations.", style={"fontSize": "13px", "textAlign": "left"}),
                 dash_table.DataTable(
                     id="csv-table",
-                    style_table={"maxHeight": "700px", "overflowY": "scroll", "marginTop": "20px"},
+                    style_table={"maxHeight": "900px", "overflowY": "scroll", "marginTop": "20px"},
                     style_data={'whiteSpace': 'normal', 'height': 'auto', 'lineHeight': '15px'},
                     editable=True,
                     filter_action="native", sort_action="native", sort_mode="multi",
@@ -221,6 +269,8 @@ app.layout = html.Div(
      Input("download-button", "n_clicks"),
      Input("interval-component", "n_intervals")],
     [State("annotation-type", "value"),
+     State("taxonomy-dropdown", "value"), 
+     State("taxonomy-id-input", "value"),
      State("mssc-radio", "value"),
      State("cutoff-slider", "value"),
      State("optimize-radio", "value"),
@@ -229,7 +279,7 @@ app.layout = html.Div(
      State("min-len-input","value")]
 )
 def manage_workflow(contents, annotation_clicks, update_clicks, download_clicks, n_intervals,
-                    annotation_type, mssc, cutoff, optimize, table_data, sbml_text,min_len):
+                    annotation_type, tax_dropdown, tax_input, mssc, cutoff, optimize, table_data, sbml_text,min_len):
     ctx = dash.callback_context
     if not ctx.triggered:
         return "Please upload an SBML model to begin.", sbml_text, [], dash.no_update, True
@@ -254,23 +304,36 @@ def manage_workflow(contents, annotation_clicks, update_clicks, download_clicks,
         script_path = {
             "all": amas_recommendation_path,
             "species": amas_species_path,
-            "reactions": amas_reactions_path
+            "reactions": amas_reactions_path,
+            "genes": amas_genes_path
         }[annotation_type]
 
-        params_used = f"Running AMAS {annotation_type} annotation with parameters:\n  --mssc: {mssc}\n  --cutoff: {cutoff}\n"
-        if annotation_type == "all":
-            params_used += f"  --optimize: {optimize}\n"
-        else: params_used += f" --min_len: {min_len}\n"
-
+        if annotation_type in ["genes", "all"]:
+            tax_id = tax_dropdown if tax_dropdown else tax_input
+            if not tax_id:
+                return "Please select a taxonomy or enter a taxonomy ID for gene annotation.", sbml_text, [], dash.no_update, True
+        else:
+            tax_id = None
+        
         command = [
             "python", script_path, current_model_path,
             "--mssc", mssc, "--cutoff", str(cutoff),
             "--outfile", csv_output_path
         ]
-        if annotation_type == "all":
-            command += ["--optimize", optimize, "--save", "csv"]
-        else: command += ["--min_len", str(min_len)]
 
+        params_used = f"Running AMAS {annotation_type} annotation with parameters:\n  --mssc: {mssc}\n  --cutoff: {cutoff}\n"
+        if annotation_type in ["all", "genes"]:
+            params_used += f"  --tax: {tax_id}\n"
+            command += ["--tax", tax_id]
+
+        if annotation_type == "all":
+            params_used += f"--optimize: {optimize}\n"
+            command += ["--save", "csv", "--optimize", optimize]
+        else: 
+            params_used += f" --min_len: {min_len}\n"
+            command += ["--min_len", str(min_len)]
+
+        print(command)
         process_info["process"] = subprocess.Popen(
             command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1
         )

@@ -202,12 +202,15 @@ class GeneAnnotation(object):
     -------
     str
     """
-    gene_name = self.names[inp_id]
-    if len(gene_name) > 0:
-      res_name = gene_name
+    if self.names is not None:
+      gene_name = self.names[inp_id]
+      if len(gene_name) > 0:
+        res_name = gene_name
+      else:
+        res_name = inp_id
+      return res_name
     else:
-      res_name = inp_id
-    return res_name
+      return inp_id
 
   def updateGeneWithRecommendation(self, inp_recom):
     """

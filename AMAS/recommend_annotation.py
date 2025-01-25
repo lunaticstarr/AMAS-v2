@@ -55,7 +55,6 @@ def main():
                                 default='sbml')
   parser.add_argument('--outfile', type=str, help='Path to save an output file.', nargs='?')
   args = parser.parse_args()
-  recom = recommender.Recommender(libsbml_fpath=args.model)
   one_fpath = args.model
   tax = str(args.tax)
   cutoff = args.cutoff
@@ -69,21 +68,41 @@ def main():
   outfile = args.outfile
 
   recom = recommender.Recommender(libsbml_fpath=one_fpath)
-  specs = recom.getSpeciesIDs()
-  print("...\nAnalyzing %d species...\n" % len(specs))
-  reacts = recom.getReactionIDs()
-  print("...\nAnalyzing %d reaction(s)...\n" % len(reacts))
-  genes = recom.getGeneIDs()
-  if not genes:
-    pass
+  if recom.model_type == 'SBML-qual':
+    print("...\nAnnotating SBML-qual model\n")
+    qual_species = recom.getQualSpeciesIDs()
+    if not qual_species:
+      print("\nNo qualitative species found in the model.")
+    else:
+      print("...\nAnalyzing %d qualitative species...\n" % len(qual_species))
+    res_tab = recom.recommendQualitativeSpecies(tax_id=tax,
+                                  ids=qual_species,
+                                  mssc=mssc,
+                                  cutoff=cutoff,
+                                  outtype='table')
+  
   else:
-    print("...\nAnalyzing %d gene(s)...\n" % len(genes))
+    specs = recom.getSpeciesIDs()
+    if not specs:
+      print("\nNo species found in the model.")
+    else:
+      print("...\nAnalyzing %d species...\n" % len(specs))
+    reacts = recom.getReactionIDs()
+    if not reacts:
+      print("\nNo reactions found in the model.")
+    else:
+      print("...\nAnalyzing %d reaction(s)...\n" % len(reacts))
+    genes = recom.getGeneIDs()
+    if not genes:
+      print("\nNo genes found in the model.")
+    else:
+      print("...\nAnalyzing %d gene(s)...\n" % len(genes))
 
-  res_tab = recom.recommendAnnotation(tax_id = tax,
-                                      mssc=mssc,
-                                      cutoff=cutoff,
-                                      optimize=optim,
-                                      outtype='table')
+    res_tab = recom.recommendAnnotation(tax_id = tax,
+                                        mssc=mssc,
+                                        cutoff=cutoff,
+                                        optimize=optim,
+                                        outtype='table')
   if save == 'csv':
     if outfile is None:
       outfile = os.path.join(os.getcwd(), 'recommendations.csv')

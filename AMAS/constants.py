@@ -71,3 +71,11 @@ with open(os.path.join(REF_DIR, 'rhea2label.lzma'), 'rb') as f:
   REF_RHEA2LABEL = compress_pickle.load(f)  
 with open(os.path.join(REF_DIR, 'mrhea2eckegg.lzma'), 'rb') as f:
   REF_RHEA2ECKEGG = compress_pickle.load(f)  
+
+RDF_TAG_ITEM = ['rdf:RDF',
+                'xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"',
+                'xmlns:dcterms="http://purl.org/dc/terms/"',
+                'xmlns:vcard4="http://www.w3.org/2006/vcard/ns#"',
+                'xmlns:bqbiol="http://biomodels.net/biology-qualifiers/"',
+                'xmlns:bqmodel="http://biomodels.net/model-qualifiers/"']
+RDF_TAG = ' '.join(RDF_TAG_ITEM)
