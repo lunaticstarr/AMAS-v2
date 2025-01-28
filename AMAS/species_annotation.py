@@ -2,9 +2,7 @@
 """
 <Annotation for Species>
 species_annotation creates and predicts
-annotation of libsbml species,
-mainly using editdistance method.
-(can be changed in future)
+annotation of libsbml species.
 """
 
 
@@ -13,7 +11,7 @@ from AMAS import tools
 
 import collections
 import compress_pickle
-import editdistance
+# import editdistance
 import itertools
 import libsbml
 import numpy as np

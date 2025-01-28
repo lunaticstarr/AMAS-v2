@@ -9,7 +9,7 @@ from AMAS import constants as cn
 from AMAS import tools
 
 import collections
-import editdistance
+# import editdistance
 import itertools
 import libsbml
 import numpy as np
