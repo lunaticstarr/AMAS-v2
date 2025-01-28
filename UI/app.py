@@ -2,6 +2,8 @@
 This script provides a web interface for annotating SBML models using the AMAS (Automated Model Annotation System) framework.
 
 Usage:
+0. Navigate to the AMAS-v2/UI folder.
+
 1. Run the application:
    python app.py
 
@@ -195,14 +197,18 @@ app.layout = html.Div(
             id="table-container",
             style={"width": "45%", "padding": "10px", "boxSizing": "border-box"},
             children=[
-                html.H2("Annotation Table", style={"fontSize": "16px", "textAlign": "center"}),
+                html.H2("Annotation Table", style={"fontSize": "18px", "textAlign": "center"}),
                 html.H2("Please select instructions for updating the model in the UPDATE ANNOTATION column.", style={"fontSize": "14px", "textAlign": "left"}),
                 html.H2("Shaded: Existing annotations; White: Recommended annotations.", style={"fontSize": "13px", "textAlign": "left"}),
+                # Add Row Button
+                html.Button("Add Row Below", id="add-row-button", n_clicks=0, style={"marginBottom": "10px", "fontSize": "12px", "width": "20%"}),
+
                 dash_table.DataTable(
                     id="csv-table",
                     style_table={"maxHeight": "900px", "overflowY": "scroll", "marginTop": "20px"},
                     style_data={'whiteSpace': 'normal', 'height': 'auto', 'lineHeight': '15px'},
                     editable=True,
+                    row_selectable="single",
                     filter_action="native", sort_action="native", sort_mode="multi",
                     columns=[
                         {"name": "Type", "id": "type"},
@@ -211,7 +217,7 @@ app.layout = html.Div(
                         {"name": "Annotation", "id": "annotation"},
                         {"name": "Annotation Label", "id": "annotation label"},
                         {"name": "Match Score", "id": "match score"},
-                        {"name": "Existing", "id": "existing"},  # Do not use hideable here
+                        {"name": "Existing", "id": "existing"}, 
                         {"name": "UPDATE ANNOTATION", "id": "UPDATE ANNOTATION", "presentation": "dropdown"}
                     ],
                     dropdown_conditional=[
@@ -239,13 +245,31 @@ app.layout = html.Div(
                         }
                     ],
                     style_data_conditional=[
+                        # Highlight Annotation column with bold border
+                        {
+                            "if": {"column_id": "annotation"},
+                            "border": "2px solid black",  # Bold border
+                            # "backgroundColor": "rgba(230, 230, 255, 0.5)"  # Light blue background 
+                        },
+                        # Highlight Annotation Label column with bold border
+                        {
+                            "if": {"column_id": "annotation label"},
+                            "border": "2px solid black",  # Bold border
+                            # "backgroundColor": "rgba(230, 230, 255, 0.5)"  # Light blue background 
+                        },
+                        # Bold font for the UPDATE ANNOTATION column
+                        {
+                            "if": {"column_id": "UPDATE ANNOTATION"},
+                            "fontWeight": "bold",  # Make text bold
+                        },
+                        # Highlight Existing column with light grey background
                         {
                             "if": {
                                 "filter_query": "{existing} = 1"
                             },
                             "backgroundColor": "rgba(211, 211, 211, 0.5)",  # Light grey for entire row
                             "color": "black",
-                        }
+                        },
                     ]
                 )
             ]
@@ -267,7 +291,8 @@ app.layout = html.Div(
      Input("annotation-button", "n_clicks"),
      Input("update-button", "n_clicks"),
      Input("download-button", "n_clicks"),
-     Input("interval-component", "n_intervals")],
+     Input("interval-component", "n_intervals"),
+     Input("add-row-button", "n_clicks")],
     [State("annotation-type", "value"),
      State("taxonomy-dropdown", "value"), 
      State("taxonomy-id-input", "value"),
@@ -275,11 +300,12 @@ app.layout = html.Div(
      State("cutoff-slider", "value"),
      State("optimize-radio", "value"),
      State("csv-table", "data"),
+     State("csv-table", "selected_rows"),
      State("sbml-content", "children"),
      State("min-len-input","value")]
 )
-def manage_workflow(contents, annotation_clicks, update_clicks, download_clicks, n_intervals,
-                    annotation_type, tax_dropdown, tax_input, mssc, cutoff, optimize, table_data, sbml_text,min_len):
+def manage_workflow(contents, annotation_clicks, update_clicks, download_clicks, n_intervals, add_row_clicks,
+                    annotation_type, tax_dropdown, tax_input, mssc, cutoff, optimize, table_data, selected_rows, sbml_text,min_len):
     ctx = dash.callback_context
     if not ctx.triggered:
         return "Please upload an SBML model to begin.", sbml_text, [], dash.no_update, True
@@ -293,11 +319,7 @@ def manage_workflow(contents, annotation_clicks, update_clicks, download_clicks,
         with open(current_model_path, "wb") as f:
             f.write(decoded)
         model_content = decoded.decode("utf-8")
-        return "Model uploaded successfully.", model_content, [], dash.no_update, True
-
-    # Handle Download
-    if button_id == "download-button" and download_clicks > 0:
-        return dash.no_update, sbml_text, table_data, dcc.send_file(download_file_path), True
+        return "Model uploaded successfully.", model_content, table_data, dash.no_update, True
 
     # Handle Annotation
     if button_id == "annotation-button" and annotation_clicks > 0:
@@ -338,7 +360,20 @@ def manage_workflow(contents, annotation_clicks, update_clicks, download_clicks,
             command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1
         )
         threading.Thread(target=read_process_output, args=(process_info["process"], params_used)).start()
-        return params_used, sbml_text, [], dash.no_update, False
+        return params_used, sbml_text, table_data, dash.no_update, False
+
+    # Handle Add Row Below
+    if button_id == "add-row-button" and add_row_clicks > 0 and selected_rows:
+        selected_index = selected_rows[0]
+        selected_row = table_data[selected_index]
+        # Create a duplicate row with modified fields
+        new_row = selected_row.copy()
+        new_row["annotation"] = ""  
+        new_row["annotation label"] = "" 
+        new_row["existing"] = 0
+        new_row["UPDATE ANNOTATION"] = "add" 
+        table_data.insert(selected_index + 1, new_row)  # Insert new row below selected row
+        return "Row added below.", sbml_text, table_data, dash.no_update, True
 
     # Handle Updates
     if button_id == "update-button" and update_clicks > 0:
@@ -355,13 +390,25 @@ def manage_workflow(contents, annotation_clicks, update_clicks, download_clicks,
     if button_id == "interval-component" and process_info["process"]:
         if process_info["process"].poll() is not None:
             df = pd.read_csv(csv_output_path)
-            df["UPDATE ANNOTATION"] = df.apply(lambda row: "keep" if row["existing"] == 1 else "ignore", axis=1)
+            df["UPDATE ANNOTATION"] = df.apply(
+            lambda row: "add" if row["existing"] == 0 and (
+            str(row["annotation label"]).lower() == str(row["display name"]).lower() or 
+            str(row["annotation label"]).lower() == str(row["id"]).lower()
+            )
+            else "keep" if row["existing"] == 1
+            else "ignore",
+            axis=1
+        )
             process_info["output"] += "\nAnnotation complete."
             process_info["process"] = None
             return process_info["output"], sbml_text, df.to_dict("records"), dash.no_update, True
         return process_info["output"], sbml_text, [], dash.no_update, False
 
-    return dash.no_update, sbml_text, [], dash.no_update, True
+    # Handle Download
+    if button_id == "download-button" and download_clicks > 0:
+        return dash.no_update, sbml_text, table_data, dcc.send_file(download_file_path), True
+
+    return dash.no_update, sbml_text, table_data, dash.no_update, True
 
 
 if __name__ == "__main__":
