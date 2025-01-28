@@ -1220,12 +1220,20 @@ class Recommender(object):
       annotations = list(one_edf['annotation'])
       match_scores = list(one_edf[cn.DF_MATCH_SCORE_COL])
       labels = list(one_edf['label'])
+      display_name = ELEMENT_FUNC[etype](element_id).name
+
       # if there is existing annotation among predicted candidates;
       if element_id in TYPE_EXISTING_ATTR[etype].keys():
         existings = [1 if val in TYPE_EXISTING_ATTR[etype][element_id] else 0 \
                     for idx, val in enumerate(one_edf['annotation'])]
-        upd_annotation = ['keep' if val in TYPE_EXISTING_ATTR[etype][element_id] else 'ignore' \
-                          for idx, val in enumerate(one_edf['annotation'])]
+        upd_annotation = []
+        for idx, val in enumerate(one_edf['annotation']):
+          if val in TYPE_EXISTING_ATTR[etype][element_id]:
+            upd_annotation.append('keep')
+          elif labels[idx] == display_name:  # Exact match with display name
+            upd_annotation.append('add')
+          else:
+            upd_annotation.append('ignore')
         annotation2add_raw = [val for val in TYPE_EXISTING_ATTR[etype][element_id] \
                               if val not in list(one_edf['annotation'])]
         # only use existing annotation that exists in the label dictionaries
@@ -1234,8 +1242,10 @@ class Recommender(object):
       # if there doesn't exist existing annotation among predicted candidates;
       else:
         existings = [0] * len(annotations)
-        upd_annotation = ['ignore'] * len(annotations)
+        upd_annotation = ['add' if labels[idx] == display_name else 'ignore' \
+                          for idx in range(len(annotations))]
         annotation2add = []
+        
       # handling existing annotations that were not predicted
       for new_anot in annotation2add:
         annotations.append(new_anot)
@@ -1256,7 +1266,7 @@ class Recommender(object):
 
       new_edf = pd.DataFrame({'type': [etype]*len(annotations),
                               'id': [element_id]*len(annotations),
-                              'display name': [ELEMENT_FUNC[etype](element_id).name]*len(annotations),
+                              'display name': [display_name]*len(annotations),
                               'meta id': [ELEMENT_FUNC[etype](element_id).meta_id]*len(annotations),
                               'annotation': annotations,
                               'annotation label': labels,

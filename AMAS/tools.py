@@ -367,10 +367,18 @@ def extract_ontology_from_items(items_list):
     result_identifiers = []
     for item in items_list:
         # Extract identifiers from "urn:miriam" URIs
-        identifiers_list = re.findall(r'urn:miriam:([^"]+)"', item)
-        for r in identifiers_list:
+        miriam_identifiers = re.findall(r'urn:miriam:([^"]+)"', item)
+        for r in miriam_identifiers:
             ontology_type, ontology_id = r.split(":", 1)
             result_identifiers.append((ontology_type, ontology_id))
+            
+        # Extract identifiers from "identifiers.org" URIs
+        identifiers_list = re.findall(r'identifiers\.org/([^/]+)/([^/"]+)', item)
+        for ontology_type, ontology_id in identifiers_list:
+            # Clean ontology_id to remove any unwanted characters
+            ontology_id = ontology_id.replace('"', '')
+            result_identifiers.append((ontology_type, ontology_id))
+
     return result_identifiers
 
 
