@@ -348,7 +348,8 @@ class AnnotationMaker(object):
 
   def convertIsDescribedByToIs(self, inp_str, meta_id):
     """
-    Convert <bqbiol:isDescribedBy> to <bqbiol:is>
+    Convert items in <bqbiol:isDescribedBy> to <bqbiol:is>
+    Will not move pubmed annotations
 
     Parameters
     ----------
@@ -382,7 +383,10 @@ class AnnotationMaker(object):
         items = []
     # formatting items
     items = self.cleanItems(items)
-    res = tools.insertItemsBackToContainer(new_container, items, qualifier = 'bqbiol:is')
+    pubmed_items = [item for item in items if 'pubmed' in item]
+    non_pubmed_items = [item for item in items if 'pubmed' not in item]
+    container = tools.insertItemsBackToContainer(new_container, pubmed_items, qualifier = 'bqbiol:isDescribedBy')
+    res = tools.insertItemsBackToContainer(container, non_pubmed_items, qualifier = 'bqbiol:is')
     return res
 
   def createEmptyContainerWithQualifiers(self, meta_id):

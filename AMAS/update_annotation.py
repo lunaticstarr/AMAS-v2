@@ -65,8 +65,9 @@ def main():
   parser.add_argument('feedback', type=str, help='path of the file (.csv) containing user\'s feedback')
   parser.add_argument('outfile', type=str, help='file path to save model with updated annotations')
   parser.add_argument('--convert', type=str, help='whether to convert existing annotations or not. ' +\
-                                                  'If Y or yes is given, existing annotations in "isDescribedBy" will be converted to "is"' +\
-                                                  'N or no will not modify annotations in "isDescribedBy".',
+                                                  'If Y or yes is given, selected annotations in "isDescribedBy" will be converted to "is"' +\
+                                                  'N or no will not modify annotations in "isDescribedBy".' +\
+                                                  '"All" will convert all annotations in "isDescribedBy" to "is".',
                                             nargs='?',
                                             default='yes')
   # csv file with user choice
@@ -76,9 +77,6 @@ def main():
   outfile = args.outfile
   convert = args.convert
   user_csv = pd.read_csv(feedback)
-
-  if convert.lower() in ['y', 'yes']:
-    print("Converting existing annotations in 'isDescribedBy' to 'is'...")
 
   # Read the SBML file
   reader = libsbml.SBMLReader()
@@ -104,6 +102,18 @@ def main():
                    (user_csv['UPDATE ANNOTATION']=='delete')]
 
   element_types = list(np.unique(chosen['type']))
+
+  if convert.lower() in ['y', 'yes']:
+    print("Converting selected annotations in 'isDescribedBy' to 'is'...")
+  elif convert.lower() in ['all']:
+    if model.getPlugin("qual"):
+      print("Converting all annotations in 'isDescribedBy' to 'is'...")
+      maker = am.AnnotationMaker('qual_species')
+      for one_species in model.getPlugin("qual").getListOfQualitativeSpecies():
+        orig_str = one_species.getAnnotationString()
+        new_str = maker.convertIsDescribedByToIs(orig_str, one_species.getId())
+        one_species.setAnnotation(new_str)
+
   for one_type in element_types:
     maker = am.AnnotationMaker(one_type)
     ACTION_FUNC = {'delete': maker.deleteAnnotation,

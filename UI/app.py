@@ -168,7 +168,20 @@ app.layout = html.Div(
                         ],
                         value='no',  # Default value
                         inline=True
-                    )
+                    ),
+                    html.Br(),
+                    html.Label("Convert annotation in <isDescribedBy> to <is>:",
+                            title="Choose whether to convert annotations from <isDescribedBy> to <is>."),
+                    dcc.RadioItems(
+                        id="convert-annotation-radio",
+                        options=[
+                            {"label": "Yes", "value": "yes"},
+                            {"label": "No", "value": "no"},
+                            {"label": "All", "value": "all"}
+                        ],
+                        value="no",  # Default value
+                        inline=True
+                    ),
                 ], style={"marginBottom": "20px"}),
 
                 # Processing Messages
@@ -201,7 +214,7 @@ app.layout = html.Div(
                 html.H2("Please select instructions for updating the model in the UPDATE ANNOTATION column.", style={"fontSize": "14px", "textAlign": "left"}),
                 html.H2("Shaded: Existing annotations; White: Recommended annotations.", style={"fontSize": "13px", "textAlign": "left"}),
                 # Add Row Button
-                html.Button("Add Row Below", id="add-row-button", n_clicks=0, style={"marginBottom": "10px", "fontSize": "12px", "width": "20%"}),
+                html.Button("Add Row Below", id="add-row-button", n_clicks=0, style={"marginBottom": "0px", "fontSize": "11px", "width": "20%"}),
 
                 dash_table.DataTable(
                     id="csv-table",
@@ -302,10 +315,11 @@ app.layout = html.Div(
      State("csv-table", "data"),
      State("csv-table", "selected_rows"),
      State("sbml-content", "children"),
-     State("min-len-input","value")]
+     State("min-len-input","value"),
+     State("convert-annotation-radio", "value")]
 )
 def manage_workflow(contents, annotation_clicks, update_clicks, download_clicks, n_intervals, add_row_clicks,
-                    annotation_type, tax_dropdown, tax_input, mssc, cutoff, optimize, table_data, selected_rows, sbml_text,min_len):
+                    annotation_type, tax_dropdown, tax_input, mssc, cutoff, optimize, table_data, selected_rows, sbml_text,min_len,convert_annotation):
     ctx = dash.callback_context
     if not ctx.triggered:
         return "Please upload an SBML model to begin.", sbml_text, [], dash.no_update, True
@@ -379,12 +393,18 @@ def manage_workflow(contents, annotation_clicks, update_clicks, download_clicks,
     if button_id == "update-button" and update_clicks > 0:
         pd.DataFrame(table_data).to_csv(csv_output_path, index=False)
         subprocess.run(
-            ["python", amas_update_path, current_model_path, csv_output_path, download_file_path],
+            ["python", amas_update_path, current_model_path, csv_output_path, download_file_path, "--convert", convert_annotation],
             check=True
         )
         with open(download_file_path, "r") as f:
             updated_model_content = f.read()
-        return "Update complete. You can now download the annotated model.", updated_model_content, table_data, dash.no_update, True
+
+        if convert_annotation == "yes":
+            return "Update complete. \n Converted selected annotations in 'isDescribedBy' to 'is'.\nYou can now download the annotated model.", updated_model_content, table_data, dash.no_update, True
+        elif convert_annotation == "all":
+            return "Update complete. \n Converted all annotations in 'isDescribedBy' to 'is'.\nYou can now download the annotated model.", updated_model_content, table_data, dash.no_update, True
+        else:
+            return "Update complete. \nYou can now download the annotated model.", updated_model_content, table_data, dash.no_update, True
 
     # Real-Time Output
     if button_id == "interval-component" and process_info["process"]:
