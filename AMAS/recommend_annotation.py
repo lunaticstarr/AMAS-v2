@@ -50,7 +50,7 @@ def main():
                                      'If "sbml" is chosen, model will be automatically ' +\
                                      'annotated with recommended candidates and saved. ' +\
                                      'If "csv" is chosen, recommendations will be saved ' +\
-                                     'as a csv file. Default is "csv".',
+                                     'as a csv file. Default is "sbml".',
                                 nargs='?',
                                 default='sbml')
   parser.add_argument('--outfile', type=str, help='Path to save an output file.', nargs='?')
