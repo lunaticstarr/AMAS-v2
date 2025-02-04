@@ -3,9 +3,9 @@
 # update_annotation.py
 """
 Set annotation of a model file
-Usage: python update_annotation.py BIOMD0000000190.xml species_rec.csv new_model.xml
+Usage: python update_annotation.py files/e_coli_core.xml species_rec.csv new_e_coli_core.xml
+Usage: python update_annotation.py files/Werle2021.sbml recommendations.csv new_Werle2021.sbml --fields uniprot,HGNC
 """
-from xml.etree import ElementTree as ET
 import argparse
 import itertools
 import libsbml
@@ -69,13 +69,18 @@ def main():
                                                   'N or no will not modify annotations in "isDescribedBy".' +\
                                                   '"All" will convert all annotations in "isDescribedBy" to "is".',
                                             nargs='?',
-                                            default='yes')
+                                            default='no')
+  parser.add_argument('--fields', type=str, help='Cross reference fields to add to annotations. ' +\
+                                                  'Single field or comma-separated. E.g., "uniprot" or "uniprot,HGNC".',
+                                            nargs='?',
+                                            default=None)
   # csv file with user choice
   args = parser.parse_args()
   infile = args.infile
   feedback = args.feedback
   outfile = args.outfile
   convert = args.convert
+  fields = args.fields
   user_csv = pd.read_csv(feedback)
 
   # Read the SBML file
@@ -85,14 +90,13 @@ def main():
                    
   if model.getPlugin("qual"):
     ELEMENT_FUNC = {'qual_species': model.getPlugin("qual").getQualitativeSpecies}
+  elif model.getPlugin("fbc"):
+    ELEMENT_FUNC = {'species': model.getSpecies,
+                    'reaction': model.getReaction,
+                    'genes':model.getPlugin("fbc").getGeneProduct}
   else:
-    if model.getPlugin("fbc"):
-      ELEMENT_FUNC = {'species': model.getSpecies,
-                      'reaction': model.getReaction,
-                      'genes':model.getPlugin("fbc").getGeneProduct}
-    else:
-      ELEMENT_FUNC = {'species': model.getSpecies,
-                      'reaction': model.getReaction}
+    ELEMENT_FUNC = {'species': model.getSpecies,
+                    'reaction': model.getReaction}
 
   # Ensure all components have metaids
   ensureMetaIdForComponents(model)
@@ -103,9 +107,7 @@ def main():
 
   element_types = list(np.unique(chosen['type']))
 
-  if convert.lower() in ['y', 'yes']:
-    print("Converting selected annotations in 'isDescribedBy' to 'is'...")
-  elif convert.lower() in ['all']:
+  if convert.lower() in ['all']:
     if model.getPlugin("qual"):
       print("Converting all annotations in 'isDescribedBy' to 'is'...")
       maker = am.AnnotationMaker('qual_species')
@@ -113,6 +115,10 @@ def main():
         orig_str = one_species.getAnnotationString()
         new_str = maker.convertIsDescribedByToIs(orig_str, one_species.getId())
         one_species.setAnnotation(new_str)
+  elif convert.lower() in ['y', 'yes']:
+    print("Converting selected annotations in 'isDescribedBy' to 'is'...")
+  else:
+    pass
 
   for one_type in element_types:
     maker = am.AnnotationMaker(one_type)
@@ -154,9 +160,30 @@ def main():
 
       print('added:')
       print(added)
-      
+
       ELEMENT_FUNC[one_type](one_id).setAnnotation(added)
       new_annot = ELEMENT_FUNC[one_type](one_id).getAnnotationString()
+
+  if fields:
+    if model.getPlugin("qual"):
+      print("Adding cross reference to annotations...")
+      print("Fields: ", fields)
+      maker = am.AnnotationMaker('qual_species')
+      for one_species in model.getPlugin("qual").getListOfQualitativeSpecies():
+        orig_str = one_species.getAnnotationString()
+        new_str = maker.addCrossReference(orig_str, fields)
+        one_species.setAnnotation(new_str)
+    elif model.getPlugin("fbc"):
+      print("Adding cross reference to annotations...")
+      print("Fields: ", fields)
+      maker = am.AnnotationMaker('genes')
+      for one_gene in model.getPlugin("fbc").getListOfGeneProducts():
+        orig_str = one_gene.getAnnotationString()
+        new_str = maker.addCrossReference(orig_str, fields)
+        one_gene.setAnnotation(new_str)
+    else:
+      print("Only gene annotation is supported for cross reference.")
+
   libsbml.writeSBMLToFile(document, outfile)
   print("...\nUpdated model file saved as:\n%s\n" % os.path.abspath(outfile))
 

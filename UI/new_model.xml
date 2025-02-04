@@ -11,7 +11,9 @@
             <rdf:Description rdf:about="#metaid_0000001">
               <bqbiol:is>
                 <rdf:Bag>
-                  <rdf:li rdf:resource="http://identifiers.org/ncbigene/1000"/>
+                  <rdf:li rdf:resource="http://identifiers.org/HGNC/11641"/>
+                  <rdf:li rdf:resource="http://identifiers.org/ncbigene/6934"/>
+                  <rdf:li rdf:resource="http://identifiers.org/uniprot/Q9NQB0"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
@@ -24,7 +26,9 @@
             <rdf:Description rdf:about="#metaid_0000002">
               <bqbiol:is>
                 <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/HGNC/11393"/>
                   <rdf:li rdf:resource="http://identifiers.org/ncbigene/6790"/>
+                  <rdf:li rdf:resource="http://identifiers.org/uniprot/O14965"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
@@ -38,7 +42,9 @@
             <rdf:Description rdf:about="#metaid_0000004">
               <bqbiol:is>
                 <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/HGNC/1874"/>
                   <rdf:li rdf:resource="http://identifiers.org/ncbigene/1072"/>
+                  <rdf:li rdf:resource="http://identifiers.org/uniprot/P23528"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
@@ -51,7 +57,9 @@
             <rdf:Description rdf:about="#metaid_0000005">
               <bqbiol:is>
                 <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/HGNC/1681"/>
                   <rdf:li rdf:resource="http://identifiers.org/ncbigene/960"/>
+                  <rdf:li rdf:resource="http://identifiers.org/uniprot/P16070"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
@@ -64,115 +72,45 @@
             <rdf:Description rdf:about="#metaid_0000006">
               <bqbiol:is>
                 <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/HGNC/12428"/>
                   <rdf:li rdf:resource="http://identifiers.org/ncbigene/7291"/>
+                  <rdf:li rdf:resource="http://identifiers.org/uniprot/Q15672"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
       </qual:qualitativeSpecies>
-      <qual:qualitativeSpecies metaid="metaid_0000007" qual:id="LIMK" qual:compartment="default" qual:constant="false" qual:name="LIMK" qual:maxLevel="1">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#metaid_0000007">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://identifiers.org/ncbigene/3984"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </qual:qualitativeSpecies>
-      <qual:qualitativeSpecies metaid="metaid_0000008" qual:id="SSH1L" qual:compartment="default" qual:constant="false" qual:name="SSH1L" qual:maxLevel="1">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#metaid_0000008">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://identifiers.org/ncbigene/54434"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </qual:qualitativeSpecies>
-      <qual:qualitativeSpecies metaid="metaid_0000009" qual:id="Factin_n" qual:compartment="default" qual:constant="false" qual:name="Factin_n" qual:maxLevel="1">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#metaid_0000009">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://identifiers.org/ncbigene/60"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </qual:qualitativeSpecies>
-      <qual:qualitativeSpecies metaid="metaid_0000010" qual:id="Factin_o" qual:compartment="default" qual:constant="false" qual:name="Factin_o" qual:maxLevel="1">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#metaid_0000010">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://identifiers.org/ncbigene/60"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </qual:qualitativeSpecies>
-      <qual:qualitativeSpecies metaid="metaid_0000011" qual:id="ARP2_3" qual:compartment="default" qual:constant="false" qual:name="ARP2_3" qual:maxLevel="1">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#metaid_0000011">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://identifiers.org/ncbigene/10096"/>
-                  <rdf:li rdf:resource="http://identifiers.org/ncbigene/10097"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="metaid_0000007" qual:id="LIMK" qual:compartment="default" qual:constant="false" qual:name="LIMK" qual:maxLevel="1"/>
+      <qual:qualitativeSpecies metaid="metaid_0000008" qual:id="SSH1L" qual:compartment="default" qual:constant="false" qual:name="SSH1L" qual:maxLevel="1"/>
+      <qual:qualitativeSpecies metaid="metaid_0000009" qual:id="Factin_n" qual:compartment="default" qual:constant="false" qual:name="Factin_n" qual:maxLevel="1"/>
+      <qual:qualitativeSpecies metaid="metaid_0000010" qual:id="Factin_o" qual:compartment="default" qual:constant="false" qual:name="Factin_o" qual:maxLevel="1"/>
+      <qual:qualitativeSpecies metaid="metaid_0000011" qual:id="ARP2_3" qual:compartment="default" qual:constant="false" qual:name="ARP2_3" qual:maxLevel="1"/>
       <qual:qualitativeSpecies metaid="metaid_0000012" qual:id="KRAS" qual:compartment="default" qual:constant="true" qual:name="KRAS" qual:initialLevel="1" qual:maxLevel="1">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#metaid_0000012">
               <bqbiol:is>
                 <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/HGNC/6407"/>
                   <rdf:li rdf:resource="http://identifiers.org/ncbigene/3845"/>
+                  <rdf:li rdf:resource="http://identifiers.org/uniprot/P01116"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
       </qual:qualitativeSpecies>
-      <qual:qualitativeSpecies metaid="metaid_0000013" qual:id="PI3K" qual:compartment="default" qual:constant="false" qual:name="PI3K" qual:maxLevel="1">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#metaid_0000013">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://identifiers.org/ncbigene/5290"/>
-                  <rdf:li rdf:resource="http://identifiers.org/ncbigene/5291"/>
-                  <rdf:li rdf:resource="http://identifiers.org/ncbigene/5293"/>
-                  <rdf:li rdf:resource="http://identifiers.org/ncbigene/5294"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="metaid_0000013" qual:id="PI3K" qual:compartment="default" qual:constant="false" qual:name="PI3K" qual:maxLevel="1"/>
       <qual:qualitativeSpecies metaid="metaid_0000014" qual:id="PRKD1" qual:compartment="default" qual:constant="false" qual:name="PRKD1" qual:maxLevel="1">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#metaid_0000014">
               <bqbiol:is>
                 <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/HGNC/9407"/>
                   <rdf:li rdf:resource="http://identifiers.org/ncbigene/5587"/>
+                  <rdf:li rdf:resource="http://identifiers.org/uniprot/Q15139"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
@@ -185,7 +123,9 @@
             <rdf:Description rdf:about="#metaid_0000015">
               <bqbiol:is>
                 <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/HGNC/667"/>
                   <rdf:li rdf:resource="http://identifiers.org/ncbigene/387"/>
+                  <rdf:li rdf:resource="http://identifiers.org/uniprot/P61586"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
@@ -198,7 +138,9 @@
             <rdf:Description rdf:about="#metaid_0000016">
               <bqbiol:is>
                 <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/HGNC/9801"/>
                   <rdf:li rdf:resource="http://identifiers.org/ncbigene/5879"/>
+                  <rdf:li rdf:resource="http://identifiers.org/uniprot/P63000"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
@@ -211,7 +153,9 @@
             <rdf:Description rdf:about="#metaid_0000017">
               <bqbiol:is>
                 <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/HGNC/8590"/>
                   <rdf:li rdf:resource="http://identifiers.org/ncbigene/5058"/>
+                  <rdf:li rdf:resource="http://identifiers.org/uniprot/Q13153"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
@@ -224,7 +168,9 @@
             <rdf:Description rdf:about="#metaid_0000018">
               <bqbiol:is>
                 <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/HGNC/16059"/>
                   <rdf:li rdf:resource="http://identifiers.org/ncbigene/10298"/>
+                  <rdf:li rdf:resource="http://identifiers.org/uniprot/O96013"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
@@ -237,7 +183,9 @@
             <rdf:Description rdf:about="#metaid_0000019">
               <bqbiol:is>
                 <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/HGNC/1748"/>
                   <rdf:li rdf:resource="http://identifiers.org/ncbigene/999"/>
+                  <rdf:li rdf:resource="http://identifiers.org/uniprot/P12830"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
@@ -250,7 +198,9 @@
             <rdf:Description rdf:about="#metaid_0000020">
               <bqbiol:is>
                 <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/HGNC/2514"/>
                   <rdf:li rdf:resource="http://identifiers.org/ncbigene/1499"/>
+                  <rdf:li rdf:resource="http://identifiers.org/uniprot/P35222"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
@@ -263,7 +213,9 @@
             <rdf:Description rdf:about="#metaid_0000021">
               <bqbiol:is>
                 <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/HGNC/4617"/>
                   <rdf:li rdf:resource="http://identifiers.org/ncbigene/2932"/>
+                  <rdf:li rdf:resource="http://identifiers.org/uniprot/P49841"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
@@ -276,7 +228,9 @@
             <rdf:Description rdf:about="#metaid_0000022">
               <bqbiol:is>
                 <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/HGNC/7553"/>
                   <rdf:li rdf:resource="http://identifiers.org/ncbigene/4609"/>
+                  <rdf:li rdf:resource="http://identifiers.org/uniprot/P01106"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
@@ -289,46 +243,26 @@
             <rdf:Description rdf:about="#metaid_0000023">
               <bqbiol:is>
                 <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/HGNC/1582"/>
                   <rdf:li rdf:resource="http://identifiers.org/ncbigene/595"/>
+                  <rdf:li rdf:resource="http://identifiers.org/uniprot/P24385"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
       </qual:qualitativeSpecies>
-      <qual:qualitativeSpecies metaid="metaid_0000024" qual:id="RB" qual:compartment="default" qual:constant="false" qual:name="RB" qual:maxLevel="1">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#metaid_0000024">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://identifiers.org/ncbigene/5925"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </qual:qualitativeSpecies>
-      <qual:qualitativeSpecies metaid="metaid_0000025" qual:id="E2F" qual:compartment="default" qual:constant="false" qual:name="E2F" qual:maxLevel="1">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#metaid_0000025">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://identifiers.org/ncbigene/1938"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="metaid_0000024" qual:id="RB" qual:compartment="default" qual:constant="false" qual:name="RB" qual:maxLevel="1"/>
+      <qual:qualitativeSpecies metaid="metaid_0000025" qual:id="E2F" qual:compartment="default" qual:constant="false" qual:name="E2F" qual:maxLevel="1"/>
       <qual:qualitativeSpecies metaid="metaid_0000026" qual:id="CCNE1" qual:compartment="default" qual:constant="false" qual:name="CCNE1" qual:maxLevel="1">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#metaid_0000026">
               <bqbiol:is>
                 <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/HGNC/1589"/>
                   <rdf:li rdf:resource="http://identifiers.org/ncbigene/898"/>
+                  <rdf:li rdf:resource="http://identifiers.org/uniprot/P24864"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
@@ -336,26 +270,16 @@
         </annotation>
       </qual:qualitativeSpecies>
       <qual:qualitativeSpecies metaid="metaid_0000027" qual:id="Sphase" qual:compartment="default" qual:constant="false" qual:name="Sphase" qual:maxLevel="1"/>
-      <qual:qualitativeSpecies metaid="metaid_0000028" qual:id="AKT" qual:compartment="default" qual:constant="false" qual:name="AKT" qual:maxLevel="1">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#metaid_0000028">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://identifiers.org/ncbigene/207"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="metaid_0000028" qual:id="AKT" qual:compartment="default" qual:constant="false" qual:name="AKT" qual:maxLevel="1"/>
       <qual:qualitativeSpecies metaid="metaid_0000029" qual:id="STAT3" qual:compartment="default" qual:constant="false" qual:name="STAT3" qual:maxLevel="1">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#metaid_0000029">
               <bqbiol:is>
                 <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/HGNC/11364"/>
                   <rdf:li rdf:resource="http://identifiers.org/ncbigene/6774"/>
+                  <rdf:li rdf:resource="http://identifiers.org/uniprot/P40763"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
@@ -370,26 +294,16 @@
             <rdf:Description rdf:about="#metaid_0000032">
               <bqbiol:is>
                 <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/HGNC/19986"/>
                   <rdf:li rdf:resource="http://identifiers.org/ncbigene/54205"/>
+                  <rdf:li rdf:resource="http://identifiers.org/uniprot/P99999"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
       </qual:qualitativeSpecies>
-      <qual:qualitativeSpecies metaid="metaid_0000033" qual:id="Caspases" qual:compartment="default" qual:constant="false" qual:name="Caspases" qual:maxLevel="1">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#metaid_0000033">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://identifiers.org/ncbigene/842"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="metaid_0000033" qual:id="Caspases" qual:compartment="default" qual:constant="false" qual:name="Caspases" qual:maxLevel="1"/>
     </qual:listOfQualitativeSpecies>
     <qual:listOfTransitions>
       <qual:transition qual:id="tr_TCF7L2" qual:name="Interactions targeting TCF7L2">

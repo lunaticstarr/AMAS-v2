@@ -108,7 +108,8 @@ class AnnotationMaker(object):
 
   def getAnnotationString(self,
                           candidates,
-                          meta_id):
+                          meta_id,
+                          cross_reference = None):
     """
     Get a string of annotations,
     using a list of strings.
@@ -122,10 +123,20 @@ class AnnotationMaker(object):
 
     meta_id: str
         Meta ID of the element to be included in the annotation. 
+    
+    cross_reference: str
+        Cross reference to be used for adding additional annotations.
+        Single field or comma-separated. E.g., 'uniprot' or 'uniprot,HGNC'
+
     Returns
     -------
     str
     """
+    # get the cross reference first if provided
+    if cross_reference:
+        all_cross_dict = tools.getCrossReference(candidates, fields = cross_reference)
+        field_list = cross_reference.split(",") if "," in cross_reference else [cross_reference]
+        
     # First, construct an empty container
     container_items = ['annotation', 
                        cn.RDF_TAG,
@@ -136,12 +147,21 @@ class AnnotationMaker(object):
     # Next, create annotation lines
     items_from = []
     for one_cand in candidates:
-      items_from.append(self.createAnnotationItem(KNOWLEDGE_RESOURCE[self.element],
+        items_from.append(self.createAnnotationItem(KNOWLEDGE_RESOURCE[self.element],
                                                   one_cand))
-                                                  
+        if cross_reference:
+            for field in field_list:
+                one_cand_cross = all_cross_dict[field][one_cand]
+                if isinstance(one_cand_cross, list):
+                    for i in one_cand_cross:
+                        items_from.append(self.createAnnotationItem(field, i))    
+                else:
+                    items_from.append(self.createAnnotationItem(field, one_cand_cross))     
+
     result = self.insertList(insert_to=empty_container,
-                             insert_from=items_from)
+                                insert_from=items_from)
     return ('\n').join(result)
+
 
   def getIndent(self, num_indents=0):
     """
@@ -277,10 +297,8 @@ class AnnotationMaker(object):
       new_items = [self.createAnnotationItem(KNOWLEDGE_RESOURCE[self.element], one_cand) for one_cand in additional_identifiers]
       items = existing_items + new_items 
 
-    # remove duplicates
-    items = list(set(items))
-    # sort alphabetically
-    items = sorted(items)
+    # remove duplicates and sort alphabetically
+    items = sorted(list(set(items)))
     res = tools.insertItemsBackToContainer(container, items, qualifier = self.prefix)
     return res
 
@@ -426,8 +444,48 @@ class AnnotationMaker(object):
     for ontology in ontologies:
         res = self.createAnnotationItem(ontology[0], ontology[1])
         cleaned_items.append(res)
-    cleaned_items = list(set(cleaned_items)) # remove duplicates
+    cleaned_items = sorted(list(set(cleaned_items))) # remove duplicates and sort alphabetically
     return cleaned_items
+
+  def addCrossReference(self, inp_str, fields):
+    """
+    Add cross reference of NCBI Gene ID to existing annotations.
+
+    Parameters
+    ----------
+    inp_str: str
+        Existing annotation string
+
+    fields: str
+        Fields to add to annotations. Single field or comma-separated. E.g., 'uniprot' or 'uniprot,HGNC'.
+
+    Returns
+    -------
+    :str
+        The updated annotation string with cross reference items given in fields.
+    """
+    # find all existing items, only <bqbiol:is> items
+    annotation_dict = tools.divideExistingAnnotation(inp_str, qualifier = 'bqbiol:is')
+    if annotation_dict is None:
+      return inp_str
+    items = annotation_dict['items']
+    # find all existing ncbi gene ids
+    ontology_list = tools.extract_ontology_from_items(items)
+    ontology_type_list = [val for val in ontology_list if val[0].lower()=='ncbigene']
+    ncbi_ids = [val[1] for val in ontology_type_list]
+    # get the cross reference items of the ncbi ids
+    cross_dict = tools.getCrossReference(ncbi_ids, fields)
+    # add the cross reference items to the annotation
+    field_list = fields.split(",") if "," in fields else [fields]
+    field_list = [field.split(".")[0] if "." in field else field for field in field_list]
+    for field in field_list:
+      for ncbi_id in ncbi_ids:
+        for one_item in cross_dict[field][ncbi_id]:
+            items.append(self.createAnnotationItem(field, one_item))
+    items = sorted(list(set(items))) # remove duplicates and sort alphabetically
+    container = annotation_dict['container']
+    res = tools.insertItemsBackToContainer(container, items, qualifier = 'bqbiol:is')
+    return res
 
   # def extractSBMLQualItems(self, inp_str):
   #     """

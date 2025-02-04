@@ -70,19 +70,19 @@ app.layout = html.Div(
 
                 # Menu Buttons
                 html.Div([
-                    dcc.Upload(id='upload-sbml', children=html.Button("Upload SBML Model", style={"height": "50px", "fontSize": "12px"},
+                    dcc.Upload(id='upload-sbml', children=html.Button(html.Strong("Upload SBML Model"), style={"height": "50px", "fontSize": "12px"},
                     title = "Upload a model in SBML format."), multiple=False),
-                    html.Button("Recommend Annotations", id="annotation-button", n_clicks=0, style={"height": "50px", "fontSize": "12px"},
+                    html.Button(html.Strong("Recommend Annotations"), id="annotation-button", n_clicks=0, style={"height": "50px", "fontSize": "12px"},
                     title = "Generate a table that contains the recommended annotations."),
-                    html.Button("Update Annotations", id="update-button", n_clicks=0, style={"height": "50px", "fontSize": "12px"},
+                    html.Button(html.Strong("Update Annotations"), id="update-button", n_clicks=0, style={"height": "50px", "fontSize": "12px"},
                     title = "Update model annotation using instructions in table."),
-                    html.Button("Download Annotated Model", id="download-button", n_clicks=0, style={"height": "50px", "fontSize": "12px"},
+                    html.Button(html.Strong("Download Annotated Model"), id="download-button", n_clicks=0, style={"height": "50px", "fontSize": "12px"},
                     title = "Download the annotated model to local."),
                     dcc.Download(id="download-component")
                 ], style={"display": "flex", "gap": "10px", "marginBottom": "20px"}),
 
                 # Annotation Type Selection
-                html.Label("What to Annotate:", 
+                html.Label(html.Strong("What to Annotate:"), 
                 title = "To annotate all elements, or species/reactions/genes only."),
                 dcc.RadioItems(
                     id="annotation-type",
@@ -98,7 +98,7 @@ app.layout = html.Div(
                 html.Br(),
 
                 # Tax_id for gene annotation
-                html.Label("Taxonomy:", 
+                html.Label(html.Strong("Taxonomy:"), 
                 title="Choose a taxonomy or enter its taxonomy ID for gene annotation."),
                 dcc.Dropdown(
                     id="taxonomy-dropdown",
@@ -120,9 +120,35 @@ app.layout = html.Div(
                 ),
                 html.Br(),                
 
+                # Cross-reference fields
+                html.Label(html.Strong("Cross-reference fields:"),
+                title = "Select or enter cross-reference fields for gene annotation."),
+                dcc.Dropdown(
+                    id="crossref-dropdown",
+                    options=[
+                        {"label": "UniProt", "value": "uniprot"},
+                        {"label": "HGNC", "value": "HGNC"},
+                        {"label": "Ensembl", "value": "ensembl"},
+                        {"label": "Ensembl.gene", "value": "ensembl.gene"},
+                        {"label": "Ensembl.protein", "value": "ensembl.protein"},
+                        {"label": "Refseq", "value": "refseq"},
+                        {"label": "Refseq.rna", "value": "refseq.rna"},
+                        {"label": "Refseq.protein", "value": "refseq.protein"},
+                    ],
+                    multi=True,
+                    placeholder="Select or enter cross-reference fields",
+                ),
+                dcc.Input(
+                    id="crossref-custom",
+                    type="text",
+                    placeholder="Enter fields ('GO,kegg')",
+                ),
+                html.Br(),
+                html.Br(),
+
                 # Parameters Section
                 html.Div([
-                    html.Label("Match Score Selection Criteria (--mssc):", 
+                    html.Label(html.Strong("Match Score Selection Criteria:"), 
                     title = "Decide how to recommend candidate annotations based on the match scores."),
                     dcc.RadioItems(
                         id='mssc-radio',
@@ -134,7 +160,7 @@ app.layout = html.Div(
                         inline=True
                     ),
                     html.Br(),
-                    html.Label("Match Score Cutoff (--cutoff):",
+                    html.Label(html.Strong("Match Score Cutoff:"),
                     title = "The cutoff for match scores (applies to both top and above MSSC)"),
                     dcc.Slider(
                         id='cutoff-slider',
@@ -145,7 +171,7 @@ app.layout = html.Div(
                         marks={i / 10: f"{i / 10:.1f}" for i in range(11)}
                     ),
                     html.Br(),
-                    html.Label("Minimum Length of Name (--min_len):",
+                    html.Label(html.Strong("Minimum Length of Name:"),
                     title = "Only recommend annotations for those with longer displayed names."),
                     html.Br(),
                     dcc.Input(
@@ -158,7 +184,7 @@ app.layout = html.Div(
                     ),
                     html.Br(),
                     html.Br(),
-                    html.Label("Optimize Predictions (--optimize):",
+                    html.Label("Optimize Predictions:",
                     title = "Whether to compare once-predicted annotations of species and reactions and iteratively updates them."),
                     dcc.RadioItems(
                         id='optimize-radio',
@@ -188,7 +214,13 @@ app.layout = html.Div(
                 html.Div(id="amas-output", style={
                     "whiteSpace": "pre-wrap", "border": "1px solid #ccc", "padding": "10px",
                     "maxHeight": "700px", "overflowY": "scroll"
-                }, children="Please upload an SBML model to begin.")
+                }, children="Please upload an SBML model to begin."),
+                html.Br(),
+                # Processing Messages for update
+                html.Div(id="update-output", style={
+                    "whiteSpace": "pre-wrap", "border": "1px solid #ccc", "padding": "10px",
+                    "maxHeight": "700px", "overflowY": "scroll"
+                }, children="")
             ]
         ),
 
@@ -299,7 +331,8 @@ app.layout = html.Div(
      Output("sbml-content", "children"),
      Output("csv-table", "data"),
      Output("download-component", "data"),
-     Output("interval-component", "disabled")],
+     Output("interval-component", "disabled"),
+     Output("update-output", "children")],
     [Input("upload-sbml", "contents"),
      Input("annotation-button", "n_clicks"),
      Input("update-button", "n_clicks"),
@@ -316,13 +349,15 @@ app.layout = html.Div(
      State("csv-table", "selected_rows"),
      State("sbml-content", "children"),
      State("min-len-input","value"),
-     State("convert-annotation-radio", "value")]
+     State("convert-annotation-radio", "value"),
+     State("crossref-dropdown", "value"),
+     State("crossref-custom", "value")]
 )
 def manage_workflow(contents, annotation_clicks, update_clicks, download_clicks, n_intervals, add_row_clicks,
-                    annotation_type, tax_dropdown, tax_input, mssc, cutoff, optimize, table_data, selected_rows, sbml_text,min_len,convert_annotation):
+                    annotation_type, tax_dropdown, tax_input, mssc, cutoff, optimize, table_data, selected_rows, sbml_text,min_len,convert_annotation,crossref_dropdown,crossref_custom):
     ctx = dash.callback_context
     if not ctx.triggered:
-        return "Please upload an SBML model to begin.", sbml_text, [], dash.no_update, True
+        return "Please upload an SBML model to begin.", sbml_text, [], dash.no_update, True, "Please upload an SBML model to begin."
 
     button_id = ctx.triggered[0]["prop_id"].split(".")[0]
 
@@ -333,7 +368,7 @@ def manage_workflow(contents, annotation_clicks, update_clicks, download_clicks,
         with open(current_model_path, "wb") as f:
             f.write(decoded)
         model_content = decoded.decode("utf-8")
-        return "Model uploaded successfully.", model_content, table_data, dash.no_update, True
+        return "Model uploaded successfully.\n Please adjust the parameters to generate recommendations.", model_content, table_data, dash.no_update, True, "Please generate recommendations first."
 
     # Handle Annotation
     if button_id == "annotation-button" and annotation_clicks > 0:
@@ -347,7 +382,8 @@ def manage_workflow(contents, annotation_clicks, update_clicks, download_clicks,
         if annotation_type in ["genes", "all"]:
             tax_id = tax_dropdown if tax_dropdown else tax_input
             if not tax_id:
-                return "Please select a taxonomy or enter a taxonomy ID for gene annotation.", sbml_text, [], dash.no_update, True
+                return "Please select a taxonomy or enter a taxonomy ID for gene annotation.", sbml_text, [], dash.no_update, True, "Please generate recommendations first."
+
         else:
             tax_id = None
         
@@ -374,7 +410,7 @@ def manage_workflow(contents, annotation_clicks, update_clicks, download_clicks,
             command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1
         )
         threading.Thread(target=read_process_output, args=(process_info["process"], params_used)).start()
-        return params_used, sbml_text, table_data, dash.no_update, False
+        return params_used, sbml_text, table_data, dash.no_update, False, "Please generate recommendations first."
 
     # Handle Add Row Below
     if button_id == "add-row-button" and add_row_clicks > 0 and selected_rows:
@@ -387,24 +423,38 @@ def manage_workflow(contents, annotation_clicks, update_clicks, download_clicks,
         new_row["existing"] = 0
         new_row["UPDATE ANNOTATION"] = "add" 
         table_data.insert(selected_index + 1, new_row)  # Insert new row below selected row
-        return "Row added below.", sbml_text, table_data, dash.no_update, True
+        return dash.no_update, sbml_text, table_data, dash.no_update, True, "Row added. \n Please update the model after confirming the instructions in the table."
 
     # Handle Updates
     if button_id == "update-button" and update_clicks > 0:
         pd.DataFrame(table_data).to_csv(csv_output_path, index=False)
+        fields = crossref_dropdown if crossref_dropdown else []
+        if crossref_custom:
+            fields.append(crossref_custom)
+        fields_str = ','.join(fields)
+        params_used = f"Updating model with instructions in table.\n  --convert: {convert_annotation}\n  --fields: {fields_str}\n"
+        command_update = [
+            "python", amas_update_path, current_model_path, csv_output_path, download_file_path, "--convert", convert_annotation, "--fields", fields_str
+        ]
+        print(command_update)
         subprocess.run(
-            ["python", amas_update_path, current_model_path, csv_output_path, download_file_path, "--convert", convert_annotation],
+            command_update,
             check=True
         )
         with open(download_file_path, "r") as f:
             updated_model_content = f.read()
 
-        if convert_annotation == "yes":
-            return "Update complete. \n Converted selected annotations in 'isDescribedBy' to 'is'.\nYou can now download the annotated model.", updated_model_content, table_data, dash.no_update, True
-        elif convert_annotation == "all":
-            return "Update complete. \n Converted all annotations in 'isDescribedBy' to 'is'.\nYou can now download the annotated model.", updated_model_content, table_data, dash.no_update, True
+        if fields_str:
+            crossref_msg = f"Cross-reference fields: {fields_str}.\n"
         else:
-            return "Update complete. \nYou can now download the annotated model.", updated_model_content, table_data, dash.no_update, True
+            crossref_msg = "Updating with NCBI gene ids (Entrez Gene id).\n"
+        if convert_annotation == "yes":
+            return "Recommendations generated. \n" , updated_model_content, table_data, dash.no_update, True, "Update complete. \n" + crossref_msg + "Converted selected annotations in 'isDescribedBy' to 'is'.\nYou can now download the annotated model."
+        elif convert_annotation == "all":
+            return "Recommendations generated. \n"  , updated_model_content, table_data, dash.no_update, True, "Update complete. \n" + crossref_msg + "Converted all annotations in 'isDescribedBy' to 'is'.\nYou can now download the annotated model."
+        else:
+            return "Recommendations generated. \n" , updated_model_content, table_data, dash.no_update, True, "Update complete. \n" + crossref_msg + "You can now download the annotated model."
+
 
     # Real-Time Output
     if button_id == "interval-component" and process_info["process"]:
@@ -418,17 +468,16 @@ def manage_workflow(contents, annotation_clicks, update_clicks, download_clicks,
             else "keep" if row["existing"] == 1
             else "ignore",
             axis=1
-        )
-            process_info["output"] += "\nAnnotation complete."
+            )
             process_info["process"] = None
-            return process_info["output"], sbml_text, df.to_dict("records"), dash.no_update, True
-        return process_info["output"], sbml_text, [], dash.no_update, False
+            return process_info["output"], sbml_text, df.to_dict("records"), dash.no_update, True, "Please make instructions in the table, and then update the model."
+        return process_info["output"], sbml_text, [], dash.no_update, False, "Please generate recommendations first."
 
     # Handle Download
     if button_id == "download-button" and download_clicks > 0:
-        return dash.no_update, sbml_text, table_data, dcc.send_file(download_file_path), True
+        return "Upload an new SBML model to annotate.", sbml_text, table_data, dcc.send_file(download_file_path), True, "Annotated model downloaded."
 
-    return dash.no_update, sbml_text, table_data, dash.no_update, True
+    return dash.no_update, sbml_text, table_data, dash.no_update, True, dash.no_update
 
 
 if __name__ == "__main__":

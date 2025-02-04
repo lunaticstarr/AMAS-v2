@@ -7,7 +7,7 @@ import numpy as np
 import re
 import os
 import compress_pickle
-
+import requests
 def applyMSSC(pred,
               mssc,
               cutoff):
@@ -371,7 +371,7 @@ def extract_ontology_from_items(items_list):
         for r in miriam_identifiers:
             ontology_type, ontology_id = r.split(":", 1)
             result_identifiers.append((ontology_type, ontology_id))
-            
+
         # Extract identifiers from "identifiers.org" URIs
         identifiers_list = re.findall(r'identifiers\.org/([^/]+)/([^/"]+)', item)
         for ontology_type, ontology_id in identifiers_list:
@@ -474,13 +474,12 @@ def getOneOntologyFromString(input_str, ontology_type,
   """
   Parses string and returns an identifier. 
   If not, return None.
-  Qualifier is allowed to be
-  either a string or a list of string. 
+  Ontology type is allowed to be either a string or a list of string. 
   Usage; getOneOntologyFromString(annotationstring, [cn.NCBI_GENE], description)
 
   Parameters
   ----------
-  input_str: str/list-str: (list of) string_annotation
+  input_str: str: string_annotation
   ontology_type: str/list-str: (list of) ontology type for resources
   description: bool
       If True, also extract the description using <bqbiol:isDescribedBy>
@@ -690,3 +689,76 @@ def get_gene_char_count_df(tax_id):
   if not os.path.exists(filepath):
       raise FileNotFoundError(f"Reference data not found for tax_id {tax_id}")
   return compress_pickle.load(filepath)
+
+
+def getCrossReference(gene_ids, fields = "uniprot"):
+    """
+    Query the mygene.info API to retrieve EntrezGene IDs and UniProt data 
+    for given gene ids (ncbigene, or entrezgene), then process the results into a dictionary.
+
+    Parameters:
+    - gene_ids (list): List of gene ids (ncbigene, or entrezgene) to query.
+    - fields (str): Fields to query (e.g., "uniprot"). Single field or comma-separated.
+        - For available fields, see https://docs.mygene.info/en/latest/doc/data.html
+
+    Returns:
+    - dict: A dictionary structured as {field: {gene_id: value}}
+            If 'uniprot' is included, 'Swiss-Prot' is prioritized compared to 'TrEMBL'.
+    """
+
+    url = "https://mygene.info/v3/query"
+    headers = {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+    }
+    data = {
+        "q": gene_ids,
+        "fields": fields
+    }
+    response = requests.post(url, json=data, headers=headers)
+    if response.status_code != 200:
+        print(f"Error: {response.status_code}, {response.text}")
+        return {}
+    results = response.json()
+
+    field_list = fields.split(",") if "," in fields else [fields]
+    # If the field is a nested field, e.g., ensembl.gene, refseq.rna, etc.,
+    # only the first part of the field is used for the dictionary key.
+    field_list = [field.split(".")[0] if "." in field else field for field in field_list]
+    gene_dict = {field: {} for field in field_list}
+
+    for entry in results:
+        query_key = str(entry.get("query"))
+        for field in field_list:
+            if field == "uniprot":
+                uniprot_info = entry.get("uniprot", {})
+                swiss_prot = uniprot_info.get("Swiss-Prot")
+                trembl = uniprot_info.get("TrEMBL", [])
+                if swiss_prot:
+                    gene_dict["uniprot"][query_key] = [swiss_prot] if isinstance(swiss_prot, str) else swiss_prot
+                elif trembl:
+                    gene_dict["uniprot"][query_key] = [trembl] if isinstance(trembl, str) else trembl
+                else:
+                    gene_dict["uniprot"][query_key] = None
+            elif field.startswith("ensembl"):
+                ensembl_info = entry.get("ensembl", {})
+                if field == "ensembl":
+                    ensembl_gene = ensembl_info.get("gene", []) if isinstance(ensembl_info.get("gene", []), list) else [ensembl_info.get("gene", [])]
+                    ensembl_protein = ensembl_info.get("protein", []) if isinstance(ensembl_info.get("protein", []), list) else [ensembl_info.get("protein", [])]
+                    gene_dict["ensembl"][query_key] = ensembl_gene + ensembl_protein
+                else:
+                    ensembl_field = field.split(".")[1]
+                    gene_dict["ensembl"][query_key] = ensembl_info.get(ensembl_field, []) if isinstance(ensembl_info.get(ensembl_field, []), list) else [ensembl_info.get(ensembl_field, [])]
+            elif field.startswith("refseq"):
+                refseq_info = entry.get("refseq", {})
+                if field == "refseq":
+                    refseq_rna = refseq_info.get("rna", []) if isinstance(refseq_info.get("rna", []), list) else [refseq_info.get("rna", [])]
+                    refseq_protein = refseq_info.get("protein", []) if isinstance(refseq_info.get("protein", []), list) else [refseq_info.get("protein", [])]
+                    gene_dict["refseq"][query_key] = refseq_rna + refseq_protein
+                else:
+                    refseq_field = field.split(".")[1]
+                    gene_dict["refseq"][query_key] = refseq_info.get(refseq_field, []) if isinstance(refseq_info.get(refseq_field, []), list) else [refseq_info.get(refseq_field, [])]
+            else:
+                cross_ref = entry.get(field, None)
+                gene_dict[field][query_key] = [cross_ref] if isinstance(cross_ref, str) else cross_ref
+    return gene_dict
